@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -39,6 +40,13 @@
 
 .mini-logo {
   height: 25px;
+  margin-left: 10px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.logo-mediano {
+  height: 40px;
   margin-left: 10px;
   margin-right: 5px;
   vertical-align: middle;
@@ -56,4 +64,9 @@
 
 .main-in-black {
   color: black;
+}
+
+.full-izq {
+  margin-left: auto;
+  margin-right: 0;
 }

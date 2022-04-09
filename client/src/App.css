@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -39,4 +40,21 @@
 
 .fully-white {
   color: white;
+}
+
+.row {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.alineado-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
 }

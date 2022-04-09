@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import huevillo from '../huevillo.svg';
-import textoCentral from '../rafaela.svg';
+import huevillo from '../elements/imagenes/huevillo.svg';
+import textoCentral from '../elements/imagenes/rafaela.svg';
 
 export const Inicio = () => {
     return (

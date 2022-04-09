@@ -18,11 +18,15 @@ import { NuestrosProductos } from './components/NuestrosProductos.js';
 import { Pedido } from './components/Pedido.js';
 import { PaginaNoEncontrada } from './components/PaginaNoEncontrada.js';
 
+
+
 const General = (props) => {
     return (
         <div>
             {document.title = 'Rafaela'}
-            <BarraSuperior />
+            <BarraSuperior
+                currentTotalAmmount='2'
+            />
             <Cuerpo
                 content={props.contenido}
             ></Cuerpo>
@@ -66,7 +70,7 @@ class Principal extends Component {
                             <Route path={'*'} element={<PaginaNoEncontrada />}></Route>
                         </Route>
                     </Routes>
-                    <p>{this.state.data}</p>
+                    {console.log(this.state.data)}
                 </div>
             </Router >
         )

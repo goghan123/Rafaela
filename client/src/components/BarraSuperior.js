@@ -1,24 +1,18 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import '../estilos-todos.css';
 import {
-    Nav, NavItem, NavLink, Navbar, Collapse
+    Nav, NavItem, NavLink, Navbar, Collapse, NavbarText
 } from 'reactstrap';
+import changuillo from '../elements/imagenes/changuito.svg';
 
-export const BarraSuperior = () => {
+export const BarraSuperior = (props) => {
     return (
         <div>
-            <Navbar
-                color="warning"
-                expand="md"
-                fixed="top"
-                light
-            >
+            <Navbar color="warning" expand="md" fixed="top" light>
                 <Collapse navbar>
-                    <Nav
-                        className="me-auto"
-                        navbar
-                    >
-                        <NavItem outline color="primary">
+                    <Nav className="me-auto" navbar>
+                        <NavItem>
                             <NavLink href="/">
                                 Inicio
                             </NavLink>
@@ -44,9 +38,10 @@ export const BarraSuperior = () => {
                             </NavLink>
                         </NavItem>
                     </Nav>
-                    <NavLink href="https://charlieandthechocolatefactoryfilm.fandom.com/wiki/Augustus_Gloop">
-                        Choco-choco la-la choco-choco te-te
-                    </NavLink>
+                    <NavbarText className='h4'>
+                        <img src={changuillo} alt='changuito' className='logo-mediano'></img>
+                        {props.currentTotalAmmount}
+                    </NavbarText>
                 </Collapse>
             </Navbar>
         </div>
