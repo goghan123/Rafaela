@@ -148,3 +148,16 @@ export const Pedido = () => {
 //                         </Col>
 //                     </Row>
 //                 </div>
+
+
+
+// const General = (props) => {
+//     return (
+//         <div>
+//             {document.title = 'Rafaela'}
+//             {props.contenido}
+//             <BarraInferior />
+//         </div>
+//     );
+// }
+

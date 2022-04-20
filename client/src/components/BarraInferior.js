@@ -1,8 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import {
-    Nav, NavItem, Navbar, NavbarToggler, Collapse,
-    UncontrolledDropdown, NavbarText
+    Nav, NavItem, Navbar, NavbarToggler, Collapse, NavbarText
 } from 'reactstrap';
 import logoWpp from '../elements/imagenes/logo-wpp.svg';
 import logoIg from '../elements/imagenes/logo-ig.svg';
