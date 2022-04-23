@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 30vmin;
   pointer-events: none;
 }
 
@@ -15,6 +15,7 @@
 
 .App-header {
   background-color: #282c34;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -65,4 +66,17 @@
 
 .mostrar {
   visibility: visible;
+}
+
+.textico {
+  height: 30vmin;
+  width: 100vh;
+  pointer-events: none;
+}
+
+.logo-principal {
+  color: white;
+  height: 30vmin;
+  width: 100vh;
+  pointer-events: none;
 }

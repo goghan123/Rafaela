@@ -1,11 +1,11 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../App.css';
 import {
     Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button, Col, Row
 } from 'reactstrap';
 import { listaDeArtesanias } from '../elements/listaDeArtesanias.js';
-import { TotalAmountContext, storeInSessiontorage } from './AmountContext.js';
+import { TotalAmountContext, storeInSessiontorage, CartContentContext } from './CartContext.js';
 
 const hileraUnoArtesanias = [listaDeArtesanias[0], listaDeArtesanias[1], listaDeArtesanias[2]];
 const hileraDosArtesanias = [listaDeArtesanias[3], listaDeArtesanias[4], listaDeArtesanias[5]];
@@ -112,6 +112,8 @@ const Artesania = (props) => {
 
 export const Pedido = () => {
     const { carterTotalAmount, setTotalAmount } = useContext(TotalAmountContext);
+    const { cartContent, setCartContent } = useContext(CartContentContext);
+
     const increaseTotal = () => {
         setTotalAmount(carterTotalAmount + 1);
         storeInSessiontorage(carterTotalAmount + 1);
@@ -128,6 +130,7 @@ export const Pedido = () => {
     //     {/* {setChildrenKey(childrenKey + 1)} */}
     // {/* key={childrenKey} */}
     // const totalAmount = useNewValues().totalAmount;
+    let refCounter = 0;
     return (
         <div key='divPedido'>
             <br></br>
@@ -145,7 +148,7 @@ export const Pedido = () => {
                             <React.Fragment key={artesania[4]}>
                                 <Col sm="4" className='dePrueba'>
                                     <Artesania
-                                        refe={artesania[5]}
+                                        refe={cartContent[refCounter++]}
                                         title={artesania[0]}
                                         subtitle={artesania[2]}
                                         imageSource={artesania[1]}

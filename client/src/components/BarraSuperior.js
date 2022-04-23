@@ -5,7 +5,7 @@ import {
     Nav, NavItem, NavLink, Navbar, Collapse, NavbarText, UncontrolledAlert
 } from 'reactstrap';
 import changuillo from '../elements/imagenes/changuito.svg';
-import { TotalAmountContext } from './AmountContext.js';
+import { TotalAmountContext } from './CartContext.js';
 
 export const BarraSuperior = () => {
     const { carterTotalAmount } = useContext(TotalAmountContext);

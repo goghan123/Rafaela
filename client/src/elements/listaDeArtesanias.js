@@ -3,6 +3,7 @@
 //     return { randoms, addToPreviousRandom }
 // }
 
+/*
 const refGenerator = () => {
     let randoms = [];
     for (let i = 0; i < 10; i++) {
@@ -24,7 +25,10 @@ const refGenerator = () => {
 }
 
 const randomRef = refGenerator();
+*/
+// import { provideRef } from "../components/CartContext.js";
 
+const randomRef = [''];
 export const listaDeArtesanias = [
     [
         'Bombón con ganache',
