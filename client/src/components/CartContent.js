@@ -20,7 +20,7 @@ export const CartContentContext = React.createContext({
     setCartContent: () => { }
 });
 
-export const refGenerator = () => {
+const refGenerator = () => {
     let randoms = [];
     for (let i = 0; i < 10; i++) {
         function findCoincidence() {
@@ -40,7 +40,46 @@ export const refGenerator = () => {
     return values;
 }
 
+const createCartContentObject = (keys) => {
+    // const entries = new Map([
+    //     keys.map((key) => [key, ''])
+    // ]);
+    const newEntries = keys.map((key) => [key, 0]);
+    const newObject = Object.fromEntries(newEntries);
+    return newObject;
+}
 
+export const getCartContent = () => {
+    // let references = [];
+    let cartContent = {};
+    const returnNewReferences = () => {
+        const references = refGenerator();
+        cartContent = createCartContentObject(references);
+        sessionStorage.setItem('cart-content', JSON.stringify(cartContent));
+    }
+    const returnOldReferences = () => {
+        cartContent = JSON.parse(sessionStorage.getItem('cart-content'));
+        // console.log(cartContent);
+        // references = Object.keys(cartContent);
+        // console.log(references);
+        // refs = refs.replace('{', '');
+        // refs = refs.replace("[", '');
+        // refs = refs.replace("]", '');
+        // refs = refs.split(',');
+        // refs = refs.map(Number);
+
+
+        // refs = refs.replace("[", '')
+        //     .replace("]", '')
+        //     .split(',')
+        //     .map(Number);
+    }
+    sessionStorage.getItem('cart-content') ?
+        returnOldReferences() :
+        returnNewReferences();
+    // console.log(references);
+    return cartContent;
+}
 
 // function funcionDePrueba() {
 //     sessionStorage.setItem('cart-content', 'hola');

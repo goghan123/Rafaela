@@ -5,7 +5,7 @@ import {
     Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button, Col, Row
 } from 'reactstrap';
 import { listaDeArtesanias } from '../elements/listaDeArtesanias.js';
-import { TotalAmountContext, storeInSessiontorage, CartContentContext } from './CartContext.js';
+import { TotalAmountContext, storeInSessiontorage, CartContentContext } from './CartContent.js';
 
 const hileraUnoArtesanias = [listaDeArtesanias[0], listaDeArtesanias[1], listaDeArtesanias[2]];
 const hileraDosArtesanias = [listaDeArtesanias[3], listaDeArtesanias[4], listaDeArtesanias[5]];
@@ -28,40 +28,60 @@ const listaDeHileras = [hileraUnoArtesanias, hileraDosArtesanias, hileraTresArte
 export const useNewValues = () => {
     // const { totalAmount, getTotalAmount } = useTotalAmount();
     // const [totalAmount, getTotalAmount] = useState(3);
-    const [localAmount, getAmount] = useState(0);
     const [currentKey, getKey] = useState(999);
     const newKey = () => getKey(currentKey + 1);
 
     // console.log(currentKey);
     // const newKey = currentKey;
-    const increaseLocalAmount = () => {
-        getAmount(localAmount + 1);
-        // sessionStorage.setItem("el" + JSON.stringify(newKey), localAmount + 1);
-    }
-    // const fullDecrease = () => {
-    //     getAmount(localAmount - 1);
-    // }
-    const decreaseLocalAmount = () => {
-        getAmount(localAmount - 1);
-        // sessionStorage.setItem(`el-${newKey}`, localAmount + 1);
-    }
 
-    return { localAmount, increaseLocalAmount, decreaseLocalAmount, newKey }
+
+    return newKey;
 }
 
 const Artesania = (props) => {
     // const [currentAmount, getAmount] = useState(0);
     // const [currentKey, getKey] = useState(999);
-    const { localAmount, increaseLocalAmount, decreaseLocalAmount, newKey } = useNewValues();
+    const referenciaDeArtesania = JSON.parse(sessionStorage.getItem('cart-content'))[props.refe];
+
+    const [localAmount, getAmount] = useState(referenciaDeArtesania);
+    // const increaseLocalAmount = () => {
+    //     getAmount(localAmount + 1);
+    //     // sessionStorage.setItem("el" + JSON.stringify(newKey), localAmount + 1);
+    // }
+    // // const fullDecrease = () => {
+    // //     getAmount(localAmount - 1);
+    // // }
+    // const decreaseLocalAmount = () => {
+    //     getAmount(localAmount - 1);
+    //     // sessionStorage.setItem(`el-${newKey}`, localAmount + 1);
+    // }
+    // console.log(smthg);
+    const newKey = useNewValues();
+    const { cartContent, setCartContent } = useContext(CartContentContext);
+    // const voidFunction = () => { };
+    // console.log(cartContent);
     const decreaseFunction = () => {
-        localAmount > 0 && decreaseLocalAmount();
-        localAmount > 0 && props.decreaseTotalAmount();
-        localAmount > 0 && sessionStorage.setItem('el-' + props.refe + '-dk', localAmount - 1);
+        const decreaseIt = () => {
+            getAmount(localAmount - 1);
+            props.decreaseTotalAmount();
+            sessionStorage.setItem('el-' + props.refe + '-dk', localAmount - 1);
+            let editableContentObject = JSON.parse(JSON.stringify(cartContent));
+            editableContentObject[props.refe] = localAmount - 1;
+            setCartContent(editableContentObject);
+            sessionStorage.setItem('cart-content', JSON.stringify(cartContent));
+        }
+        localAmount > 0 && decreaseIt();
     }
+
     const increaseFunction = () => {
-        increaseLocalAmount();
+        const currentAmount = localAmount + 1;
+        getAmount(localAmount + 1);
         props.increaseTotalAmount();
         sessionStorage.setItem('el-' + props.refe + '-dk', localAmount + 1);
+        let editableContentObject = JSON.parse(JSON.stringify(cartContent));
+        editableContentObject[props.refe] = currentAmount;
+        setCartContent(editableContentObject);
+        sessionStorage.setItem('cart-content', JSON.stringify(editableContentObject));
     }
 
     return (
@@ -112,7 +132,8 @@ const Artesania = (props) => {
 
 export const Pedido = () => {
     const { carterTotalAmount, setTotalAmount } = useContext(TotalAmountContext);
-    const { cartContent, setCartContent } = useContext(CartContentContext);
+    const { cartContent } = useContext(CartContentContext);
+    const references = Object.keys(cartContent);
 
     const increaseTotal = () => {
         setTotalAmount(carterTotalAmount + 1);
@@ -120,7 +141,7 @@ export const Pedido = () => {
     }
     const decreaseTotal = () => {
         carterTotalAmount > 0 && setTotalAmount(carterTotalAmount - 1);
-        storeInSessiontorage(carterTotalAmount - 1);
+        carterTotalAmount > 0 && storeInSessiontorage(carterTotalAmount - 1);
     }
     // const { totalAmount, getTotalAmount } = useTotalAmount();
     // const { childrenKey, setChildrenKey } = useNewChildrenKey();
@@ -148,7 +169,7 @@ export const Pedido = () => {
                             <React.Fragment key={artesania[4]}>
                                 <Col sm="4" className='dePrueba'>
                                     <Artesania
-                                        refe={cartContent[refCounter++]}
+                                        refe={references[refCounter++]}
                                         title={artesania[0]}
                                         subtitle={artesania[2]}
                                         imageSource={artesania[1]}

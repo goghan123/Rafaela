@@ -1,3 +1,8 @@
+import { useContext } from 'react';
+
+import { CartContentContext } from '../components/CartContent.js';
+
+
 // const useRefe = () => {
 //     const [randoms, addToPreviousRandom] = useState(['']);
 //     return { randoms, addToPreviousRandom }
@@ -27,8 +32,14 @@ const refGenerator = () => {
 const randomRef = refGenerator();
 */
 // import { provideRef } from "../components/CartContext.js";
+const useRandomRef = () => {
+    const { cartContent } = useContext(CartContentContext);
+    const references = Object.keys(cartContent);
+    return references;
+}
 
-const randomRef = [''];
+
+// const randomRef = [''];
 export const listaDeArtesanias = [
     [
         'Bombón con ganache',
@@ -36,61 +47,61 @@ export const listaDeArtesanias = [
         'Texto de subtítulo',
         'Una fina capa de chocolate sólido envuelve un semicremoso suave y blando. Lorem ipsum Lorem ipsum',
         '0.0',
-        randomRef[0]
+        useRandomRef[0]
     ], [
         'Tableta con cereales',
         'https://cdn.shopify.com/s/files/1/0247/3731/6909/products/Chocolateartesanal_almendra05_cuadrado_1024x1024.jpg?v=1633796874',
         'Texto de subtítulo',
         'Barra de 200 gr con crocantes cereales variados. Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
         '11',
-        randomRef[1]
+        useRandomRef[1]
     ], [
         'Barks con oreo',
         'https://cdn.shopify.com/s/files/1/0247/3731/6909/products/Chocolateartesanal_almendra05_cuadrado_1024x1024.jpg?v=1633796874',
         'Texto de subtítulo',
         'Corteza de chocolate acompañada de la galletita más elegida para combinar con el chocolate',
         '22',
-        randomRef[2]
+        useRandomRef[2]
     ], [
         'Tableta con cereales',
         'https://cdn.shopify.com/s/files/1/0247/3731/6909/products/Chocolateartesanal_almendra05_cuadrado_1024x1024.jpg?v=1633796874',
         'Texto de subtítulo',
         'Barra de 200 gr con crocantes cereales variados',
         '33',
-        randomRef[3]
+        useRandomRef[3]
     ], [
         'Tableta con cereales',
         'https://cdn.shopify.com/s/files/1/0247/3731/6909/products/Chocolateartesanal_almendra05_cuadrado_1024x1024.jpg?v=1633796874',
         'Texto de subtítulo',
         'Barra de 200 gr con crocantes cereales variados',
         '44',
-        randomRef[4]
+        useRandomRef[4]
     ], [
         'Tableta con cereales',
         'https://cdn.shopify.com/s/files/1/0247/3731/6909/products/Chocolateartesanal_almendra05_cuadrado_1024x1024.jpg?v=1633796874',
         'Texto de subtítulo',
         'Barra de 200 gr con crocantes cereales variados',
         '55',
-        randomRef[5]
+        useRandomRef[5]
     ], [
         'Tableta con cereales',
         'https://cdn.shopify.com/s/files/1/0247/3731/6909/products/Chocolateartesanal_almendra05_cuadrado_1024x1024.jpg?v=1633796874',
         'Texto de subtítulo',
         'Barra de 200 gr con crocantes cereales variados',
         '66',
-        randomRef[6]
+        useRandomRef[6]
     ], [
         'Tableta con cereales',
         'https://cdn.shopify.com/s/files/1/0247/3731/6909/products/Chocolateartesanal_almendra05_cuadrado_1024x1024.jpg?v=1633796874',
         'Texto de subtítulo',
         'Barra de 200 gr con crocantes cereales variados',
         '77',
-        randomRef[7]
+        useRandomRef[7]
     ], [
         'Tableta con cereales',
         'https://cdn.shopify.com/s/files/1/0247/3731/6909/products/Chocolateartesanal_almendra05_cuadrado_1024x1024.jpg?v=1633796874',
         'Texto de subtítulo',
         'Barra de 200 gr con crocantes cereales variados',
         '88',
-        randomRef[8]
+        useRandomRef[8]
     ]];

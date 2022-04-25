@@ -70,3 +70,7 @@
   margin-left: auto;
   margin-right: 0;
 }
+
+.black-text {
+  text-decoration-color: black;
+}

@@ -1,17 +1,36 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../estilos-todos.css';
 import {
     Nav, NavItem, NavLink, Navbar, Collapse, NavbarText, UncontrolledAlert
 } from 'reactstrap';
 import changuillo from '../elements/imagenes/changuito.svg';
-import { TotalAmountContext } from './CartContext.js';
+import { TotalAmountContext } from './CartContent.js';
+
+// const MensajeDeAyuda = () => {
+//     return (
+//         <NavItem key='MensajeDeAyuda'>
+//             <UncontrolledAlert color="info">
+//                 Hacé clic en el changuito para ir al pedido
+//             </UncontrolledAlert>
+//         </NavItem>
+//     )
+// }
 
 export const BarraSuperior = () => {
     const { carterTotalAmount } = useContext(TotalAmountContext);
+
+    const showIt = localStorage.getItem('showCartHint');
+    showIt || localStorage.setItem('showCartHint', 'true');
+    const [showCartHint, setCartHint] = useState(showIt === 'true' ? true : false);
+    const onDismiss = () => {
+        setCartHint(false);
+        localStorage.setItem('showCartHint', 'false');
+    }
+
     return (
         <div>
-            <Navbar color="warning" expand="md" fixed="top" light>
+            <Navbar color="warning" expand="md" fixed="top" light className="fw-bold">
                 <Collapse navbar>
                     <Nav className="me-auto" navbar>
                         <NavItem>
@@ -41,18 +60,14 @@ export const BarraSuperior = () => {
                         </NavItem>
                     </Nav>
                     <Nav>
-                        <NavItem>
-                            <UncontrolledAlert color="info" className='mostrar'>
+                        <NavItem key='MensajeDeAyuda'>
+                            <UncontrolledAlert color="info" isOpen={showCartHint} toggle={onDismiss}>
                                 Hacé clic en el changuito para ir al pedido
                             </UncontrolledAlert>
                         </NavItem>
-                        {/* 
-                        <UncontrolledAlert color="info" className='no-mostrar'>
-                            .
-                        </UncontrolledAlert> */}
                     </Nav>
                     <NavbarText className='h4'>
-                        <NavLink href='/cart'>
+                        <NavLink href='/carrito'>
                             <img src={changuillo} alt='changuito' className='logo-mediano'></img>
                             {carterTotalAmount}
                         </NavLink>

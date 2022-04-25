@@ -16,10 +16,10 @@ import { Inicio } from './components/Inicio.js';
 import { NuestrosProductos } from './components/NuestrosProductos.js';
 import { Pedido } from './components/Pedido.js';
 import { PaginaNoEncontrada } from './components/PaginaNoEncontrada.js';
-import { TotalAmountContext } from './components/CartContext.js';
-import { CartContentContext } from './components/CartContext.js';
+import { TotalAmountContext } from './components/CartContent.js';
+import { CartContentContext } from './components/CartContent.js';
 import { Cart } from './components/Cart.js';
-import { refGenerator } from './components/CartContext.js';
+import { getCartContent } from './components/CartContent.js';
 // import { useTotalAmount as TotalAmountContext } from './components/AmountContext.js';
 // import { useTotalAmount } from './components/Pedido.js';
 
@@ -133,7 +133,7 @@ class Main extends Component {
                                 <Route path={'/nuestros-productos'} element={<NuestrosProductos />}></Route>
                                 <Route path={'/entregas'} element={<Entregas />}></Route>
                                 <Route path={'/sobre'} element={<SobreNosotros />}></Route>
-                                <Route path={'/cart'} element={<Cart />}></Route>
+                                <Route path={'/carrito'} element={<Cart />}></Route>
                                 <Route path={'*'} element={<PaginaNoEncontrada />}></Route>
                             </Route>
                         </Routes>
@@ -171,31 +171,12 @@ export const MainComponent = () => {
     //     const previouslyExistentCart = sessionStorage.getItem('cart-content');
     //     return typeof previouslyExistentCart != 'undefined' && previouslyExistentCart;
     // }
-    const newRefs = () => {
-        let refs;
-        const returnNewRefs = () => {
-            refs = refGenerator();
-            sessionStorage.setItem('cart-content', refs);
-        }
-        const returnOldRefs = () => {
-            refs = sessionStorage.getItem('cart-content');
-            // refs = refs.replace("[", '');
-            // refs = refs.replace("]", '');
-            // refs = refs.split(',');
-            // refs = refs.map(Number);
-            refs = refs.replace("[", '')
-                .replace("]", '')
-                .split(',')
-                .map(Number);
-        }
-        sessionStorage.getItem('cart-content') ?
-            returnOldRefs() :
-            returnNewRefs();
-        console.log(refs);
-        return refs;
-    }
+    // const content = createCartContentObject(getRefs());
+    // sessionStorage.setItem('cart-content', JSON.stringify(content));
+    // console.log(getCartContent());
+    const [cartContent, setCartContent] = useState(getCartContent());
+    // console.log(cartContent);
 
-    const [cartContent, setCartContent] = useState(newRefs());
     const setForContentChanging = useMemo(
         () => ({ cartContent, setCartContent }),
         [cartContent]
