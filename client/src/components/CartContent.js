@@ -40,7 +40,7 @@ const refGenerator = () => {
     return values;
 }
 
-const createCartContentObject = (keys) => {
+export const createCartContentObject = (keys) => {
     // const entries = new Map([
     //     keys.map((key) => [key, ''])
     // ]);

@@ -5,13 +5,15 @@ import {
     Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button, Col, Row
 } from 'reactstrap';
 import { listaDeArtesanias } from '../elements/listaDeArtesanias.js';
-import { TotalAmountContext, storeInSessiontorage, CartContentContext } from './CartContent.js';
+import { TotalAmountContext, storeInSessiontorage, CartContentContext, createCartContentObject } from './CartContent.js';
+// import changuillo from '../elements/imagenes/changuito.svg';
 
-const hileraUnoArtesanias = [listaDeArtesanias[0], listaDeArtesanias[1], listaDeArtesanias[2]];
-const hileraDosArtesanias = [listaDeArtesanias[3], listaDeArtesanias[4], listaDeArtesanias[5]];
-const hileraTresArtesanias = [listaDeArtesanias[6], listaDeArtesanias[7], listaDeArtesanias[8]];
 
-const listaDeHileras = [hileraUnoArtesanias, hileraDosArtesanias, hileraTresArtesanias];
+// const hileraUnoArtesanias = [listaDeArtesanias[0], listaDeArtesanias[1], listaDeArtesanias[2]];
+// const hileraDosArtesanias = [listaDeArtesanias[3], listaDeArtesanias[4], listaDeArtesanias[5]];
+// const hileraTresArtesanias = [listaDeArtesanias[6], listaDeArtesanias[7], listaDeArtesanias[8]];
+
+const listaParaHileras = [listaDeArtesanias];
 
 // const GestorDeCantidades = (props) => {
 //     const [currentKey, getKey] = useState(999);
@@ -25,7 +27,7 @@ const listaDeHileras = [hileraUnoArtesanias, hileraDosArtesanias, hileraTresArte
 //     )
 // }
 
-export const useNewValues = () => {
+const useNewValues = () => {
     // const { totalAmount, getTotalAmount } = useTotalAmount();
     // const [totalAmount, getTotalAmount] = useState(3);
     const [currentKey, getKey] = useState(999);
@@ -64,7 +66,6 @@ const Artesania = (props) => {
         const decreaseIt = () => {
             getAmount(localAmount - 1);
             props.decreaseTotalAmount();
-            sessionStorage.setItem('el-' + props.refe + '-dk', localAmount - 1);
             let editableContentObject = JSON.parse(JSON.stringify(cartContent));
             editableContentObject[props.refe] = localAmount - 1;
             setCartContent(editableContentObject);
@@ -77,13 +78,15 @@ const Artesania = (props) => {
         const currentAmount = localAmount + 1;
         getAmount(localAmount + 1);
         props.increaseTotalAmount();
-        sessionStorage.setItem('el-' + props.refe + '-dk', localAmount + 1);
         let editableContentObject = JSON.parse(JSON.stringify(cartContent));
         editableContentObject[props.refe] = currentAmount;
         setCartContent(editableContentObject);
         sessionStorage.setItem('cart-content', JSON.stringify(editableContentObject));
     }
 
+    const passToCommaFormat = (int, decimal) => {
+        const newResult = localAmount * Number(props.priceInt + '.' + props.priceDecimal);
+    }
     return (
         <Card height='50px' width='50px'>
             <CardImg
@@ -99,7 +102,9 @@ const Artesania = (props) => {
                     className="mb-2 text-muted"
                     tag="h6"
                 >
-                    $10,00 por unidad
+                    ${props.priceInt},{
+                        props.priceDecimal === 0 ? '00' : props.priceDecimal
+                    } por unidad
                 </CardSubtitle>
                 <CardText>
                     {props.description}
@@ -109,11 +114,25 @@ const Artesania = (props) => {
                     lessenNumber={decreaseAmount}
                     currentAmount={currentAmount}
                 /> */}
-                <div key={newKey} className="input-group mb-3">
+                {/* <div className='container-fluid'>
+                    <Col sm="6"> */}
+                <div key={newKey} className="input-group">
                     <Button onClick={decreaseFunction}>-</Button>
                     <span className="input-group-text">{localAmount}</span>
                     <Button onClick={increaseFunction}>+</Button>
+                    {
+                        localAmount ?
+                            <span className="input-group-text total-local">
+                                ${localAmount * Number(props.priceInt + '.' + props.priceDecimal)}
+                            </span> :
+                            <br></br>
+                    }
                 </div>
+                {/* </Col>
+                    <Col sm="6">
+                        <p>{localAmount}</p>
+                    </Col> */}
+                {/* </div> */}
             </CardBody>
         </Card>
     )
@@ -129,10 +148,39 @@ const Artesania = (props) => {
 //     const [totalAmount, getTotalAmount] = useState(4);
 //     return { totalAmount, getTotalAmount }
 // }
+const SetOfButtons = (props) => {
+    return (
+        <div className='container-fluid' key='botones-de-pedido'>
+            <Row>
+                <Col sm="4">
+                    <div className="alineado-horizontal">
+                        <Button href="/pedido" onClick={props.vaciarCarrito}>
+                            Vaciar
+                        </Button>
+                    </div>
+                </Col>
+                <Col sm="4">
+                    <div className="input-group mb-3 alineado-horizontal">
+                        <Button className='disabled' onClick={() => { }}>Anterior</Button>
+                        <span className="input-group-text">Página 1 de 1</span>
+                        <Button className='disabled' onClick={() => { }}>Siguiente</Button>
+                    </div>
+                </Col>
+                <Col sm="4">
+                    <div className="alineado-horizontal">
+                        <Button href="/carrito">
+                            Continuar al carrito
+                        </Button>
+                    </div>
+                </Col>
+            </Row>
+        </div>
+    )
+}
 
 export const Pedido = () => {
     const { carterTotalAmount, setTotalAmount } = useContext(TotalAmountContext);
-    const { cartContent } = useContext(CartContentContext);
+    const { cartContent, setCartContent } = useContext(CartContentContext);
     const references = Object.keys(cartContent);
 
     const increaseTotal = () => {
@@ -142,6 +190,13 @@ export const Pedido = () => {
     const decreaseTotal = () => {
         carterTotalAmount > 0 && setTotalAmount(carterTotalAmount - 1);
         carterTotalAmount > 0 && storeInSessiontorage(carterTotalAmount - 1);
+    }
+    const vaciarCarrito = () => {
+        const emptyCart = createCartContentObject(references);
+        setCartContent(emptyCart);
+        setTotalAmount(0);
+        sessionStorage.setItem('cart-content', JSON.stringify(emptyCart));
+        sessionStorage.setItem('cart-amount', 0);
     }
     // const { totalAmount, getTotalAmount } = useTotalAmount();
     // const { childrenKey, setChildrenKey } = useNewChildrenKey();
@@ -157,17 +212,13 @@ export const Pedido = () => {
             <br></br>
             <br></br>
             <br></br>
-            <div className="input-group mb-3 alineado-horizontal">
-                <Button className='disabled' onClick={() => { }}>Anterior</Button>
-                <span className="input-group-text">Página 1 de 1</span>
-                <Button className='disabled' onClick={() => { }}>Siguiente</Button>
-            </div>
-            {listaDeHileras.map((hilera) =>
+            <SetOfButtons vaciarCarrito={vaciarCarrito} />
+            {listaParaHileras.map((hilera) =>
                 <div className='container-fluid' key={hilera[0][4] + hilera[0][4]}>
                     <Row>
                         {hilera.map((artesania) => (
                             <React.Fragment key={artesania[4]}>
-                                <Col sm="4" className='dePrueba'>
+                                <Col sm="4" className='margen-horizontal'>
                                     <Artesania
                                         refe={references[refCounter++]}
                                         title={artesania[0]}
@@ -176,6 +227,8 @@ export const Pedido = () => {
                                         description={artesania[3]}
                                         increaseTotalAmount={increaseTotal}
                                         decreaseTotalAmount={decreaseTotal}
+                                        priceInt={Number(artesania[7])}
+                                        priceDecimal={Number(artesania[8])}
                                     />
                                 </Col>
                             </React.Fragment>
@@ -184,12 +237,13 @@ export const Pedido = () => {
                     <br></br>
                 </div>
             )}
+            <SetOfButtons vaciarCarrito={vaciarCarrito} />
         </div>
     )
 }
         // <div key='divPedido'>
         //     <br></br>
-        //     {listaDeHileras.map((hilera) =>
+        //     {listaParaHileras.map((hilera) =>
         //         <React.Fragment key={hilera[0][4] + hilera[0][4]}>
         //             <CardGroup>
         //                 {hilera.map((artesania) => (

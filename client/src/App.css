@@ -80,3 +80,18 @@
   width: 100vh;
   pointer-events: none;
 }
+
+.orientacion-derecha {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+}
+
+.margen-horizontal {
+  margin-bottom: 25px;
+}
+
+.total-local {
+  margin-left: 55px;
+}

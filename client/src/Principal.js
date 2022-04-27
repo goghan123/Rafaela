@@ -19,10 +19,13 @@ import { PaginaNoEncontrada } from './components/PaginaNoEncontrada.js';
 import { TotalAmountContext } from './components/CartContent.js';
 import { CartContentContext } from './components/CartContent.js';
 import { Cart } from './components/Cart.js';
-import { getCartContent } from './components/CartContent.js';
+// import { getCartContent } from './components/CartContent.js';
+import { newCartContent } from './elements/listaDeArtesanias.js';
+
 // import { useTotalAmount as TotalAmountContext } from './components/AmountContext.js';
 // import { useTotalAmount } from './components/Pedido.js';
 
+// export const newCartContent = getCartContent();
 
 // useTotalAmount().totalAmount
 // const useSmthg = () => {
@@ -166,7 +169,6 @@ export const MainComponent = () => {
     //         'Negativo';
     //     // return 'caballo loco';
     // }
-
     // const checkCartContent = () => {
     //     const previouslyExistentCart = sessionStorage.getItem('cart-content');
     //     return typeof previouslyExistentCart != 'undefined' && previouslyExistentCart;
@@ -174,7 +176,7 @@ export const MainComponent = () => {
     // const content = createCartContentObject(getRefs());
     // sessionStorage.setItem('cart-content', JSON.stringify(content));
     // console.log(getCartContent());
-    const [cartContent, setCartContent] = useState(getCartContent());
+    const [cartContent, setCartContent] = useState(newCartContent);
     // console.log(cartContent);
 
     const setForContentChanging = useMemo(
