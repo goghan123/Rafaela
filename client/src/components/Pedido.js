@@ -46,6 +46,22 @@ const Artesania = (props) => {
     const referenciaDeArtesania = JSON.parse(sessionStorage.getItem('cart-content'))[props.refe];
 
     const [localAmount, getAmount] = useState(referenciaDeArtesania);
+    const getLocalPrice = (operation) => {
+        const previousLocalPrice = Math.round((localAmount + operation) * Number(
+            props.priceInt + '.' + props.priceDecimal
+        ) * 100) / 100;
+        const numberToArray = [...JSON.stringify(previousLocalPrice)];
+        const dotPosition = numberToArray.indexOf('.') === -1 ?
+            numberToArray.length + 1 : numberToArray.indexOf('.');
+        const decimals = typeof numberToArray[dotPosition + 1] === 'undefined' ?
+            '00' : numberToArray[dotPosition + 1] + '0';
+        const ints = Math.floor(previousLocalPrice);
+        return JSON.stringify(ints) + ',' + decimals;
+    }
+    const [localPrice, setLocalPrice] = useState(getLocalPrice(0));
+
+
+
     // const increaseLocalAmount = () => {
     //     getAmount(localAmount + 1);
     //     // sessionStorage.setItem("el" + JSON.stringify(newKey), localAmount + 1);
@@ -62,6 +78,7 @@ const Artesania = (props) => {
     const { cartContent, setCartContent } = useContext(CartContentContext);
     // const voidFunction = () => { };
     // console.log(cartContent);
+
     const decreaseFunction = () => {
         const decreaseIt = () => {
             getAmount(localAmount - 1);
@@ -70,6 +87,8 @@ const Artesania = (props) => {
             editableContentObject[props.refe] = localAmount - 1;
             setCartContent(editableContentObject);
             sessionStorage.setItem('cart-content', JSON.stringify(cartContent));
+            setLocalPrice((localAmount - 1) * Number(props.priceInt + '.' + props.priceDecimal));
+            setLocalPrice(getLocalPrice(-1));
         }
         localAmount > 0 && decreaseIt();
     }
@@ -82,11 +101,13 @@ const Artesania = (props) => {
         editableContentObject[props.refe] = currentAmount;
         setCartContent(editableContentObject);
         sessionStorage.setItem('cart-content', JSON.stringify(editableContentObject));
+        setLocalPrice(getLocalPrice(1));
     }
 
-    const passToCommaFormat = (int, decimal) => {
-        const newResult = localAmount * Number(props.priceInt + '.' + props.priceDecimal);
-    }
+    // const resultado = () => {
+    //     return localAmount * Number(props.priceInt + '.' + props.priceDecimal);
+    // }
+
     return (
         <Card height='50px' width='50px'>
             <CardImg
@@ -123,7 +144,7 @@ const Artesania = (props) => {
                     {
                         localAmount ?
                             <span className="input-group-text total-local">
-                                ${localAmount * Number(props.priceInt + '.' + props.priceDecimal)}
+                                ${localPrice}
                             </span> :
                             <br></br>
                     }
@@ -182,6 +203,11 @@ export const Pedido = () => {
     const { carterTotalAmount, setTotalAmount } = useContext(TotalAmountContext);
     const { cartContent, setCartContent } = useContext(CartContentContext);
     const references = Object.keys(cartContent);
+    
+    setTotalAmount(Object.values(cartContent).reduce(
+        (previousValue, currentValue) => previousValue + currentValue,
+        0
+    ));
 
     const increaseTotal = () => {
         setTotalAmount(carterTotalAmount + 1);

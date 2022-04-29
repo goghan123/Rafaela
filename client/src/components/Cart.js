@@ -12,6 +12,20 @@ import { listaDeArtesanias } from '../elements/listaDeArtesanias.js';
 const Articulo = (props) => {
     const [currentKey, getKey] = useState(9999);
     const newKey = () => getKey(currentKey + 1);
+    // const getLocalPriceWithComma = () => {
+    //     const localPriceWithDot = Math.round(props.amount * Number(
+    //         props.priceInt + '.' + props.priceDecimal
+    //     ) * 100) / 100;
+    //     const numberToArray = [...JSON.stringify(localPriceWithDot)];
+    //     const dotPosition = numberToArray.indexOf('.') === -1 ?
+    //         numberToArray.length + 1 : numberToArray.indexOf('.');
+    //     const decimals = typeof numberToArray[dotPosition + 1] === 'undefined' ?
+    //         '00' : numberToArray[dotPosition + 1] + '0';
+    //     const ints = Math.floor(localPriceWithDot);
+    //     return JSON.stringify(ints) + ',' + decimals;
+    // }
+    // const [localPrice, setLocalPrice] = useState(getLocalPriceWithComma());
+
     // const algo = listaDeArtesanias[3][5];
     return (
         <div>
@@ -29,7 +43,7 @@ const Articulo = (props) => {
                         className="mb-2 text-muted"
                         tag="h6"
                     >
-                       ${props.priceInt},{props.priceDecimal} por unidad
+                        ${props.priceInt},{props.priceDecimal} por unidad
                     </CardSubtitle>
                     {/* <CardText className="text-dark">
                         {props.description}
@@ -42,7 +56,7 @@ const Articulo = (props) => {
                     <div key={newKey} className="input-group mb-3">
                         <span className="input-group-text">{props.amount}</span>
                         <span className="input-group-text total-local">
-                            ${props.amount * props.price}
+                            ${props.localPrice}
                         </span>
                     </div>
                 </CardBody>
@@ -53,18 +67,24 @@ const Articulo = (props) => {
 }
 
 // const listaDeHileras = [['soloUno']];
-const SetOfButtons = () => {
+const SetOfButtons = (props) => {
     return (
-        <div className='container-fluid' key='botonesDePedido'>
+        <div className='container-fluid' key={'botonesDePedido' + props.key}>
             <Row>
-                <Col sm="6">
+                <Col sm="5">
                     <div className="orientacion-derecha">
                         <Button href="/pedido" onClick={() => { }}>
                             Volver al catálogo
                         </Button>
                     </div>
                 </Col>
-                <Col sm="6">
+                <Col sm="2">
+                    <div className="input-group mb-3 alineado-horizontal">
+                        <span className="input-group-text"
+                        >Total en carrito: ${props.totalPrice}</span>
+                    </div>
+                </Col>
+                <Col sm="5">
                     <div className="input-group mb-3">
                         <Button className='disabled' onClick={() => { }}>
                             Continuar
@@ -78,18 +98,44 @@ const SetOfButtons = () => {
 }
 
 const HayContenidoEnCarrito = (props) => {
+    const priceToCommaFormat = (amount, priceInt, priceDecimal) => {
+        const priceWithDot = typeof amount === 'undefined' ?
+            props.totalPrice :
+            Math.round(amount * Number(
+                priceInt + '.' + priceDecimal
+            ) * 100) / 100;
+        const numberToArray = [...JSON.stringify(priceWithDot)];
+        const dotPosition = numberToArray.indexOf('.') === -1 ?
+            numberToArray.length + 1 : numberToArray.indexOf('.');
+        const decimals = typeof numberToArray[dotPosition + 1] === 'undefined' ?
+            '00' : numberToArray[dotPosition + 1] + '0';
+        const ints = Math.floor(priceWithDot);
+        return JSON.stringify(ints) + ',' + decimals;
+    }
+    // const getTotalPriceWithComma = () => {
+    //     const numberToArray = [...JSON.stringify(props.totalPrice)];
+    //     const dotPosition = numberToArray.indexOf('.') === -1 ?
+    //         numberToArray.length + 1 : numberToArray.indexOf('.');
+    //     const decimals = typeof numberToArray[dotPosition + 1] === 'undefined' ?
+    //         '00' : numberToArray[dotPosition + 1] + '0';
+    //     const ints = Math.floor(props.totalPrice);
+    //     return JSON.stringify(ints) + ',' + decimals;
+    // }
+    // const [totalPrice, setTotalPrice] = useState(0);
     return (
         <div key='hayContenidoEnCarrito'>
             <br></br>
             <br></br>
             <br></br>
-            <SetOfButtons />
+            <SetOfButtons key={0} totalPrice={priceToCommaFormat()} />
             {[props.contenido].map((hilera) =>
                 <div className='container-fluid' key={hilera[0][4] + hilera[0][4]}>
                     <Row>
                         {hilera.map((artesania) => (
                             <React.Fragment key={artesania[4]}>
                                 <Col sm="2" className='margen-horizontal'>
+                                    {/* {setTotalPrice(totalPrice + Number(artesania[7] + '.' + artesania[8]))}
+                                    {console.log(totalPrice)} */}
                                     <Articulo
                                         refe={artesania[5]}
                                         title={artesania[0]}
@@ -97,7 +143,10 @@ const HayContenidoEnCarrito = (props) => {
                                         imageSource={artesania[1]}
                                         description={artesania[3]}
                                         amount={artesania[6]}
-                                        price={artesania[7]}
+                                        priceInt={artesania[7]}
+                                        priceDecimal={artesania[8]}
+                                        localPrice={priceToCommaFormat(
+                                            artesania[6], artesania[7], artesania[8])}
                                     />
                                 </Col>
                             </React.Fragment>
@@ -106,7 +155,7 @@ const HayContenidoEnCarrito = (props) => {
                     <br></br>
                 </div>
             )}
-            <SetOfButtons />
+            <SetOfButtons key={1} totalPrice={priceToCommaFormat()} />
         </div>
     )
 }
@@ -129,12 +178,20 @@ export const Cart = () => {
     // const hileraUnoArtesanias = [listaDeArtesanias[0], listaDeArtesanias[1], listaDeArtesanias[2], listaDeArtesanias[3], listaDeArtesanias[4], listaDeArtesanias[5]];
     // const hileraDosArtesanias = [listaDeArtesanias[6], listaDeArtesanias[7], listaDeArtesanias[8]];
     const soloArtesaniasEnCarrito = listaDeArtesanias.filter((el) => el[6] > 0);
+    const localPrices = soloArtesaniasEnCarrito.map((el) => el[6] * Number(el[7] + '.' + el[8]));
+    const totalPrice = localPrices.reduce(
+        (previousValue, currentValue) => previousValue + currentValue,
+        0
+    );
+    console.log(totalPrice);
     //  console.log(listaDeArtesanias[0][6]);
     // const articulosDelCarrito = [soloArtesaniasEnCarrito];
     return (
         <div key='cart'>
             {soloArtesaniasEnCarrito.length > 0 ?
-                <HayContenidoEnCarrito contenido={soloArtesaniasEnCarrito} /> :
+                <HayContenidoEnCarrito
+                contenido={soloArtesaniasEnCarrito}
+                totalPrice={totalPrice} /> :
                 <NoHayContenidoEnCarrito />
             }
         </div>
