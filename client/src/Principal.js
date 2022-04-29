@@ -13,7 +13,7 @@ import './App.css';
 import { SobreNosotros } from './components/SobreNosotros.js';
 import { Entregas } from './components/Entregas.js';
 import { Inicio } from './components/Inicio.js';
-import { NuestrosProductos } from './components/NuestrosProductos.js';
+import { Contacto } from './components/Contacto.js';
 import { Pedido } from './components/Pedido.js';
 import { PaginaNoEncontrada } from './components/PaginaNoEncontrada.js';
 import { TotalAmountContext } from './components/CartContent.js';
@@ -63,7 +63,7 @@ class Main extends Component {
                             <Route path='/' element={<General contenido={<Outlet />} />}>
                                 <Route index element={<Inicio />}></Route>
                                 <Route path={'/pedido'} element={<Pedido />}></Route>
-                                <Route path={'/nuestros-productos'} element={<NuestrosProductos />}></Route>
+                                <Route path={'/contacto'} element={<Contacto />}></Route>
                                 <Route path={'/entregas'} element={<Entregas />}></Route>
                                 <Route path={'/sobre'} element={<SobreNosotros />}></Route>
                                 <Route path={'/carrito'} element={<Cart />}></Route>

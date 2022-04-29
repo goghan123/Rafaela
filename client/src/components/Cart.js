@@ -41,7 +41,7 @@ const Articulo = (props) => {
 
 const SetOfButtons = (props) => {
     return (
-        <div className='container-fluid' key={'botonesDePedido' + props.key}>
+        <div className='container-fluid' key='botonesDePedido'>
             <Row>
                 <Col sm="5">
                     <div className="orientacion-derecha">

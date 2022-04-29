@@ -32,18 +32,18 @@ export const BarraSuperior = () => {
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href='/nuestros-productos'>
-                                Nuestros productos
-                            </NavLink>
-                        </NavItem>
-                        <NavItem>
                             <NavLink href='/entregas'>
-                                ¿Llegan hasta donde yo vivo?
+                                Dónde estamos
                             </NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href='/sobre'>
                                 Sobre nosotros
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href='/contacto'>
+                                Contacto
                             </NavLink>
                         </NavItem>
                     </Nav>

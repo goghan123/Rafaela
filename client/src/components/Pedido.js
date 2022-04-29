@@ -44,7 +44,7 @@ const Artesania = (props) => {
         let editableContentObject = JSON.parse(JSON.stringify(cartContent));
         editableContentObject[props.refe] = localAmount + operation;
         setCartContent(editableContentObject);
-        sessionStorage.setItem('cart-content', JSON.stringify(cartContent));
+        sessionStorage.setItem('cart-content', JSON.stringify(editableContentObject));
         setLocalPrice(getLocalPrice(operation));
     }
     const decreaseFunction = () => {
