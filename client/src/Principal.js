@@ -19,49 +19,7 @@ import { PaginaNoEncontrada } from './components/PaginaNoEncontrada.js';
 import { TotalAmountContext } from './components/CartContent.js';
 import { CartContentContext } from './components/CartContent.js';
 import { Cart } from './components/Cart.js';
-// import { getCartContent } from './components/CartContent.js';
 import { newCartContent } from './elements/listaDeArtesanias.js';
-
-// import { useTotalAmount as TotalAmountContext } from './components/AmountContext.js';
-// import { useTotalAmount } from './components/Pedido.js';
-
-// export const newCartContent = getCartContent();
-
-// useTotalAmount().totalAmount
-// const useSmthg = () => {
-
-//     const AmountElements = document.getElementsByClassName('input-group-text');
-//     const currentAmount = useTotalAmount().totalAmount;
-//     const [updateOfAmount, getUpdateOfAmount] = useState(useTotalAmount().totalAmount);
-//     useEffect(() => {
-//         getUpdateOfAmount(currentAmount);
-//     }, [AmountElements]);
-//     return updateOfAmount;
-// }
-
-// const useTotalAmount = () => {
-//     const [carterTotalAmount, getTotalAmount] = useState(4);
-//     const increaseTotal = () => getTotalAmount(carterTotalAmount + 1);
-//     //ESTA FUNCIÓN NO ES QUE NO SE ENTIENDE CON EL HOOK SINO QUE NI SIQUIERA ESTÁ SIENDO LLAMADA
-//     const decreaseTotal = () => carterTotalAmount > 0 && getTotalAmount(carterTotalAmount - 1);
-//     return { carterTotalAmount, increaseTotal, decreaseTotal }
-// }
-
-
-// const useTotalAmount = () => {
-//     const [carterTotalAmount, setTotalAmount] = useState(0);
-//     const utilitiesSet = useMemo(
-//         () => ({ carterTotalAmount, setTotalAmount }),
-//         [carterTotalAmount]
-//     );
-//     return utilitiesSet;
-// }
-// const General = () => {
-//     return (
-//         <BarraSuperior
-//         />
-//     )
-// }
 
 const General = (props) => {
     return (
@@ -72,21 +30,6 @@ const General = (props) => {
         </div>
     );
 }
-// const increaseTotal = () => getTotalAmount(carterTotalAmount + 1);
-// const decreaseTotal = () => carterTotalAmount > 0 && getTotalAmount(carterTotalAmount - 1);
-
-// const { carterTotalAmount, increaseTotal, decreaseTotal } = useTotalAmount();
-// const utilitiesSet = useTotalAmount();
-// const carterTotalAmount = '5';
-// const TotalAmountContext = useTotalAmount;
-/*
-value = { utilitiesSet } >
-*/
-// const useCacheProvider = () => {
-//     const [content, getContent] = useState('');
-//     return { content, getContent }
-// }
-
 
 class Main extends Component {
     state = {
@@ -100,25 +43,12 @@ class Main extends Component {
     }
 
     callBackendAPI = async () => {
-        // const { content, getContent } = useCacheProvider();
-        // try {
-        //     const response = await fetch('/express_backend');
-        //     const body = await response.json();
-        //     if (response.status !== 200) {
-        //         throw Error(body.message)
-        //     }
-        //     return body;
-        // } catch (e) {
-        // console.log('No se detectó caché;');
-        // console.log(e);
         const response = await fetch('/express_backend');
         const body = await response.json();
         if (response.status !== 200) {
             throw Error(body.message)
         }
-        // localStorage.setItem('cache', JSON.stringify(body));
         return body;
-        // }
     };
 
     render() {
@@ -158,35 +88,11 @@ export const MainComponent = () => {
         () => ({ carterTotalAmount, setTotalAmount }),
         [carterTotalAmount]
     );
-
-    // // const setForContentChanging = refGenerator();
-    // const provideRef = () => {
-    //     const previouslyExistentCart = sessionStorage.getItem('cart-content');
-    //     return typeof previouslyExistentCart === 'undefined' ?
-    //         // refGenerator() :
-    //         // previouslyExistentCart;
-    //         'Positivo' :
-    //         'Negativo';
-    //     // return 'caballo loco';
-    // }
-    // const checkCartContent = () => {
-    //     const previouslyExistentCart = sessionStorage.getItem('cart-content');
-    //     return typeof previouslyExistentCart != 'undefined' && previouslyExistentCart;
-    // }
-    // const content = createCartContentObject(getRefs());
-    // sessionStorage.setItem('cart-content', JSON.stringify(content));
-    // console.log(getCartContent());
     const [cartContent, setCartContent] = useState(newCartContent);
-    // console.log(cartContent);
-
     const setForContentChanging = useMemo(
         () => ({ cartContent, setCartContent }),
         [cartContent]
     );
-    // console.log(cartContent);
-
-    // provideRef();
-
     return (
         <TotalAmountContext.Provider
             value={utilitiesSet}>
@@ -199,17 +105,3 @@ export const MainComponent = () => {
         </TotalAmountContext.Provider>
     )
 }
-
-// export default Main;
-
-
-// const [carterTotalAmount, setTotalAmount] = useState(0);
-// useEffect(() => {
-//     const previouslyExistentCart = sessionStorage.getItem('cart-amount');
-//     typeof previouslyExistentCart != 'undefined' && setTotalAmount(
-//         Number(previouslyExistentCart) === 0 ?
-//             Number(previouslyExistentCart) :
-//             Number(previouslyExistentCart) + 1
-//     );
-//     console.log('¿No?');
-// }, []);

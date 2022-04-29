@@ -7,19 +7,8 @@ import {
 import changuillo from '../elements/imagenes/changuito.svg';
 import { TotalAmountContext } from './CartContent.js';
 
-// const MensajeDeAyuda = () => {
-//     return (
-//         <NavItem key='MensajeDeAyuda'>
-//             <UncontrolledAlert color="info">
-//                 Hacé clic en el changuito para ir al pedido
-//             </UncontrolledAlert>
-//         </NavItem>
-//     )
-// }
-
 export const BarraSuperior = () => {
     const { carterTotalAmount } = useContext(TotalAmountContext);
-
     const showIt = localStorage.getItem('showCartHint');
     showIt || localStorage.setItem('showCartHint', 'true');
     const [showCartHint, setCartHint] = useState(showIt === 'true' ? true : false);
@@ -27,7 +16,6 @@ export const BarraSuperior = () => {
         setCartHint(false);
         localStorage.setItem('showCartHint', 'false');
     }
-
     return (
         <div>
             <Navbar color="warning" expand="md" fixed="top" light className="fw-bold">

@@ -1,67 +1,15 @@
-// import { useContext } from 'react';
-
-// import { CartContentContext } from '../components/CartContent.js';
 import { getCartContent } from '../components/CartContent.js';
-
-
-// const useRefe = () => {
-//     const [randoms, addToPreviousRandom] = useState(['']);
-//     return { randoms, addToPreviousRandom }
-// }
-
-/*
-const refGenerator = () => {
-    let randoms = [];
-    for (let i = 0; i < 10; i++) {
-        function findCoincidence() {
-            const newRandom = Math.round(1008000 * 132 * Math.random());
-            const coincidenceFound = randoms.find(el => el === newRandom);
-            try {
-                typeof coincidenceFound != 'undefined' ?
-                    findCoincidence() : randoms = [...randoms, newRandom];
-            } catch (e) {
-                console.log('Error interno GH1')
-                console.log(e);
-            }
-        }
-        findCoincidence();
-    }
-    const values = randoms;
-    return values;
-}
-
-const randomRef = refGenerator();
-*/
-// import { provideRef } from "../components/CartContext.js";
-// const referenceNumbers = () => {
-//     const references = Object.keys(newCartContent);
-//     // return references;
-// }
-
-
-// const cartContent = newCartContent;
-
-// const getReferenceNumbers = () => {
-//     const references = Object.keys(cartContent);
-//     return references;
-// }
-// const referenceNumbers = getReferenceNumbers();
-
 export const newCartContent = getCartContent();
-
 const getReferenceNumbers = () => {
     const references = Object.keys(newCartContent);
     return references;
 }
 const referenceNumbers = getReferenceNumbers();
-
 const getLocalAmounts = () => {
     const amounts = Object.values(newCartContent);
     return amounts;
 }
 const localAmounts = getLocalAmounts();
-
-// const randomRef = [''];
 export const listaDeArtesanias = [
     [
         'Bombón con ganache',
