@@ -1,85 +1,254 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../App.css';
-import { Form, FormGroup, Col, Input, Label, FormText, Button } from 'reactstrap';
+import '../estilos-todos.css';
+import { Form, FormGroup, Col, Input, Label, Button } from 'reactstrap';
+import { useResponsiveTools } from '../elements/someFunctions.js';
 
-const Componente = () => {
+
+const ComponenteAmpliado = () => {
+    const { windowWidth } = useResponsiveTools();
     return (
         <div>
-            <Form className='text-white formulario'>
-                <br></br>
-                <br></br>
-                <br></br>
-                <FormGroup row>
-                    <Label
-                        for="exampleEmail"
-                        sm={2}
-                    >
-                        Mail
-                    </Label>
-                    <Col sm={10}>
-                        <Input
-                            id="exampleEmail"
-                            name="email"
-                            placeholder="ejemplo@ejemplo.com"
-                            type="email"
-                        />
-                    </Col>
-                </FormGroup>
-                <FormGroup row>
-                    <Label
-                        for="exampleEmail"
-                        sm={2}
-                    >
-                        ¿Cómo supiste de nosotros?
-                    </Label>
-                    <Col sm={10}>
-                        <Input
-                            id="checkbox2"
-                            type="checkbox"
-                        />
-                        {' '}
+            <FormGroup row>
+                <Label
+                    for="exampleEmail"
+                    sm={3}
+                >
+                    Mail
+                </Label>
+                <Col sm={9}>
+                    <Input
+                        id="exampleEmail"
+                        name="email"
+                        placeholder="ejemplo@ejemplo.com"
+                        type="email"
+                    />
+                </Col>
+            </FormGroup>
+            <FormGroup row className='centrado'>
+                <Label
+                    for="exampleEmail"
+                    sm={3}
+                >
+                    ¿Cómo supiste de nosotros? (Opcional)
+                </Label>
+                <Col>
+                    <Input
+                        id="checkbox2"
+                        type="checkbox"
+                    />
+                    {' '}
+                    {windowWidth > 960 ?
                         <Label check>
-                            Check me out
+                            Amigo o familiar
                         </Label>
-                    </Col>
-                    <Col sm={10}>
-
-                        <Input
-                            id="checkbox2"
-                            type="checkbox"
-                        />
-                        {' '}
+                        :
                         <Label check>
-                            Check me out
+                            Alguien
                         </Label>
-                    </Col>
-
-                </FormGroup>
-                <FormGroup row>
-                    <Label
-                        for="exampleText"
-                        sm={2}
-                    >
+                    }
+                </Col>
+                <Col>
+                    <Input
+                        id="checkbox2"
+                        type="checkbox"
+                    />
+                    {' '}
+                    <Label check>
+                        Instagram
                     </Label>
-                    <Col sm={10}>
+                </Col>
+                <Col>
+                    <Input
+                        id="checkbox2"
+                        type="checkbox"
+                    />
+                    {' '}
+                    <Label check>
+                        Google
+                    </Label>
+                </Col>
+                <Col>
+                    <Input
+                        id="checkbox2"
+                        type="checkbox"
+                    />
+                    {' '}
+                    {windowWidth > 960 ?
+                        <Label check>
+                            Meta (Facebook)
+                        </Label>
+                        :
+                        <Label check>
+                            Meta
+                        </Label>
+                    }
+                </Col>
+            </FormGroup>
+            <FormGroup row className='orientacion-izquierda-2'>
+                <Label
+                    for="exampleEmail"
+                    sm={3}
+                >
+                </Label>
+                <Col>
+                    <Input
+                        id="checkbox2"
+                        type="checkbox"
+                    />
+                    {' '}
+                    <Label check>
+                        Diario
+                    </Label>
+                </Col>
+                <Col>
+                    <Input
+                        id="checkbox2"
+                        type="checkbox"
+                    />
+                    {' '}
+                    <Label check>
+                        Revista
+                    </Label>
+                </Col>
+                <Col>
+                    <Input
+                        id="checkbox2"
+                        type="checkbox"
+                    />
+                    {' '}
+                    <Label check>
+                        Radio
+                    </Label>
+                </Col>
+                <Col className='pegado-derecha'>
+                    <Input
+                        id="checkbox2"
+                        type="checkbox"
+                    />
+                    {' '}
+                    <Label check className='pegado-derecha'>
+                        Otro:
+                    </Label>
+                </Col>
+                <Col sm='3'>
+                    <Input></Input>
+                </Col>
+            </FormGroup>
+        </div>
+    )
+}
+
+const ComponenteReducido = () => {
+    return (
+        <div>
+            <Label
+                for="exampleEmail"
+            >
+                Mail
+            </Label>
+            <Col>
+                <Input
+                    id="exampleEmail"
+                    name="email"
+                    placeholder="ejemplo@ejemplo.com"
+                    type="email"
+                />
+            </Col>
+            <br></br>
+            <Label
+                for="exampleEmail"
+            >
+                ¿Cómo supiste de nosotros? (Opcional)
+            </Label>
+            <Col>
+                <Input
+                    id="checkbox2"
+                    type="checkbox"
+                />
+                {' '}
+                <Label check>
+                    Amigo o familiar
+                </Label>
+            </Col>
+            <Col>
+                <Input
+                    id="checkbox2"
+                    type="checkbox"
+                />
+                {' '}
+                <Label check>
+                    Instagram
+                </Label>
+            </Col>
+            <Col>
+                <Input
+                    id="checkbox2"
+                    type="checkbox"
+                />
+                {' '}
+                <Label check>
+                    Google
+                </Label>
+            </Col>
+            <Col>
+                <Input
+                    id="checkbox2"
+                    type="checkbox"
+                />
+                {' '}
+                <Label check>
+                    Meta
+                </Label>
+            </Col>
+            <Col>
+                <Input
+                    id="checkbox2"
+                    type="checkbox"
+                />
+                {' '}
+                <Label check>
+                    Otro:
+                </Label>
+            </Col>
+            <Col>
+                <Input></Input>
+            </Col>
+            <br></br>
+        </div>
+    )
+}
+
+export const Contacto = () => {
+    const { windowWidth } = useResponsiveTools();
+    return (
+        <div className='fondo'>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Form className='text-white formulario margenes'>
+                {
+                    windowWidth >= 860 ?
+                        <ComponenteAmpliado />
+                        :
+                        <ComponenteReducido />
+                }
+                <FormGroup row>
+                    <Col sm={12}>
                         <Input
                             id="exampleText"
                             name="text"
                             type="textarea"
+                            placeholder='Mensaje'
                         />
                     </Col>
                 </FormGroup>
                 <FormGroup
-                    check
                     row
                 >
                     <Col
-                        sm={{
-                            offset: 2,
-                            size: 10
-                        }}
-                    >
+                        sm={2}
+                        className='orientacion-izquierda'>
                         <Button>
                             Enviar
                         </Button>
@@ -87,14 +256,6 @@ const Componente = () => {
                 </FormGroup>
                 <br></br>
             </Form>
-        </div>
-    )
-}
-
-export const Contacto = () => {
-    return (
-        <div>
-            <Componente />
         </div>
     )
 }

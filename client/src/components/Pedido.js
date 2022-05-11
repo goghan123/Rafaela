@@ -1,15 +1,17 @@
 import React, { useState, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../App.css';
+import '../estilos-todos.css';
 import {
     Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button, Col, Row
 } from 'reactstrap';
 import { listaDeArtesanias } from '../elements/listaDeArtesanias.js';
 import {
     TotalAmountContext,
-    CartContentContext, createCartContentObject
-} from './CartContent.js';
+    CartContentContext
+} from '../elements/cartContent.js';
 import { passToCommaFormat } from '../elements/someFunctions.js';
+import { useResponsiveTools } from '../elements/someFunctions.js';
+
 
 const listaParaHileras = [listaDeArtesanias];
 
@@ -91,82 +93,138 @@ const Artesania = (props) => {
     )
 }
 
-const SetOfButtons = (props) => {
+const SetOfButtons = () => {
+    const { windowWidth } = useResponsiveTools();
     return (
         <div className='container-fluid' key='botones-de-pedido'>
             <Row>
-                <Col sm="4">
-                    <div className="alineado-horizontal">
-                        <Button href="/pedido" onClick={props.vaciarCarrito}>
+                {
+                    windowWidth >= 768 &&
+                    < Col sm='4'>
+                        <div>
+                            {/* <Button href="/pedido" onClick={props.vaciarCarrito}>
                             Vaciar
-                        </Button>
-                    </div>
-                </Col>
-                <Col sm="4">
+                        </Button> */}
+                        </div>
+                    </Col>
+                }
+                <Col sm={windowWidth >= 768 ? '4' : '12'} className="alineado-horizontal">
                     <div className="input-group mb-3 alineado-horizontal">
-                        <Button className='disabled' onClick={() => { }}>Anterior</Button>
-                        <span className="input-group-text">Página 1 de 1</span>
-                        <Button className='disabled' onClick={() => { }}>Siguiente</Button>
+                        <Button className='disabled' onClick={() => { }}>{windowWidth >= 1180 ? "Anterior" : "<"}</Button>
+                        <span className="input-group-text">{windowWidth >= 1180 ? "Página 1 de 1" : "Pág. 1 de 1"}</span>
+                        <Button className='disabled' onClick={() => { }}>{windowWidth >= 1180 ? "Siguiente" : ">"}</Button>
                     </div>
                 </Col>
-                <Col sm="4">
-                    <div className="alineado-horizontal">
-                        <Button href="/carrito">
-                            Continuar al carrito
-                        </Button>
-                    </div>
-                </Col>
+
+                {
+                    windowWidth < 768 &&
+                    <Col sm='12'>
+                        <div className="alineado-horizontal">
+                            <Button href="/carrito">
+                                Continuar al carrito
+                            </Button>
+                        </div>
+                    </Col>
+                }
+                {
+                    windowWidth >= 768 &&
+                    <Col sm="4">
+                        <div className="alineado-horizontal">
+
+                            <Button href="/carrito">
+                                Continuar al carrito
+                            </Button>
+                        </div>
+                    </Col>
+                }
             </Row>
-        </div>
+        </div >
     )
 }
+// {windowWidth < 768 && <br></br>}
+
+// const SetOfButtons = (props) => {
+//     return (
+//         <div className='set-of-buttons' key='botones-de-pedido'>
+//             <Col sm='2'>
+//                 <div>
+//                     <Button href="/pedido" onClick={props.vaciarCarrito}>
+//                         Vaciar
+//                     </Button>
+//                 </div>
+//             </Col>
+//             <Col sm='5'>
+//                 <div className="input-group mb-3">
+//                     <Button className='disabled' onClick={() => { }}>Anterior</Button>
+//                     <span className="input-group-text">Página 1 de 1</span>
+//                     <Button className='disabled' onClick={() => { }}>Siguiente</Button>
+//                 </div>
+//             </Col>
+//             <Col sm='2'>
+//                 <div>
+//                     <Button href="/carrito">
+//                         Continuar al carrito
+//                     </Button>
+//                 </div>
+//             </Col>
+//         </div>
+//     )
+// }
 
 export const Pedido = () => {
     const { setTotalAmount } = useContext(TotalAmountContext);
-    const { cartContent, setCartContent } = useContext(CartContentContext);
+    const { cartContent } = useContext(CartContentContext);
     const references = Object.keys(cartContent);
 
     setTotalAmount(Object.values(cartContent).reduce(
         (previousValue, currentValue) => previousValue + currentValue,
         0
     ));
-    const vaciarCarrito = () => {
-        const emptyCart = createCartContentObject(references);
-        setCartContent(emptyCart);
-        setTotalAmount(0);
-        sessionStorage.setItem('cart-content', JSON.stringify(emptyCart));
-        sessionStorage.setItem('cart-amount', 0);
-    }
 
     let refCounter = 0;
+    const { windowWidth } = useResponsiveTools();
     return (
-        <div key='divPedido'>
-            <br></br>
-            <br></br>
-            <br></br>
-            <SetOfButtons vaciarCarrito={vaciarCarrito} />
-            {listaParaHileras.map((hilera) =>
-                <div className='container-fluid' key={hilera[0][4] + hilera[0][4]}>
-                    <Row>
-                        {hilera.map((artesania) => (
-                            <React.Fragment key={artesania[4]}>
-                                <Col sm="4" className='margen-horizontal'>
-                                    <Artesania
-                                        refe={references[refCounter++]}
-                                        title={artesania[0]}
-                                        subtitle={artesania[2]}
-                                        imageSource={artesania[1]}
-                                        description={artesania[3]}
-                                        priceInt={Number(artesania[7])}
-                                        priceDecimal={Number(artesania[8])} />
-                                </Col>
-                            </React.Fragment>
-                        ))}
-                    </Row>
-                    <br></br>
-                </div>
-            )}
-            <SetOfButtons vaciarCarrito={vaciarCarrito} />
+        <div className='fondo'>
+            <div className='margenes' key='divPedido'>
+                <br></br>
+                <br></br>
+                {
+                    windowWidth >= 768 &&
+                    <div>
+                        <br></br>
+                        <br></br>
+                    </div>
+                }
+                <SetOfButtons />
+                {
+                    windowWidth < 768 && <br></br>
+                }
+                {listaParaHileras.map((hilera) =>
+                    <div className='container-fluid' key={hilera[0][4] + hilera[0][4]}>
+                        <Row>
+                            {hilera.map((artesania) => (
+                                <React.Fragment key={artesania[4]}>
+                                    <Col sm={windowWidth >= 768 ? '4' : windowWidth < 768 && windowWidth > 650 ? '6' : '12'} className='margen-horizontal'>
+                                        <Artesania
+                                            refe={references[refCounter++]}
+                                            title={artesania[0]}
+                                            subtitle={artesania[2]}
+                                            imageSource={artesania[1]}
+                                            description={artesania[3]}
+                                            priceInt={Number(artesania[7])}
+                                            priceDecimal={Number(artesania[8])} />
+                                    </Col>
+                                </React.Fragment>
+                            ))}
+                        </Row>
+                    </div>
+                )}
+                <SetOfButtons />
+            </div>
+            {
+                windowWidth < 768 &&
+                <br></br>
+            }
         </div>
     )
 }

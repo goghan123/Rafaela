@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../App.css';
+import '../estilos-todos.css';
 import {
     Card, CardImg, CardBody, CardTitle, CardSubtitle, Button, Col, Row
 } from 'reactstrap';
-import { TotalAmountContext, CartContentContext } from './CartContent.js';
+import { TotalAmountContext, CartContentContext } from '../elements/cartContent.js';
 import { listaDeArtesanias } from '../elements/listaDeArtesanias.js';
-import { passToCommaFormat } from '../elements/someFunctions.js';
+import { passToCommaFormat, useResponsiveTools } from '../elements/someFunctions.js';
 
 const Articulo = (props) => {
     const [currentKey, getKey] = useState(9999);
@@ -15,7 +15,6 @@ const Articulo = (props) => {
         <div>
             <Card height='50px' width='50px'>
                 <CardImg
-                    width='80%'
                     alt="Img ilustrativa"
                     src={props.imageSource} />
                 <CardBody>
@@ -41,32 +40,20 @@ const Articulo = (props) => {
 
 const SetOfButtons = (props) => {
     return (
-        <div className='container-fluid' key='botonesDePedido'>
-            <Row>
-                <Col sm="5">
-                    <div className="orientacion-derecha">
-                        <Button href="/pedido" onClick={() => { }}>
-                            Volver al catálogo
-                        </Button>
-                    </div>
-                </Col>
-                <Col sm="2">
-                    <div className="input-group mb-3 alineado-horizontal">
-                        <span className="input-group-text"
-                        >Total en carrito: ${props.totalPrice}</span>
-                    </div>
-                </Col>
-                <Col sm="5">
-                    <div className="input-group mb-3">
-                        <Button className='disabled' onClick={() => { }}>
-                            Continuar
-                        </Button>
-                    </div>
-                </Col>
-            </Row>
+        <div className='cart-set-of-buttons' key='botonesDePedido'>
+            <Button href="/pedido" className='centrado' onClick={() => { }}>
+                Volver al catálogo
+            </Button>
+            <span className="input-group-text side-margins multiline">
+                Total: ${props.totalPrice}
+            </span>
+            <Button className='disabled' onClick={() => { }}>
+                Continuar
+            </Button>
         </div>
     )
 }
+
 const HayContenidoEnCarrito = (props) => {
     const priceToCommaFormat = (amount, priceInt, priceDecimal) => {
         const priceWithDot = typeof amount === 'undefined' ?
@@ -76,18 +63,28 @@ const HayContenidoEnCarrito = (props) => {
             ) * 100) / 100;
         return passToCommaFormat(priceWithDot);
     }
+    const { windowWidth } = useResponsiveTools();
     return (
-        <div key='hayContenidoEnCarrito'>
-            <br></br>
-            <br></br>
-            <br></br>
+        <div className='de-prueba' key='hayContenidoEnCarrito'>
+            {
+                windowWidth >= 768 &&
+                <div>
+                    <br></br>
+                    <br></br>
+                </div>
+            }
             <SetOfButtons key={0} totalPrice={priceToCommaFormat()} />
+            <br></br>
             {[props.contenido].map((hilera) =>
                 <div className='container-fluid' key={hilera[0][4] + hilera[0][4]}>
                     <Row>
                         {hilera.map((artesania) => (
                             <React.Fragment key={artesania[4]}>
-                                <Col sm="2" className='margen-horizontal'>
+                                <Col sm={
+                                    windowWidth > 1260 ? '3' :
+                                        windowWidth <= 1260 && windowWidth > 660 ? '4' :
+                                            windowWidth <= 660 && '6'}
+                                    className='margen-horizontal'>
                                     <Articulo
                                         refe={artesania[5]}
                                         title={artesania[0]}
@@ -103,10 +100,8 @@ const HayContenidoEnCarrito = (props) => {
                             </React.Fragment>
                         ))}
                     </Row>
-                    <br></br>
                 </div>
             )}
-            <SetOfButtons key={1} totalPrice={priceToCommaFormat()} />
         </div>
     )
 }
@@ -138,12 +133,13 @@ export const Cart = () => {
         0
     );
     return (
-        <div key='cart'>
-            {soloArtesaniasEnCarrito.length > 0 ?
-                <HayContenidoEnCarrito
-                    contenido={soloArtesaniasEnCarrito}
-                    totalPrice={totalPrice} /> :
-                <NoHayContenidoEnCarrito />
+        <div className='fondo'>
+            {
+                soloArtesaniasEnCarrito.length > 0 ?
+                    <HayContenidoEnCarrito
+                        contenido={soloArtesaniasEnCarrito}
+                        totalPrice={totalPrice} /> :
+                    <NoHayContenidoEnCarrito />
             }
         </div>
     )

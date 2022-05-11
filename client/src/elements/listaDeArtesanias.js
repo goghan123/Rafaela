@@ -1,4 +1,4 @@
-import { getCartContent } from '../components/CartContent.js';
+import { getCartContent } from './cartContent.js';
 export const newCartContent = getCartContent();
 const getReferenceNumbers = () => {
     const references = Object.keys(newCartContent);

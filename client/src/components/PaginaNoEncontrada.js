@@ -1,19 +1,13 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../App.css';
-
-const Componente = () => {
-    return (
-        <div className='App-header'>
-            <h1>Error 404. No encontramos la página que buscabas.</h1>
-        </div>
-    )
-}
+import '../estilos-todos.css';
 
 export const PaginaNoEncontrada = () => {
     return (
-        <div>
-            <Componente />
+        <div className='fondo'>
+            <div className='App-header margenes'>
+                <h1>Error 404. No encontramos la página que buscabas.</h1>
+            </div>
         </div>
     )
 }

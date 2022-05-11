@@ -11,20 +11,19 @@ import { BarraSuperior } from './components/BarraSuperior.js';
 import { BarraInferior } from './components/BarraInferior.js';
 import './App.css';
 import { SobreNosotros } from './components/SobreNosotros.js';
-import { Entregas } from './components/Entregas.js';
+import { Ubicacion } from './components/Ubicacion.js';
 import { Inicio } from './components/Inicio.js';
 import { Contacto } from './components/Contacto.js';
 import { Pedido } from './components/Pedido.js';
 import { PaginaNoEncontrada } from './components/PaginaNoEncontrada.js';
-import { TotalAmountContext } from './components/CartContent.js';
-import { CartContentContext } from './components/CartContent.js';
+import { TotalAmountContext } from './elements/cartContent.js';
+import { CartContentContext } from './elements/cartContent.js';
 import { Cart } from './components/Cart.js';
 import { newCartContent } from './elements/listaDeArtesanias.js';
 
 const General = (props) => {
     return (
         <div>
-            {document.title = 'Rafaela'}
             {props.contenido}
             <BarraInferior />
         </div>
@@ -64,7 +63,7 @@ class Main extends Component {
                                 <Route index element={<Inicio />}></Route>
                                 <Route path={'/pedido'} element={<Pedido />}></Route>
                                 <Route path={'/contacto'} element={<Contacto />}></Route>
-                                <Route path={'/entregas'} element={<Entregas />}></Route>
+                                <Route path={'/ubicacion'} element={<Ubicacion />}></Route>
                                 <Route path={'/sobre'} element={<SobreNosotros />}></Route>
                                 <Route path={'/carrito'} element={<Cart />}></Route>
                                 <Route path={'*'} element={<PaginaNoEncontrada />}></Route>

@@ -2,15 +2,18 @@ import React, { useContext, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../estilos-todos.css';
 import {
-    Nav, NavItem, NavLink, Navbar, Collapse, NavbarText, UncontrolledAlert
+    Nav, NavItem, NavLink, Navbar, Collapse, NavbarText, UncontrolledAlert, NavbarToggler
 } from 'reactstrap';
 import changuillo from '../elements/imagenes/changuito.svg';
-import { TotalAmountContext } from './CartContent.js';
+import { TotalAmountContext } from '../elements/cartContent.js';
+import { useResponsiveTools } from '../elements/someFunctions.js';
 
 export const BarraSuperior = () => {
+    const { hideItems, itemsAreVisible, windowWidth } = useResponsiveTools();
     const { carterTotalAmount } = useContext(TotalAmountContext);
     const showIt = localStorage.getItem('showCartHint');
-    showIt || localStorage.setItem('showCartHint', 'true');
+    const shouldShowCartHint = () => !showIt && windowWidth >= 768 ? true : false;
+    shouldShowCartHint() && localStorage.setItem('showCartHint', 'true');
     const [showCartHint, setCartHint] = useState(showIt === 'true' ? true : false);
     const onDismiss = () => {
         setCartHint(false);
@@ -19,9 +22,11 @@ export const BarraSuperior = () => {
     return (
         <div>
             <Navbar color="warning" expand="md" fixed="top" light className="fw-bold">
-                <Collapse navbar>
+                <NavbarToggler className='bar-toggler' onClick={hideItems} />
+                <Collapse navbar isOpen={itemsAreVisible}>
                     <Nav className="me-auto" navbar>
                         <NavItem>
+                            {windowWidth < 768 && <br></br>}
                             <NavLink href="/">
                                 Inicio
                             </NavLink>
@@ -32,7 +37,7 @@ export const BarraSuperior = () => {
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href='/entregas'>
+                            <NavLink href='/ubicacion'>
                                 Dónde estamos
                             </NavLink>
                         </NavItem>
@@ -46,22 +51,33 @@ export const BarraSuperior = () => {
                                 Contacto
                             </NavLink>
                         </NavItem>
+                        {
+                            windowWidth < 768 &&
+                            < NavbarText className='h4'>
+                                <NavLink href='/carrito'>
+                                    <img src={changuillo} alt='changuito' className='logo-mediano full-izq'></img>
+                                    {carterTotalAmount}
+                                </NavLink>
+                            </NavbarText>
+                        }
                     </Nav>
-                    <Nav>
-                        <NavItem key='MensajeDeAyuda'>
-                            <UncontrolledAlert color="info" isOpen={showCartHint} toggle={onDismiss}>
-                                Hacé clic en el changuito para ir al pedido
-                            </UncontrolledAlert>
-                        </NavItem>
-                    </Nav>
-                    <NavbarText className='h4'>
-                        <NavLink href='/carrito'>
-                            <img src={changuillo} alt='changuito' className='logo-mediano'></img>
-                            {carterTotalAmount}
-                        </NavLink>
-                    </NavbarText>
+                    {windowWidth >= 960 &&
+                        <UncontrolledAlert color="info" isOpen={showCartHint} toggle={onDismiss}>
+                            <div className='letra-mas-chica centrado'>Podés consultar el changuito</div>
+                            <div className='letra-mas-chica centrado'>en cualquier momento</div>
+                        </UncontrolledAlert>
+                    }
+                    {
+                        windowWidth >= 768 &&
+                        < NavbarText className='h4'>
+                            <NavLink href='/carrito'>
+                                <img src={changuillo} alt='changuito' className='logo-mediano'></img>
+                                {carterTotalAmount}
+                            </NavLink>
+                        </NavbarText>
+                    }
                 </Collapse>
             </Navbar>
-        </div>
+        </div >
     )
 }
