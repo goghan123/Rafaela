@@ -63,11 +63,19 @@ const HayContenidoEnCarrito = (props) => {
             ) * 100) / 100;
         return passToCommaFormat(priceWithDot);
     }
-    const { windowWidth } = useResponsiveTools();
+    const { windowWidth, windowHeight } = useResponsiveTools();
     return (
         <div className='de-prueba' key='hayContenidoEnCarrito'>
             {
-                windowWidth >= 768 &&
+                windowWidth < 575 &&
+                <div>
+                    <br></br>
+                    <br></br>
+                </div>
+            }
+            <br></br>
+            {
+                windowHeight < 768 &&
                 <div>
                     <br></br>
                     <br></br>
@@ -132,6 +140,7 @@ export const Cart = () => {
         (previousValue, currentValue) => previousValue + currentValue,
         0
     );
+
     return (
         <div className='fondo'>
             {

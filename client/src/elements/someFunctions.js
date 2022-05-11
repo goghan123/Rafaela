@@ -26,5 +26,14 @@ export const useResponsiveTools = () => {
     useEffect(() => {
         windowWidth < 768 && setItemsVisibility(false);
     }, [windowWidth]);
-    return { hideItems, itemsAreVisible, windowWidth };
+
+    const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+    useEffect(() => {
+        const changeWindowHeight = () => {
+            setWindowHeight(window.innerHeight);
+        }
+        window.addEventListener('resize', changeWindowHeight);
+        return () => window.removeEventListener('resize', changeWindowHeight);
+    })
+    return { hideItems, itemsAreVisible, windowWidth, windowHeight };
 }

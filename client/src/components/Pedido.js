@@ -101,11 +101,7 @@ const SetOfButtons = () => {
                 {
                     windowWidth >= 768 &&
                     < Col sm='4'>
-                        <div>
-                            {/* <Button href="/pedido" onClick={props.vaciarCarrito}>
-                            Vaciar
-                        </Button> */}
-                        </div>
+                        <div />
                     </Col>
                 }
                 <Col sm={windowWidth >= 768 ? '4' : '12'} className="alineado-horizontal">
@@ -115,7 +111,6 @@ const SetOfButtons = () => {
                         <Button className='disabled' onClick={() => { }}>{windowWidth >= 1180 ? "Siguiente" : ">"}</Button>
                     </div>
                 </Col>
-
                 {
                     windowWidth < 768 &&
                     <Col sm='12'>
@@ -130,7 +125,6 @@ const SetOfButtons = () => {
                     windowWidth >= 768 &&
                     <Col sm="4">
                         <div className="alineado-horizontal">
-
                             <Button href="/carrito">
                                 Continuar al carrito
                             </Button>
@@ -141,35 +135,6 @@ const SetOfButtons = () => {
         </div >
     )
 }
-// {windowWidth < 768 && <br></br>}
-
-// const SetOfButtons = (props) => {
-//     return (
-//         <div className='set-of-buttons' key='botones-de-pedido'>
-//             <Col sm='2'>
-//                 <div>
-//                     <Button href="/pedido" onClick={props.vaciarCarrito}>
-//                         Vaciar
-//                     </Button>
-//                 </div>
-//             </Col>
-//             <Col sm='5'>
-//                 <div className="input-group mb-3">
-//                     <Button className='disabled' onClick={() => { }}>Anterior</Button>
-//                     <span className="input-group-text">Página 1 de 1</span>
-//                     <Button className='disabled' onClick={() => { }}>Siguiente</Button>
-//                 </div>
-//             </Col>
-//             <Col sm='2'>
-//                 <div>
-//                     <Button href="/carrito">
-//                         Continuar al carrito
-//                     </Button>
-//                 </div>
-//             </Col>
-//         </div>
-//     )
-// }
 
 export const Pedido = () => {
     const { setTotalAmount } = useContext(TotalAmountContext);
@@ -188,13 +153,7 @@ export const Pedido = () => {
             <div className='margenes' key='divPedido'>
                 <br></br>
                 <br></br>
-                {
-                    windowWidth >= 768 &&
-                    <div>
-                        <br></br>
-                        <br></br>
-                    </div>
-                }
+                <br></br>
                 <SetOfButtons />
                 {
                     windowWidth < 768 && <br></br>

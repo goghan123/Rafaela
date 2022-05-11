@@ -6,9 +6,17 @@ import imagenCocinera from '../elements/imagenes/cocinera-chocolate.jpg';
 import { useResponsiveTools } from '../elements/someFunctions.js';
 
 const ComponenteAmpliado = (props) => {
-    const { windowWidth } = useResponsiveTools();
+    const { windowWidth, windowHeight } = useResponsiveTools();
     return (
         <div className='App-header margenes'>
+            {
+                windowHeight < 400 &&
+                <div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                </div>
+            }
             <div className='container-fluid' key='sobreNosotros'>
                 <Row height='400px'>
                     <Col className=''>
@@ -35,14 +43,28 @@ const ComponenteAmpliado = (props) => {
                         </div>
                     </Col>
                 </Row>
+                {
+                    windowHeight < 400 && <br></br>
+                }
             </div >
         </div >
     )
 }
 
 const ComponenteReducido = (props) => {
+    const { windowHeight } = useResponsiveTools();
     return (
         <div className='App-header margenes'>
+            {
+                windowHeight < 400 && <br></br>
+            }
+            {
+                windowHeight < 768 &&
+                <div>
+                    <br></br>
+                    <br></br>
+                </div>
+            }
             <div className='container-fluid' key='sobreNosotros'>
                 <h4 className=''>
                     {props.texto}
@@ -50,6 +72,9 @@ const ComponenteReducido = (props) => {
                 <br></br>
                 <img className='imagen-ancha' src={imagenCocinera} alt='cocinera'></img>
             </div>
+            {
+                windowHeight < 400 && <br></br>
+            }
         </div >
     )
 }

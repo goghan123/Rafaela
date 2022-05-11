@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../estilos-todos.css';
 import {
-    Nav, NavItem, NavLink, Navbar, Collapse, NavbarText, UncontrolledAlert, NavbarToggler
+    Nav, NavItem, NavLink, Navbar, Collapse, NavbarBrand, UncontrolledAlert, NavbarToggler
 } from 'reactstrap';
 import changuillo from '../elements/imagenes/changuito.svg';
 import { TotalAmountContext } from '../elements/cartContent.js';
@@ -21,12 +21,20 @@ export const BarraSuperior = () => {
     }
     return (
         <div>
-            <Navbar color="warning" expand="md" fixed="top" light className="fw-bold">
+            <Navbar color="warning" expand="md" fixed="top" light className="fw-bold py-0">
                 <NavbarToggler className='bar-toggler' onClick={hideItems} />
+                {
+                    windowWidth < 768 &&
+                    < NavbarBrand className='h4 full-der'>
+                        <NavLink href='/carrito' className='text-dark'>
+                            <img src={changuillo} alt='changuito' className='logo-mediano'></img>
+                            {carterTotalAmount}
+                        </NavLink>
+                    </NavbarBrand>
+                }
                 <Collapse navbar isOpen={itemsAreVisible}>
                     <Nav className="me-auto" navbar>
                         <NavItem>
-                            {windowWidth < 768 && <br></br>}
                             <NavLink href="/">
                                 Inicio
                             </NavLink>
@@ -51,15 +59,6 @@ export const BarraSuperior = () => {
                                 Contacto
                             </NavLink>
                         </NavItem>
-                        {
-                            windowWidth < 768 &&
-                            < NavbarText className='h4'>
-                                <NavLink href='/carrito'>
-                                    <img src={changuillo} alt='changuito' className='logo-mediano full-izq'></img>
-                                    {carterTotalAmount}
-                                </NavLink>
-                            </NavbarText>
-                        }
                     </Nav>
                     {windowWidth >= 960 &&
                         <UncontrolledAlert color="info" isOpen={showCartHint} toggle={onDismiss}>
@@ -67,16 +66,17 @@ export const BarraSuperior = () => {
                             <div className='letra-mas-chica centrado'>en cualquier momento</div>
                         </UncontrolledAlert>
                     }
-                    {
-                        windowWidth >= 768 &&
-                        < NavbarText className='h4'>
-                            <NavLink href='/carrito'>
-                                <img src={changuillo} alt='changuito' className='logo-mediano'></img>
-                                {carterTotalAmount}
-                            </NavLink>
-                        </NavbarText>
-                    }
+                    {itemsAreVisible && <hr></hr>}
                 </Collapse>
+                {
+                    windowWidth >= 768 &&
+                    < NavbarBrand className='h4 full-der'>
+                        <NavLink href='/carrito' className='text-dark'>
+                            <img src={changuillo} alt='changuito' className='logo-mediano'></img>
+                            {carterTotalAmount}
+                        </NavLink>
+                    </NavbarBrand>
+                }
             </Navbar>
         </div >
     )

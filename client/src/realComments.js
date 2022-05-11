@@ -10,12 +10,13 @@ SobreNosotros 04/05/2022
 PaginaNoEncontrada 05/05/2022
 Ubicacion 05/05/2022
 Pedido 06/05/2022
+Cart 11/05/2022
 
 
 
 
 Pendientes:
-Cart
+
 
 
 
@@ -897,32 +898,180 @@ margin-right: 0;
                                                 windowWidth <= 660 && '6'}
                                     className='margen-horizontal'> */}
 
-                                                        // width='80%'
+    // width='80%'
 
 
 
-                                                        
-// const HayContenidoEnCarrito = (props) => {
-//     const priceToCommaFormat = (amount, priceInt, priceDecimal) => {
-//         const priceWithDot = typeof amount === 'undefined' ?
-//             props.totalPrice :
-//             Math.round(amount * Number(
-//                 priceInt + '.' + priceDecimal
-//             ) * 100) / 100;
-//         return passToCommaFormat(priceWithDot);
-//     }
-//     const { windowWidth } = useResponsiveTools();
-//     return (
-//         <div className='margenes' key='hayContenidoEnCarrito'>
-//             <br></br>
-//             <br></br>
-//             <br></br>
-//             <br></br>
-//             <Row>
-//                 <Col>Hola</Col>
-//                 <Col>Hola</Col>
-//                 <Col>Hola</Col>
-//             </Row>
-//         </div>
-//     )
-// }
+
+    // const HayContenidoEnCarrito = (props) => {
+    //     const priceToCommaFormat = (amount, priceInt, priceDecimal) => {
+    //         const priceWithDot = typeof amount === 'undefined' ?
+    //             props.totalPrice :
+    //             Math.round(amount * Number(
+    //                 priceInt + '.' + priceDecimal
+    //             ) * 100) / 100;
+    //         return passToCommaFormat(priceWithDot);
+    //     }
+    //     const { windowWidth } = useResponsiveTools();
+    //     return (
+    //         <div className='margenes' key='hayContenidoEnCarrito'>
+    //             <br></br>
+    //             <br></br>
+    //             <br></br>
+    //             <br></br>
+    //             <Row>
+    //                 <Col>Hola</Col>
+    //                 <Col>Hola</Col>
+    //                 <Col>Hola</Col>
+    //             </Row>
+    //         </div>
+    //     )
+    // }
+
+
+    {/* {windowWidth < 768 && <br></br>} */ }
+    {
+        // windowWidth < 768 &&
+        // < NavbarText className='h4'>
+        //     <NavLink href='/carrito'>
+        //         <img src={changuillo} alt='changuito' className='logo-mediano full-izq'></img>
+        //         {carterTotalAmount}
+        //     </NavLink>
+        // </NavbarText>
+    }
+    {
+        // windowWidth >= 768 &&
+        // < NavbarText className='h4'>
+        //     <NavLink href='/carrito'>
+        //         <img src={changuillo} alt='changuito' className='logo-mediano'></img>
+        //         {carterTotalAmount}
+        //     </NavLink>
+        // </NavbarText>
+    }
+    {/* {
+                    !itemsAreVisible &&
+                    < NavbarText className='h4'>
+                        <NavLink href='/carrito'>
+                            <img src={changuillo} alt='changuito' className='logo-mediano'></img>
+                            {carterTotalAmount}
+                        </NavLink>
+                    </NavbarText>
+                } */}
+
+    /* html {
+min-width:fit-content;
+min-height: fit-content;
+} */
+
+    /* body {
+      min-width: 360px;
+      width: auto !important;
+      width: 360px;
+      min-height: 560px;
+      height: auto !important;
+      height: 560px;
+    } */
+
+
+    /* 
+    body {
+      min-width: 480px;
+      width: auto !important;
+      width: 480px;
+      min-height: 600px;
+      height: auto !important;
+      height: 600px;
+    } */
+
+    /* body {
+      min-width: 540px;
+      width: auto !important;
+      width: 540px;
+      min-height: 960px;
+      height: auto !important;
+      height: 960px;
+    } */
+
+    /* min-width: 70vh; */
+
+
+    /* min-width: 540px;
+    width: auto !important;
+    width: 540px;
+    min-height: 960px;
+    height: auto !important;
+    height: 960px; */
+
+    {
+        // windowWidth >= 768 &&
+        // <div>
+        //     <br></br>
+        //     <br></br>
+        // </div>
+    }
+
+    {
+        // windowWidth >= 768 &&
+        // <div>
+        //     <br></br>
+        //     <br></br>
+        // </div>
+    }
+
+    // {windowWidth < 768 && <br></br>}
+
+    // const SetOfButtons = (props) => {
+    //     return (
+    //         <div className='set-of-buttons' key='botones-de-pedido'>
+    //             <Col sm='2'>
+    //                 <div>
+    //                     <Button href="/pedido" onClick={props.vaciarCarrito}>
+    //                         Vaciar
+    //                     </Button>
+    //                 </div>
+    //             </Col>
+    //             <Col sm='5'>
+    //                 <div className="input-group mb-3">
+    //                     <Button className='disabled' onClick={() => { }}>Anterior</Button>
+    //                     <span className="input-group-text">Página 1 de 1</span>
+    //                     <Button className='disabled' onClick={() => { }}>Siguiente</Button>
+    //                 </div>
+    //             </Col>
+    //             <Col sm='2'>
+    //                 <div>
+    //                     <Button href="/carrito">
+    //                         Continuar al carrito
+    //                     </Button>
+    //                 </div>
+    //             </Col>
+    //         </div>
+    //     )
+    // }
+
+    {/* <Button href="/pedido" onClick={props.vaciarCarrito}>
+                            Vaciar
+                        </Button> */}
+
+                                    {/* {windowHeight < 768 && windowHeight >= 550 && windowWidth > 1400} */}
+      {/* {
+                windowHeight < 550 &&
+                <div>
+                    <br></br>
+                    <br></br>
+                </div>
+            } */}
+                // const { windowHeight } = useResponsiveTools();
+{/* {console.log(windowHeight)} */}
+            {/* {
+                windowHeight < 500 ?
+                    <div><br></br><br></br></div> : windowHeight < 650 ?
+                        <br></br> : <div />
+            } */}
+            {/* {
+                windowHeight < 530 &&
+                <div>
+                    <br></br>
+                    <br></br>
+                </div>
+            } */}
+            {/* <p className='text-white'>{windowHeight}</p> */}
