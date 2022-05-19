@@ -7,6 +7,7 @@ import {
 import { TotalAmountContext, CartContentContext } from '../elements/cartContent.js';
 import { listaDeArtesanias } from '../elements/listaDeArtesanias.js';
 import { passToCommaFormat, useResponsiveTools } from '../elements/someFunctions.js';
+import { RedesSociales } from './RedesSociales.js';
 
 const Articulo = (props) => {
     const [currentKey, getKey] = useState(9999);
@@ -41,7 +42,7 @@ const Articulo = (props) => {
 const SetOfButtons = (props) => {
     return (
         <div className='cart-set-of-buttons' key='botonesDePedido'>
-            <Button href="/pedido" className='centrado' onClick={() => { }}>
+            <Button href="/productos" className='centrado' onClick={() => { }}>
                 Volver al catálogo
             </Button>
             <span className="input-group-text side-margins multiline">
@@ -73,8 +74,7 @@ const HayContenidoEnCarrito = (props) => {
                     <br></br>
                 </div>
             }
-            <br></br>
-            {
+                {
                 windowHeight < 768 &&
                 <div>
                     <br></br>
@@ -119,7 +119,7 @@ const NoHayContenidoEnCarrito = () => {
         <div key='noHayContenidoEnCarrito' className='App-header'>
             <h1>El carrito aún está vacío</h1>
             <div className="orientacion-derecha">
-                <Button href="/pedido" onClick={() => { }}>
+                <Button href="/productos" onClick={() => { }}>
                     ¡Al catálogo!
                 </Button>
             </div>
@@ -150,6 +150,7 @@ export const Cart = () => {
                         totalPrice={totalPrice} /> :
                     <NoHayContenidoEnCarrito />
             }
+            <RedesSociales />
         </div>
     )
 }

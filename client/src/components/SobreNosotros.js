@@ -4,6 +4,8 @@ import { Col, Row } from 'reactstrap';
 import '../estilos-todos.css';
 import imagenCocinera from '../elements/imagenes/cocinera-chocolate.jpg';
 import { useResponsiveTools } from '../elements/someFunctions.js';
+import { RedesSociales } from './RedesSociales.js';
+
 
 const ComponenteAmpliado = (props) => {
     const { windowWidth, windowHeight } = useResponsiveTools();
@@ -90,6 +92,7 @@ export const SobreNosotros = () => {
                     :
                     <ComponenteReducido texto={texto} />
             }
+            <RedesSociales />
         </div>
     )
 }

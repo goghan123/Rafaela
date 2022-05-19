@@ -11,6 +11,7 @@ import {
 } from '../elements/cartContent.js';
 import { passToCommaFormat } from '../elements/someFunctions.js';
 import { useResponsiveTools } from '../elements/someFunctions.js';
+import { RedesSociales } from './RedesSociales.js';
 
 
 const listaParaHileras = [listaDeArtesanias];
@@ -136,7 +137,7 @@ const SetOfButtons = () => {
     )
 }
 
-export const Pedido = () => {
+export const Productos = () => {
     const { setTotalAmount } = useContext(TotalAmountContext);
     const { cartContent } = useContext(CartContentContext);
     const references = Object.keys(cartContent);
@@ -163,7 +164,10 @@ export const Pedido = () => {
                         <Row>
                             {hilera.map((artesania) => (
                                 <React.Fragment key={artesania[4]}>
-                                    <Col sm={windowWidth >= 768 ? '4' : windowWidth < 768 && windowWidth > 650 ? '6' : '12'} className='margen-horizontal'>
+                                    <Col sm={windowWidth >= 768 ?
+                                        '4' : windowWidth < 768 && windowWidth > 650 ?
+                                            '6' : '12'}
+                                        className='margen-horizontal'>
                                         <Artesania
                                             refe={references[refCounter++]}
                                             title={artesania[0]}
@@ -184,6 +188,7 @@ export const Pedido = () => {
                 windowWidth < 768 &&
                 <br></br>
             }
+            <RedesSociales />
         </div>
     )
 }

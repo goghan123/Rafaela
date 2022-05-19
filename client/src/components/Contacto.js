@@ -3,136 +3,38 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../estilos-todos.css';
 import { Form, FormGroup, Col, Input, Label, Button } from 'reactstrap';
 import { useResponsiveTools } from '../elements/someFunctions.js';
+import { RedesSociales } from './RedesSociales.js';
 
 
 const ComponenteAmpliado = () => {
-    const { windowWidth } = useResponsiveTools();
     return (
         <div>
             <FormGroup row>
                 <Label
-                    for="exampleEmail"
-                    sm={3}
-                >
+                    for="mailLabelOne"
+                    sm={3}>
                     Mail
                 </Label>
                 <Col sm={9}>
                     <Input
-                        id="exampleEmail"
+                        id="exampleEmailOne"
                         name="email"
                         placeholder="ejemplo@ejemplo.com"
-                        type="email"
-                    />
+                        type="email" />
                 </Col>
             </FormGroup>
-            <FormGroup row className='centrado'>
+            <FormGroup row>
                 <Label
-                    for="exampleEmail"
-                    sm={3}
-                >
-                    ¿Cómo supiste de nosotros? (Opcional)
+                    for="meetLabelOne"
+                    sm={3}>
+                    ¿Cómo supiste de nosotros?
                 </Label>
-                <Col>
+                <Col sm={9}>
                     <Input
-                        id="checkbox2"
-                        type="checkbox"
-                    />
-                    {' '}
-                    {windowWidth > 960 ?
-                        <Label check>
-                            Amigo o familiar
-                        </Label>
-                        :
-                        <Label check>
-                            Alguien
-                        </Label>
-                    }
-                </Col>
-                <Col>
-                    <Input
-                        id="checkbox2"
-                        type="checkbox"
-                    />
-                    {' '}
-                    <Label check>
-                        Instagram
-                    </Label>
-                </Col>
-                <Col>
-                    <Input
-                        id="checkbox2"
-                        type="checkbox"
-                    />
-                    {' '}
-                    <Label check>
-                        Google
-                    </Label>
-                </Col>
-                <Col>
-                    <Input
-                        id="checkbox2"
-                        type="checkbox"
-                    />
-                    {' '}
-                    {windowWidth > 960 ?
-                        <Label check>
-                            Meta (Facebook)
-                        </Label>
-                        :
-                        <Label check>
-                            Meta
-                        </Label>
-                    }
-                </Col>
-            </FormGroup>
-            <FormGroup row className='orientacion-izquierda-2'>
-                <Label
-                    for="exampleEmail"
-                    sm={3}
-                >
-                </Label>
-                <Col>
-                    <Input
-                        id="checkbox2"
-                        type="checkbox"
-                    />
-                    {' '}
-                    <Label check>
-                        Diario
-                    </Label>
-                </Col>
-                <Col>
-                    <Input
-                        id="checkbox2"
-                        type="checkbox"
-                    />
-                    {' '}
-                    <Label check>
-                        Revista
-                    </Label>
-                </Col>
-                <Col>
-                    <Input
-                        id="checkbox2"
-                        type="checkbox"
-                    />
-                    {' '}
-                    <Label check>
-                        Radio
-                    </Label>
-                </Col>
-                <Col className='pegado-derecha'>
-                    <Input
-                        id="checkbox2"
-                        type="checkbox"
-                    />
-                    {' '}
-                    <Label check className='pegado-derecha'>
-                        Otro:
-                    </Label>
-                </Col>
-                <Col sm='3'>
-                    <Input></Input>
+                        name='como-nos-conociste'
+                        type='text'
+                        placeholder="Por ejemplo, Instagram"
+                    ></Input>
                 </Col>
             </FormGroup>
         </div>
@@ -143,77 +45,29 @@ const ComponenteReducido = () => {
     return (
         <div>
             <Label
-                for="exampleEmail"
-            >
+                for="mailLabelTwo">
                 Mail
             </Label>
             <Col>
                 <Input
-                    id="exampleEmail"
+                    id="exampleEmailTwo"
                     name="email"
                     placeholder="ejemplo@ejemplo.com"
-                    type="email"
-                />
+                    type="email" />
             </Col>
             <br></br>
             <Label
-                for="exampleEmail"
-            >
+                for="meetLabelTwo">
                 ¿Cómo supiste de nosotros? (Opcional)
             </Label>
             <Col>
                 <Input
-                    id="checkbox2"
-                    type="checkbox"
-                />
-                {' '}
-                <Label check>
-                    Amigo o familiar
-                </Label>
+                    name='como-nos-conociste'
+                    type='text'
+                    placeholder="Por ejemplo, Instagram"
+                ></Input>
             </Col>
-            <Col>
-                <Input
-                    id="checkbox2"
-                    type="checkbox"
-                />
-                {' '}
-                <Label check>
-                    Instagram
-                </Label>
-            </Col>
-            <Col>
-                <Input
-                    id="checkbox2"
-                    type="checkbox"
-                />
-                {' '}
-                <Label check>
-                    Google
-                </Label>
-            </Col>
-            <Col>
-                <Input
-                    id="checkbox2"
-                    type="checkbox"
-                />
-                {' '}
-                <Label check>
-                    Meta
-                </Label>
-            </Col>
-            <Col>
-                <Input
-                    id="checkbox2"
-                    type="checkbox"
-                />
-                {' '}
-                <Label check>
-                    Otro:
-                </Label>
-            </Col>
-            <Col>
-                <Input></Input>
-            </Col>
+            <br></br>
             <br></br>
         </div>
     )
@@ -226,7 +80,10 @@ export const Contacto = () => {
             <br></br>
             <br></br>
             <br></br>
-            <Form className='text-white formulario margenes'>
+            <Form
+                action='https://formsubmit.co/e3a47b2b016d1e06ce6ec0df5e6908d2'
+                method='POST'
+                className='text-white formulario margenes'>
                 {
                     windowWidth >= 860 ?
                         <ComponenteAmpliado />
@@ -238,24 +95,23 @@ export const Contacto = () => {
                         <Input
                             id="exampleText"
                             name="text"
-                            type="textarea"
-                            placeholder='Mensaje'
-                        />
+                            type="text"
+                            placeholder='Mensaje' />
                     </Col>
                 </FormGroup>
                 <FormGroup
-                    row
-                >
+                    row>
                     <Col
                         sm={2}
                         className='orientacion-izquierda'>
-                        <Button>
+                        <Button type='submit'>
                             Enviar
                         </Button>
                     </Col>
                 </FormGroup>
                 <br></br>
             </Form>
+            <RedesSociales />
         </div>
     )
 }

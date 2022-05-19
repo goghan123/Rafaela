@@ -8,13 +8,12 @@ import {
 } from "react-router-dom";
 import './estilos-todos.css';
 import { BarraSuperior } from './components/BarraSuperior.js';
-import { BarraInferior } from './components/BarraInferior.js';
-import './App.css';
+// import { BarraInferior } from './components/BarraInferior.js';
 import { SobreNosotros } from './components/SobreNosotros.js';
-import { Ubicacion } from './components/Ubicacion.js';
+import { Entregas } from './components/Entregas.js';
 import { Inicio } from './components/Inicio.js';
 import { Contacto } from './components/Contacto.js';
-import { Pedido } from './components/Pedido.js';
+import { Productos } from './components/Productos.js';
 import { PaginaNoEncontrada } from './components/PaginaNoEncontrada.js';
 import { TotalAmountContext } from './elements/cartContent.js';
 import { CartContentContext } from './elements/cartContent.js';
@@ -25,7 +24,7 @@ const General = (props) => {
     return (
         <div>
             {props.contenido}
-            <BarraInferior />
+            {/* <BarraInferior /> */}
         </div>
     );
 }
@@ -61,9 +60,9 @@ class Main extends Component {
                         <Routes>
                             <Route path='/' element={<General contenido={<Outlet />} />}>
                                 <Route index element={<Inicio />}></Route>
-                                <Route path={'/pedido'} element={<Pedido />}></Route>
+                                <Route path={'/productos'} element={<Productos />}></Route>
                                 <Route path={'/contacto'} element={<Contacto />}></Route>
-                                <Route path={'/ubicacion'} element={<Ubicacion />}></Route>
+                                <Route path={'/entregas'} element={<Entregas />}></Route>
                                 <Route path={'/sobre'} element={<SobreNosotros />}></Route>
                                 <Route path={'/carrito'} element={<Cart />}></Route>
                                 <Route path={'*'} element={<PaginaNoEncontrada />}></Route>
