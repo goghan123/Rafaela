@@ -1522,3 +1522,229 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
                                 {/* <Button className='show-far' onClick={showLongRangeMap}>Ver</Button> */}
                                 // return false;
                                 {/* <span className='checkmark'></span> */}
+/* alto menos de 600 y ancho de entre 500 y 768 */
+
+.App {
+  text-align: center;
+}
+
+
+.to-the-left {
+  justify-content: flex-start;
+}
+
+
+.to-the-right {
+  justify-content: flex-end;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.izq {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+
+.logo-principal {
+  color: white;
+  height: 30vmin;
+  width: 100vh;
+  pointer-events: none;
+}
+
+.orientacion-izquierda-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: felx-start;
+  align-content: flex-start;
+}
+
+
+.orientacion-abajo {
+  vertical-align: bottom;
+}
+
+
+.pegado-derecha {
+  margin-right: 7;
+}
+
+
+.letra-mas-chica {
+  font-size: smaller;
+}
+
+
+.centrado2 {
+  vertical-align: middle;
+  align-content: center;
+  justify-content: center;
+  padding: 20% 0;
+}
+
+.centrado3 {
+  vertical-align: middle;
+  align-content: center;
+  justify-content: center;
+  padding: 20% 0;
+}
+
+
+.set-of-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+
+.no-side-margins {
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  width: fit-content;
+}
+
+
+.no-padding {
+  padding: 0;
+}
+
+
+.nueva-min-altura {
+  min-height: 600px;
+  height: auto !important;
+  height: 600px;
+}
+
+
+.yo-quiero-saber {
+  background-color: white;
+}
+
+
+.container-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+
+.slight-right-margin {
+  margin-right: 3px;
+}
+
+
+.more-right-margin {
+  margin-right: 30px;
+}
+
+
+.otra-prueba {
+  padding: 0px 0;
+  line-height: -40px;
+  height: 30px;
+}
+
+
+.mapa-alcance {
+  width: 80vw;
+  height: 80vh;
+}
+
+.absolute-position {
+  position: absolute;
+}
+
+.first-big-row {
+  display: grid;
+  grid-template-rows: 40px auto auto auto;
+  grid-template-columns: 35px auto;
+  align-content: center;
+}
+// import { BarraInferior } from './components/BarraInferior.js';
+            {/* <BarraInferior /> */}
+{
+                    // windowWidth < 768 &&
+                    // <NavbarBrand className='alineado-horizontal marca-rafaela full-centro mx-auto'>
+                    //     <NavLink className='h4 text-dark alineado-horizontal' href="/">
+                    //         Rafaela
+                    //     </NavLink>
+                    // </NavbarBrand>
+                }
+                
+// export const RedesSociales = () => {
+//     const hola = () => console.log('Click event');
+//     return (
+//         <div className='container-fluid fixed-now'>
+//             <Row>
+//                 <Col>
+//                     <NumTelefono />
+//                 </Col>
+//                 <Col>
+//                     <img src={logoWpp} alt='logo-wpp' onClick={hola} className='mini-logo-social'></img>
+//                 </Col>
+//             </Row>
+//             <br></br>
+//             <Row>
+//                 <Col>
+//                     <Instagram />
+//                 </Col>
+//                 <Col>
+//                     <img src={logoIg} alt='logo-ig' className='mini-logo-social'></img>
+//                 </Col>
+//             </Row>
+//         </div>
+//     )
+// }
+
+            {/* <div className={itemsAreVisible ?
+                'grid-element show' : 'grid-element show-not'}> */}
+            {/* <div className={itemsAreVisible ?
+                'grid-element show' : 'grid-element show-not'}> */}
+                                {/* <NumTelefono /> */}
+
+                {/* <Instagram /> */}
+                {
+                    // windowWidth < 768 &&
+                    // <div className='position-not-absolute'>
+                    //     <span>Hola</span>
+                    //     {/* <div className='map-place alineado-horizontal'>
+                    //     <embed className='background-map' src={baseGris} alt='no-map'></embed>
+                    //     <embed className={currentMap === 'show-far' ? 'show-map relative-position' : 'hide-map relative-position'} src={alcanceLejano} alt='far-map'></embed>
+                    //     <embed className={currentMap === 'show-medium' ? 'show-map relative-position' : 'hide-map relative-position'} src={alcanceMediano} alt='medium-map'></embed>
+                    //     <embed className={currentMap === 'show-close' ? 'show-map relative-position' : 'hide-map relative-position'} src={alcanceCercano} alt='close-map'></embed>
+                    // </div> */}
+                    // </div>
+                }
+                {/* </div> */}
+
+                    {/* {
+                        windowWidth < 768 &&
+                        <div className='position-not-absolute'>
+                            <div className='map-place alineado-horizontal'>
+                                <embed className='background-map' src={baseGris} alt='no-map'></embed>
+                                <embed className={currentMap === 'show-far' ? 'show-map relative-position' : 'hide-map relative-position'} src={alcanceLejano} alt='far-map'></embed>
+                                <embed className={currentMap === 'show-medium' ? 'show-map relative-position' : 'hide-map relative-position'} src={alcanceMediano} alt='medium-map'></embed>
+                                <embed className={currentMap === 'show-close' ? 'show-map relative-position' : 'hide-map relative-position'} src={alcanceCercano} alt='close-map'></embed>
+                            </div>
+                        </div>
+                    } */}
+                      {/* {windowWidth >= 768 &&
+                        <div> */}
+                            // const anyRadioIsChecked = closeRangeCheck === true || mediumRangeCheck === true || showCloseRangeMap === true ? true : false;
+// const Map = (props) => {
+//     return (
+//         <div className='map-place alineado-horizontal'>
+//             <embed className='background-map' src={baseGris} alt='no-map'></embed>
+//             <embed className={props.currentMap === 'show-far' ? 'show-map' : 'hide-map'} src={alcanceLejano} alt='far-map'></embed>
+//             <embed className={props.currentMap === 'show-medium' ? 'show-map' : 'hide-map'} src={alcanceMediano} alt='medium-map'></embed>
+//             <embed className={props.currentMap === 'show-close' ? 'show-map' : 'hide-map'} src={alcanceCercano} alt='close-map'></embed>
+//         </div>
+//     )
+// }
+// import { Button } from 'reactstrap';

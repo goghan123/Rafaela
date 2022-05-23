@@ -3,22 +3,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../estilos-todos.css';
 import { useResponsiveTools } from '../elements/someFunctions.js';
 import { RedesSociales } from './RedesSociales.js';
-// import { Button } from 'reactstrap';
 import alcanceCercano from '../elements/imagenes/alcance_cercanoSVG.svg';
 import alcanceMediano from '../elements/imagenes/alcance_medianoSVG.svg';
 import alcanceLejano from '../elements/imagenes/alcance_lejanoSVG.svg';
 import baseGris from '../elements/imagenes/base_grisSVG.svg';
-
-// const Map = (props) => {
-//     return (
-//         <div className='map-place alineado-horizontal'>
-//             <embed className='background-map' src={baseGris} alt='no-map'></embed>
-//             <embed className={props.currentMap === 'show-far' ? 'show-map' : 'hide-map'} src={alcanceLejano} alt='far-map'></embed>
-//             <embed className={props.currentMap === 'show-medium' ? 'show-map' : 'hide-map'} src={alcanceMediano} alt='medium-map'></embed>
-//             <embed className={props.currentMap === 'show-close' ? 'show-map' : 'hide-map'} src={alcanceCercano} alt='close-map'></embed>
-//         </div>
-//     )
-// }
 
 const Componente = () => {
     const { windowWidth } = useResponsiveTools();
@@ -53,30 +41,13 @@ const Componente = () => {
         showLongRangeMap();
         setAnyRadioIsChecked(true);
     }
-    // const anyRadioIsChecked = closeRangeCheck === true || mediumRangeCheck === true || showCloseRangeMap === true ? true : false;
 
     return (
         <div className='fondo'>
             <div className='App-header'>
                 <div className='margenes'>
-                    {/* {windowWidth >= 768 &&
-                        <div> */}
-                            <br></br>
-                            <br></br>
-                        {/* </div> */}
-                    {console.log(windowWidth)}
-
-                    {/* {
-                        windowWidth < 768 &&
-                        <div className='position-not-absolute'>
-                            <div className='map-place alineado-horizontal'>
-                                <embed className='background-map' src={baseGris} alt='no-map'></embed>
-                                <embed className={currentMap === 'show-far' ? 'show-map relative-position' : 'hide-map relative-position'} src={alcanceLejano} alt='far-map'></embed>
-                                <embed className={currentMap === 'show-medium' ? 'show-map relative-position' : 'hide-map relative-position'} src={alcanceMediano} alt='medium-map'></embed>
-                                <embed className={currentMap === 'show-close' ? 'show-map relative-position' : 'hide-map relative-position'} src={alcanceCercano} alt='close-map'></embed>
-                            </div>
-                        </div>
-                    } */}
+                    <br></br>
+                    <br></br>
                     <div className={windowWidth >= 768 && 'delivery-data-and-maps'}>
                         {
                             windowWidth < 768 &&
@@ -90,18 +61,6 @@ const Componente = () => {
                             </div>
                         }
                         <div className={windowWidth >= 768 ? 'delivery-container' : 'delivery-container broader-container'}>
-                            {
-                                // windowWidth < 768 &&
-                                // <div className='position-not-absolute'>
-                                //     <span>Hola</span>
-                                //     {/* <div className='map-place alineado-horizontal'>
-                                //     <embed className='background-map' src={baseGris} alt='no-map'></embed>
-                                //     <embed className={currentMap === 'show-far' ? 'show-map relative-position' : 'hide-map relative-position'} src={alcanceLejano} alt='far-map'></embed>
-                                //     <embed className={currentMap === 'show-medium' ? 'show-map relative-position' : 'hide-map relative-position'} src={alcanceMediano} alt='medium-map'></embed>
-                                //     <embed className={currentMap === 'show-close' ? 'show-map relative-position' : 'hide-map relative-position'} src={alcanceCercano} alt='close-map'></embed>
-                                // </div> */}
-                                // </div>
-                            }
                             <div>
                                 <div className='radio-container'>
                                     <input className='delivery-radio handy' name='delivery-radio' checked={closeRangeCheck} onChange={activateCloseRangeRadio} type='radio'></input>
@@ -111,19 +70,8 @@ const Componente = () => {
                                 </div>
                             </div>
                             <div className='delivery-item'>
-                                {
-                                    // windowWidth >= 1230 ?
                                     <h4 className={closeRangeCheck ? 'handy yellow-font' : 'handy'} onClick={activateCloseRangeRadio}>Envíos cortos: $500</h4>
-                                    // :
-                                    // <h5 className={closeRangeCheck ? 'handy yellow-font' : 'handy'} onClick={activateCloseRangeRadio}>Envíos cortos: $500</h5>
-                                }
-                                {
-                                    // windowWidth >= 1230 ?
                                     <h6>Pilar únicamente</h6>
-                                    //         :
-                                    //         <p>Pilar únicamente</p>
-                                    // 
-                                }
                             </div>
                             <div>
                                 <div className='radio-container'>
@@ -164,7 +112,6 @@ const Componente = () => {
                 <RedesSociales />
             </div>
         </div >
-        // </div >
     )
 }
 

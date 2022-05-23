@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import './estilos-todos.css';
 import { BarraSuperior } from './components/BarraSuperior.js';
-// import { BarraInferior } from './components/BarraInferior.js';
 import { SobreNosotros } from './components/SobreNosotros.js';
 import { Entregas } from './components/Entregas.js';
 import { Inicio } from './components/Inicio.js';
@@ -24,7 +23,6 @@ const General = (props) => {
     return (
         <div>
             {props.contenido}
-            {/* <BarraInferior /> */}
         </div>
     );
 }

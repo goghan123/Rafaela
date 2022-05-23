@@ -7,7 +7,7 @@ import { useResponsiveTools } from '../elements/someFunctions.js';
 import { RedesSociales } from './RedesSociales.js';
 
 
-const ComponenteAmpliado = (props) => {
+const ExpandedComponent = (props) => {
     const { windowWidth, windowHeight } = useResponsiveTools();
     return (
         <div className='App-header margenes'>
@@ -53,12 +53,12 @@ const ComponenteAmpliado = (props) => {
     )
 }
 
-const ComponenteReducido = (props) => {
+const ReducedComponent = (props) => {
     const { windowHeight } = useResponsiveTools();
     return (
         <div className='App-header margenes'>
             {
-                windowHeight < 400 && <br></br>
+                windowHeight < 500 && <br></br>
             }
             {
                 windowHeight < 768 &&
@@ -75,7 +75,7 @@ const ComponenteReducido = (props) => {
                 <img className='imagen-ancha' src={imagenCocinera} alt='cocinera'></img>
             </div>
             {
-                windowHeight < 400 && <br></br>
+                windowHeight < 500 && <br></br>
             }
         </div >
     )
@@ -88,9 +88,9 @@ export const SobreNosotros = () => {
         <div className='fondo'>
             {
                 windowWidth > 1200 ?
-                    <ComponenteAmpliado texto={texto} />
+                    <ExpandedComponent texto={texto} />
                     :
-                    <ComponenteReducido texto={texto} />
+                    <ReducedComponent texto={texto} />
             }
             <RedesSociales />
         </div>

@@ -74,7 +74,7 @@ const HayContenidoEnCarrito = (props) => {
                     <br></br>
                 </div>
             }
-                {
+            {
                 windowHeight < 768 &&
                 <div>
                     <br></br>

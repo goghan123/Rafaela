@@ -23,14 +23,6 @@ export const BarraSuperior = () => {
             <Navbar color="warning" expand="md" fixed="top" light className="fw-bold py-0 navbar-class">
                 <NavbarToggler className='bar-toggler' onClick={hideItems} />
                 {
-                    // windowWidth < 768 &&
-                    // <NavbarBrand className='alineado-horizontal marca-rafaela full-centro mx-auto'>
-                    //     <NavLink className='h4 text-dark alineado-horizontal' href="/">
-                    //         Rafaela
-                    //     </NavLink>
-                    // </NavbarBrand>
-                }
-                {
                     windowWidth < 768 &&
                     < NavbarBrand className='h4 full-der'>
                         <NavLink href='/carrito' className='text-dark'>

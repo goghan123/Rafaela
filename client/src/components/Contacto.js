@@ -77,41 +77,43 @@ export const Contacto = () => {
     const { windowWidth } = useResponsiveTools();
     return (
         <div className='fondo'>
-            <br></br>
-            <br></br>
-            <br></br>
-            <Form
-                action='https://formsubmit.co/e3a47b2b016d1e06ce6ec0df5e6908d2'
-                method='POST'
-                className='text-white formulario margenes'>
-                {
-                    windowWidth >= 860 ?
-                        <ComponenteAmpliado />
-                        :
-                        <ComponenteReducido />
-                }
-                <FormGroup row>
-                    <Col sm={12}>
-                        <Input
-                            id="exampleText"
-                            name="text"
-                            type="text"
-                            placeholder='Mensaje' />
-                    </Col>
-                </FormGroup>
-                <FormGroup
-                    row>
-                    <Col
-                        sm={2}
-                        className='orientacion-izquierda'>
-                        <Button type='submit'>
-                            Enviar
-                        </Button>
-                    </Col>
-                </FormGroup>
+            <div className='margins-for-contact'>
                 <br></br>
-            </Form>
-            <RedesSociales />
-        </div>
+                <br></br>
+                <br></br>
+                <Form
+                    action='https://formsubmit.co/e3a47b2b016d1e06ce6ec0df5e6908d2'
+                    method='POST'
+                    className='text-white formulario margenes'>
+                    {
+                        windowWidth >= 860 ?
+                            <ComponenteAmpliado />
+                            :
+                            <ComponenteReducido />
+                    }
+                    <FormGroup row>
+                        <Col sm={12}>
+                            <Input
+                                id="exampleText"
+                                name="text"
+                                type="text"
+                                placeholder='Mensaje' />
+                        </Col>
+                    </FormGroup>
+                    <FormGroup
+                        row>
+                        <Col
+                            sm={2}
+                            className='orientacion-izquierda'>
+                            <Button type='submit'>
+                                Enviar
+                            </Button>
+                        </Col>
+                    </FormGroup>
+                    <br></br>
+                </Form>
+                <RedesSociales />
+            </div>
+        </div >
     )
 }
