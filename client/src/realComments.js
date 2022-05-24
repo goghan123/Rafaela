@@ -1923,3 +1923,6 @@ export const handcraftsList = [
         "19",
         "00"
     ]];
+
+    // Para reactivar el gitignore del node_modules
+    /node_modules
