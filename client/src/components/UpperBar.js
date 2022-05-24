@@ -48,7 +48,7 @@ export const UpperBar = () => {
                         </NavItem>
                         <NavItem>
                             <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/delivery'>
-                                Delivery
+                                Delivry
                             </NavLink>
                         </NavItem>
                         <NavItem>
