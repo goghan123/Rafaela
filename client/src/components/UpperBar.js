@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../estilos-todos.css';
+import '../styles.css';
 import {
     Nav, NavItem, NavLink, Navbar, Collapse, NavbarBrand, NavbarToggler
 } from 'reactstrap';
-import changuillo from '../elements/imagenes/changuito.svg';
+import carty from '../elements/images/carty.svg';
 import { TotalAmountContext } from '../elements/cartContent.js';
 import { useResponsiveTools } from '../elements/someFunctions.js';
 
-export const BarraSuperior = () => {
+export const UpperBar = () => {
     const { hideItems, itemsAreVisible, windowWidth } = useResponsiveTools();
     const { carterTotalAmount } = useContext(TotalAmountContext);
 
@@ -24,9 +24,9 @@ export const BarraSuperior = () => {
                 <NavbarToggler className='bar-toggler' onClick={hideItems} />
                 {
                     windowWidth < 768 &&
-                    < NavbarBrand className='h4 full-der'>
+                    < NavbarBrand className='h4 full-right'>
                         <NavLink href='/carrito' className='text-dark'>
-                            <img src={changuillo} alt='changuito' className='logo-mediano'></img>
+                            <img src={carty} alt='cart' className='medium-logo'></img>
                             {carterTotalAmount}
                         </NavLink>
                     </NavbarBrand>
@@ -66,9 +66,9 @@ export const BarraSuperior = () => {
                 </Collapse>
                 {
                     windowWidth >= 768 &&
-                    < NavbarBrand className='h4 full-der'>
+                    < NavbarBrand className='h4 full-right'>
                         <NavLink href='/carrito' className='text-dark'>
-                            <img src={changuillo} alt='changuito' className='logo-mediano'></img>
+                            <img src={carty} alt='cart' className='medium-logo'></img>
                             {carterTotalAmount}
                         </NavLink>
                     </NavbarBrand>

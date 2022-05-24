@@ -1,22 +1,22 @@
 import React, { useState, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../estilos-todos.css';
+import '../styles.css';
 import {
     Card, CardImg, CardBody, CardTitle, CardSubtitle, Button, Col, Row
 } from 'reactstrap';
 import { TotalAmountContext, CartContentContext } from '../elements/cartContent.js';
-import { listaDeArtesanias } from '../elements/listaDeArtesanias.js';
+import { handcraftsList } from '../elements/handcraftsList.js';
 import { passToCommaFormat, useResponsiveTools } from '../elements/someFunctions.js';
-import { RedesSociales } from './RedesSociales.js';
+import { SocialNetworks } from './SocialNetworks.js';
 
-const Articulo = (props) => {
+const Article = (props) => {
     const [currentKey, getKey] = useState(9999);
     const newKey = () => getKey(currentKey + 1);
     return (
         <div>
             <Card height='50px' width='50px'>
                 <CardImg
-                    alt="Img ilustrativa"
+                    alt="illustrative_image"
                     src={props.imageSource} />
                 <CardBody>
                     <CardTitle className="text-dark" tag="h5">
@@ -41,8 +41,8 @@ const Articulo = (props) => {
 
 const SetOfButtons = (props) => {
     return (
-        <div className='cart-set-of-buttons' key='botonesDePedido'>
-            <Button href="/productos" className='centrado' onClick={() => { }}>
+        <div className='cart-set-of-buttons' key='orderButtons'>
+            <Button href="/productos" className='centered' onClick={() => { }}>
                 Volver al catálogo
             </Button>
             <span className="input-group-text side-margins multiline">
@@ -55,7 +55,7 @@ const SetOfButtons = (props) => {
     )
 }
 
-const HayContenidoEnCarrito = (props) => {
+const HaveContentInCart = (props) => {
     const priceToCommaFormat = (amount, priceInt, priceDecimal) => {
         const priceWithDot = typeof amount === 'undefined' ?
             props.totalPrice :
@@ -66,44 +66,34 @@ const HayContenidoEnCarrito = (props) => {
     }
     const { windowWidth, windowHeight } = useResponsiveTools();
     return (
-        <div className='de-prueba' key='hayContenidoEnCarrito'>
-            {
-                windowWidth < 575 &&
-                <div>
-                    <br></br>
-                    <br></br>
-                </div>
-            }
-            {
-                windowHeight < 768 &&
-                <div>
-                    <br></br>
-                    <br></br>
-                </div>
-            }
-            <SetOfButtons key={0} totalPrice={priceToCommaFormat()} />
+        <div className='content-in-cart' key='haveContentInCart'>
             <br></br>
-            {[props.contenido].map((hilera) =>
-                <div className='container-fluid' key={hilera[0][4] + hilera[0][4]}>
+            <br></br>
+            <br></br>
+            <SetOfButtons key={0} totalPrice={priceToCommaFormat()} />
+            {console.log(windowHeight)}
+            <br></br>
+            {[props.content].map((row) =>
+                <div className='container-fluid' key={row[0][4] + row[0][4]}>
                     <Row>
-                        {hilera.map((artesania) => (
-                            <React.Fragment key={artesania[4]}>
+                        {row.map((handcraft) => (
+                            <React.Fragment key={handcraft[4]}>
                                 <Col sm={
                                     windowWidth > 1260 ? '3' :
                                         windowWidth <= 1260 && windowWidth > 660 ? '4' :
                                             windowWidth <= 660 && '6'}
-                                    className='margen-horizontal'>
-                                    <Articulo
-                                        refe={artesania[5]}
-                                        title={artesania[0]}
-                                        subtitle={artesania[2]}
-                                        imageSource={artesania[1]}
-                                        description={artesania[3]}
-                                        amount={artesania[6]}
-                                        priceInt={artesania[7]}
-                                        priceDecimal={artesania[8]}
+                                    className='horizontal-margin'>
+                                    <Article
+                                        refe={handcraft[5]}
+                                        title={handcraft[0]}
+                                        subtitle={handcraft[2]}
+                                        imageSource={handcraft[1]}
+                                        description={handcraft[3]}
+                                        amount={handcraft[6]}
+                                        priceInt={handcraft[7]}
+                                        priceDecimal={handcraft[8]}
                                         localPrice={priceToCommaFormat(
-                                            artesania[6], artesania[7], artesania[8])} />
+                                            handcraft[6], handcraft[7], handcraft[8])} />
                                 </Col>
                             </React.Fragment>
                         ))}
@@ -114,11 +104,11 @@ const HayContenidoEnCarrito = (props) => {
     )
 }
 
-const NoHayContenidoEnCarrito = () => {
+const NoContentInCart = () => {
     return (
-        <div key='noHayContenidoEnCarrito' className='App-header'>
+        <div key='noContentInCart' className='App-header'>
             <h1>El carrito aún está vacío</h1>
-            <div className="orientacion-derecha">
+            <div className="right-oriented">
                 <Button href="/productos" onClick={() => { }}>
                     ¡Al catálogo!
                 </Button>
@@ -134,23 +124,23 @@ export const Cart = () => {
         (previousValue, currentValue) => previousValue + currentValue,
         0
     ));
-    const soloArtesaniasEnCarrito = listaDeArtesanias.filter((el) => el[6] > 0);
-    const localPrices = soloArtesaniasEnCarrito.map((el) => el[6] * Number(el[7] + '.' + el[8]));
+    const onlyHandcraftsInCart = handcraftsList.filter((el) => el[6] > 0);
+    const localPrices = onlyHandcraftsInCart.map((el) => el[6] * Number(el[7] + '.' + el[8]));
     const totalPrice = localPrices.reduce(
         (previousValue, currentValue) => previousValue + currentValue,
         0
     );
 
     return (
-        <div className='fondo'>
+        <div className='background'>
             {
-                soloArtesaniasEnCarrito.length > 0 ?
-                    <HayContenidoEnCarrito
-                        contenido={soloArtesaniasEnCarrito}
+                onlyHandcraftsInCart.length > 0 ?
+                    <HaveContentInCart
+                        content={onlyHandcraftsInCart}
                         totalPrice={totalPrice} /> :
-                    <NoHayContenidoEnCarrito />
+                    <NoContentInCart />
             }
-            <RedesSociales />
+            <SocialNetworks />
         </div>
     )
 }

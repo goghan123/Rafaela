@@ -1,12 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../estilos-todos.css';
+import '../styles.css';
 import { Form, FormGroup, Col, Input, Label, Button } from 'reactstrap';
 import { useResponsiveTools } from '../elements/someFunctions.js';
-import { RedesSociales } from './RedesSociales.js';
+import { SocialNetworks } from './SocialNetworks.js';
 
 
-const ComponenteAmpliado = () => {
+const LargerComponent = () => {
     return (
         <div>
             <FormGroup row>
@@ -41,7 +41,7 @@ const ComponenteAmpliado = () => {
     )
 }
 
-const ComponenteReducido = () => {
+const ReducedComponent = () => {
     return (
         <div>
             <Label
@@ -73,10 +73,10 @@ const ComponenteReducido = () => {
     )
 }
 
-export const Contacto = () => {
+export const Contact = () => {
     const { windowWidth } = useResponsiveTools();
     return (
-        <div className='fondo'>
+        <div className='background'>
             <div className='margins-for-contact'>
                 <br></br>
                 <br></br>
@@ -84,12 +84,12 @@ export const Contacto = () => {
                 <Form
                     action='https://formsubmit.co/e3a47b2b016d1e06ce6ec0df5e6908d2'
                     method='POST'
-                    className='text-white formulario margenes'>
+                    className='text-white custom-form margenes'>
                     {
                         windowWidth >= 860 ?
-                            <ComponenteAmpliado />
+                            <LargerComponent />
                             :
-                            <ComponenteReducido />
+                            <ReducedComponent />
                     }
                     <FormGroup row>
                         <Col sm={12}>
@@ -104,7 +104,7 @@ export const Contacto = () => {
                         row>
                         <Col
                             sm={2}
-                            className='orientacion-izquierda'>
+                            className='left-oriented'>
                             <Button type='submit'>
                                 Enviar
                             </Button>
@@ -112,7 +112,7 @@ export const Contacto = () => {
                     </FormGroup>
                     <br></br>
                 </Form>
-                <RedesSociales />
+                <SocialNetworks />
             </div>
         </div >
     )

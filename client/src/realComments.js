@@ -1538,10 +1538,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
   justify-content: flex-end;
 }
 
-.btn:focus {
-  outline: none;
-  box-shadow: none;
-}
+
 
 .izq {
   margin-left: auto;
@@ -1748,3 +1745,85 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 //     )
 // }
 // import { Button } from 'reactstrap';
+
+
+// vieja barra inferior
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import {
+    Nav, NavItem, Navbar, NavbarText
+} from 'reactstrap';
+import logoWpp from '../elements/imagenes/logo-wpp.svg';
+import logoIg from '../elements/imagenes/logo-ig.svg';
+import '../estilos-todos.css';
+import { useResponsiveTools } from '../elements/someFunctions.js';
+
+export const BarraInferior = () => {
+    const { windowWidth } = useResponsiveTools();
+    return (
+        <div>
+            <Navbar color="warning" light>
+                <Nav navbar>
+                    <NavItem className={windowWidth <= 576 ? 'letra-chica' : ''}>
+                        <NavbarText>
+                            <img src={logoWpp} className="mini-logo" alt="logo-wpp" />
+                            +99 999 9999 9999
+                        </NavbarText>
+                        <NavbarText>
+                            <img src={logoIg} className="mini-logo" alt="logo-ig" />
+                            @Rafaela.chocolates
+                        </NavbarText>
+                    </NavItem>
+                </Nav>
+            </Navbar>
+        </div>
+    )
+}
+
+
+.letra-chica {
+    font-size: small;
+  }
+
+  // Estos estaban antes como sistema receptivo frente al componente de carrito
+  
+  {
+    // windowWidth < 575 &&
+    // <div>
+    //     <br></br>
+    // </div>
+}
+{
+    // windowHeight < 768 &&
+    // <div>
+
+    // </div>
+}
+
+
+// se probó agregar una infraestructura de dualidad de idiomas a la página pero se dio la vuelta
+// lo que se hizo fue agregar esto al Main.js
+
+export const languageContext = React.createContext();
+
+//ENG: language const can be 'spanish' or 'english'
+//ESP: el const language puede ser español ('spanish') o inglés ('english')
+const language = 'español';
+<languageContext.Provider
+            value={language}></languageContext.Provider>
+            </languageContext.Provider>
+
+// y esto a la única subpágina donde se hizo la pruebaç
+import { languageContext } from '../Main.js';
+
+const language = useContext(languageContext);
+const languageIndex = language === 'español' ? 0 : 1;
+const buttonText1 = ['Anterior', 'Previous'];
+const buttonText2 = ["Página 1 de 1", 'Page 1 of 1'];
+const buttonText3 = ["Pág. 1 de 1", 'Page 1 of 1'];
+const buttonText4 = ['Siguiente', 'Next'];
+const buttonText5 = ['Continuar al carrito', 'Continue to cart'];
+
+
+// y cosas así a cada elemento de los componentes:
+{button1[languageIndex]}

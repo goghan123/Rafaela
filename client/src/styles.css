@@ -21,7 +21,7 @@ body {
   color: white;
 }
 
-.alineado-horizontal {
+.horizontal-alligned {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -44,37 +44,33 @@ body {
   vertical-align: middle;
 }
 
-.logo-mediano {
+.medium-logo {
   height: 40px;
   margin-left: 10px;
   margin-right: 5px;
   vertical-align: middle;
 }
 
-.full-der {
+.full-right {
   margin-right: 0;
   justify-content: right;
 }
 
-.orientacion-izquierda {
+.left-oriented {
   display: flex;
   flex-direction: row;
   justify-content: left;
   align-items: center;
 }
 
-.letra-chica {
-  font-size: small;
-}
-
-.orientacion-derecha {
+.right-oriented {
   display: flex;
   flex-direction: row;
   justify-content: right;
   align-items: center;
 }
 
-.margen-horizontal {
+.horizontal-margin {
   margin-bottom: 25px;
 }
 
@@ -82,7 +78,7 @@ body {
   margin-left: 55px;
 }
 
-.imagen-mediana {
+.medium-image {
   vertical-align: middle;
   align-content: center;
   justify-content: center;
@@ -92,7 +88,7 @@ body {
   max-height: 100%;
 }
 
-.imagen-ancha {
+.broad-image {
   vertical-align: middle;
   align-content: center;
   justify-content: center;
@@ -100,24 +96,26 @@ body {
   height: 100%;
 }
 
-.fondo {
+.background {
   background-color: #282c34;
   background-size: cover;
 }
 
-.margenes {
+.margins {
   margin-left: 8vw;
   margin-right: 8vw;
 }
 
-.formulario {
+.custom-form {
   justify-content: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.centrado {
+.centered-image {
+  margin-top: 50px;
+  margin-bottom: 50px;
   vertical-align: middle;
   align-content: center
 }
@@ -126,7 +124,6 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-
 }
 
 .side-margins {
@@ -138,7 +135,7 @@ body {
   white-space: pre-wrap;
 }
 
-.de-prueba {
+.content-in-cart {
   margin-left: 8%;
   margin-right: 8%;
   background-size: 100%;
@@ -208,6 +205,11 @@ body {
 
 .grid-element {
   padding: 5px 10px;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .data {

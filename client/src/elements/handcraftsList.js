@@ -10,7 +10,7 @@ const getLocalAmounts = () => {
     return amounts;
 }
 const localAmounts = getLocalAmounts();
-export const listaDeArtesanias = [
+export const handcraftsList = [
     [
         'Bombón con ganache',
         'https://cdn.shopify.com/s/files/1/0247/3731/6909/products/Chocolateartesanal_almendra05_cuadrado_1024x1024.jpg?v=1633796874',

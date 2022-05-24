@@ -1,25 +1,25 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import logoWpp from '../elements/imagenes/logo-wpp.svg';
-import logoIg from '../elements/imagenes/logo-ig.svg';
-import '../estilos-todos.css';
+import logoWpp from '../elements/images/logo-wpp.svg';
+import logoIg from '../elements/images/logo-ig.svg';
+import '../styles.css';
 import { useResponsiveTools } from '../elements/someFunctions.js';
 
-const NumTelefono = () => {
+const CellNumber = () => {
     return (
         <div className='data'>
-            <p className='social-networks-text alineado-horizontal'>+99 999 9999 9999</p>
+            <p className='social-networks-text horizontal-alligned'>+99 999 9999 9999</p>
         </div>
     )
 }
 const Instagram = () => {
     return (
         <div className='data'>
-            <p className='social-networks-text alineado-horizontal'>@Rafaela.chocolates</p>
+            <p className='social-networks-text horizontal-alligned'>@Rafaela.chocolates</p>
         </div >
     )
 }
-export const RedesSociales = () => {
+export const SocialNetworks = () => {
     const { windowWidth, hideItems, itemsAreVisible } = useResponsiveTools();
     return (
         <div className={windowWidth >= 768 ?
@@ -27,7 +27,7 @@ export const RedesSociales = () => {
                 'grid-container fixed-now mid-margin' : windowWidth <= 650 && windowWidth > 500 ?
                 'grid-container fixed-now tiny-margin': 'grid-container fixed-now tiniest-margin'}>
             <div className='grid-element'>
-                {itemsAreVisible && <NumTelefono />}
+                {itemsAreVisible && <CellNumber />}
             </div>
             <div className='grid-element handy'>
                 <img src={logoWpp} alt='logo-wpp' onClick={hideItems} className='mini-logo-social'></img>

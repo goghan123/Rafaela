@@ -1,15 +1,15 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../estilos-todos.css';
-import logoCentral from '../elements/imagenes/logo-central.svg';
+import '../styles.css';
+import centralLogo from '../elements/images/central-logo.svg';
 import { useResponsiveTools } from '../elements/someFunctions.js';
-import { RedesSociales } from './RedesSociales.js';
+import { SocialNetworks } from './SocialNetworks.js';
 
-const ComponenteLocal = () => {
+const LocalComponent = () => {
     const { windowHeight } = useResponsiveTools();
     return (
         <div className='App-header'>
-            <div className='margenes'>
+            <div className='margins'>
                 <br></br>
                 {
                     windowHeight < 530 &&
@@ -18,19 +18,19 @@ const ComponenteLocal = () => {
                         <br></br>
                     </div>
                 }
-                <div className='centrado' key='sobreNosotros'>
-                    <img src={logoCentral} className="imagen-mediana" alt="logo" />
+                <div className='centered' key='home'>
+                    <img src={centralLogo} className="medium-image" alt="logo" />
                 </div>
             </div >
-            <RedesSociales />
+            <SocialNetworks />
         </div>
     )
 }
 
-export const Inicio = () => {
+export const Home = () => {
     return (
-        <div className='fondo'>
-            <ComponenteLocal />
+        <div className='background'>
+            <LocalComponent />
         </div>
     )
 }

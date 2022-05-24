@@ -1,20 +1,19 @@
 import React, { useState, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../estilos-todos.css';
+import '../styles.css';
 import {
     Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button, Col, Row
 } from 'reactstrap';
-import { listaDeArtesanias } from '../elements/listaDeArtesanias.js';
+import { handcraftsList } from '../elements/handcraftsList.js';
 import {
     TotalAmountContext,
     CartContentContext
 } from '../elements/cartContent.js';
 import { passToCommaFormat } from '../elements/someFunctions.js';
 import { useResponsiveTools } from '../elements/someFunctions.js';
-import { RedesSociales } from './RedesSociales.js';
+import { SocialNetworks } from './SocialNetworks.js';
 
-
-const listaParaHileras = [listaDeArtesanias];
+const rowsList = [handcraftsList];
 
 const useNewValues = () => {
     const [currentKey, getKey] = useState(999);
@@ -22,13 +21,13 @@ const useNewValues = () => {
     return newKey;
 }
 
-const Artesania = (props) => {
+const Handcraft = (props) => {
     const { carterTotalAmount, setTotalAmount } = useContext(TotalAmountContext);
     const { cartContent, setCartContent } = useContext(CartContentContext);
 
-    const referenciaDeArtesania = JSON.parse(
+    const handcraftReference = JSON.parse(
         sessionStorage.getItem('cart-content'))[props.refe];
-    const [localAmount, getAmount] = useState(referenciaDeArtesania);
+    const [localAmount, getAmount] = useState(handcraftReference);
 
     const getLocalPrice = (operation) => {
         const localPriceWithDot = Math.round((localAmount + operation) * Number(
@@ -97,7 +96,7 @@ const Artesania = (props) => {
 const SetOfButtons = () => {
     const { windowWidth } = useResponsiveTools();
     return (
-        <div className='container-fluid' key='botones-de-pedido'>
+        <div className='container-fluid' key='products-buttons'>
             <Row>
                 {
                     windowWidth >= 768 &&
@@ -105,8 +104,8 @@ const SetOfButtons = () => {
                         <div />
                     </Col>
                 }
-                <Col sm={windowWidth >= 768 ? '4' : '12'} className="alineado-horizontal">
-                    <div className="input-group mb-3 alineado-horizontal">
+                <Col sm={windowWidth >= 768 ? '4' : '12'} className="horizontal-alligned">
+                    <div className="input-group mb-3 horizontal-alligned">
                         <Button className='disabled' onClick={() => { }}>{windowWidth >= 1180 ? "Anterior" : "<"}</Button>
                         <span className="input-group-text">{windowWidth >= 1180 ? "Página 1 de 1" : "Pág. 1 de 1"}</span>
                         <Button className='disabled' onClick={() => { }}>{windowWidth >= 1180 ? "Siguiente" : ">"}</Button>
@@ -115,7 +114,7 @@ const SetOfButtons = () => {
                 {
                     windowWidth < 768 &&
                     <Col sm='12'>
-                        <div className="alineado-horizontal">
+                        <div className="horizontal-alligned">
                             <Button href="/carrito">
                                 Continuar al carrito
                             </Button>
@@ -125,7 +124,7 @@ const SetOfButtons = () => {
                 {
                     windowWidth >= 768 &&
                     <Col sm="4">
-                        <div className="alineado-horizontal">
+                        <div className="horizontal-alligned">
                             <Button href="/carrito">
                                 Continuar al carrito
                             </Button>
@@ -137,7 +136,7 @@ const SetOfButtons = () => {
     )
 }
 
-export const Productos = () => {
+export const Products = () => {
     const { setTotalAmount } = useContext(TotalAmountContext);
     const { cartContent } = useContext(CartContentContext);
     const references = Object.keys(cartContent);
@@ -150,8 +149,8 @@ export const Productos = () => {
     let refCounter = 0;
     const { windowWidth } = useResponsiveTools();
     return (
-        <div className='fondo'>
-            <div className='margenes' key='divPedido'>
+        <div className='background'>
+            <div className='margins' key='orderDiv'>
                 <br></br>
                 <br></br>
                 <br></br>
@@ -159,23 +158,23 @@ export const Productos = () => {
                 {
                     windowWidth < 768 && <br></br>
                 }
-                {listaParaHileras.map((hilera) =>
-                    <div className='container-fluid' key={hilera[0][4] + hilera[0][4]}>
+                {rowsList.map((row) =>
+                    <div className='container-fluid' key={row[0][4] + row[0][4]}>
                         <Row>
-                            {hilera.map((artesania) => (
-                                <React.Fragment key={artesania[4]}>
+                            {row.map((handcraft) => (
+                                <React.Fragment key={handcraft[4]}>
                                     <Col sm={windowWidth >= 768 ?
                                         '4' : windowWidth < 768 && windowWidth > 650 ?
                                             '6' : '12'}
-                                        className='margen-horizontal'>
-                                        <Artesania
+                                        className='horizontal-margin'>
+                                        <Handcraft
                                             refe={references[refCounter++]}
-                                            title={artesania[0]}
-                                            subtitle={artesania[2]}
-                                            imageSource={artesania[1]}
-                                            description={artesania[3]}
-                                            priceInt={Number(artesania[7])}
-                                            priceDecimal={Number(artesania[8])} />
+                                            title={handcraft[0]}
+                                            subtitle={handcraft[2]}
+                                            imageSource={handcraft[1]}
+                                            description={handcraft[3]}
+                                            priceInt={Number(handcraft[7])}
+                                            priceDecimal={Number(handcraft[8])} />
                                     </Col>
                                 </React.Fragment>
                             ))}
@@ -188,7 +187,7 @@ export const Productos = () => {
                 windowWidth < 768 &&
                 <br></br>
             }
-            <RedesSociales />
+            <SocialNetworks />
         </div>
     )
 }

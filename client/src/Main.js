@@ -6,23 +6,23 @@ import {
     Route,
     Outlet
 } from "react-router-dom";
-import './estilos-todos.css';
-import { BarraSuperior } from './components/BarraSuperior.js';
-import { SobreNosotros } from './components/SobreNosotros.js';
-import { Entregas } from './components/Entregas.js';
-import { Inicio } from './components/Inicio.js';
-import { Contacto } from './components/Contacto.js';
-import { Productos } from './components/Productos.js';
-import { PaginaNoEncontrada } from './components/PaginaNoEncontrada.js';
+import './styles.css';
+import { UpperBar } from './components/UpperBar.js';
+import { AboutUs } from './components/AboutUs.js';
+import { Delivery } from './components/Delivery.js';
+import { Home } from './components/Home.js';
+import { Contact } from './components/Contact.js';
+import { Products } from './components/Products.js';
+import { PageNotFound } from './components/PageNotFound.js';
 import { TotalAmountContext } from './elements/cartContent.js';
 import { CartContentContext } from './elements/cartContent.js';
 import { Cart } from './components/Cart.js';
-import { newCartContent } from './elements/listaDeArtesanias.js';
+import { newCartContent } from './elements/handcraftsList.js';
 
 const General = (props) => {
     return (
         <div>
-            {props.contenido}
+            {props.content}
         </div>
     );
 }
@@ -51,22 +51,22 @@ class Main extends Component {
         return (
             <div>
                 {document.title = 'Rafaela'}
-                <BarraSuperior
+                <UpperBar
                 />
                 <Router>
                     <div>
                         <Routes>
-                            <Route path='/' element={<General contenido={<Outlet />} />}>
-                                <Route index element={<Inicio />}></Route>
-                                <Route path={'/productos'} element={<Productos />}></Route>
-                                <Route path={'/contacto'} element={<Contacto />}></Route>
-                                <Route path={'/entregas'} element={<Entregas />}></Route>
-                                <Route path={'/sobre'} element={<SobreNosotros />}></Route>
+                            <Route path='/' element={<General content={<Outlet />} />}>
+                                <Route index element={<Home />}></Route>
+                                <Route path={'/productos'} element={<Products />}></Route>
+                                <Route path={'/contacto'} element={<Contact />}></Route>
+                                <Route path={'/entregas'} element={<Delivery />}></Route>
+                                <Route path={'/sobre'} element={<AboutUs />}></Route>
                                 <Route path={'/carrito'} element={<Cart />}></Route>
-                                <Route path={'*'} element={<PaginaNoEncontrada />}></Route>
+                                <Route path={'*'} element={<PageNotFound />}></Route>
                             </Route>
                         </Routes>
-                        {console.log(this.state.data)}
+                        {/* {console.log(this.state.data)} */}
                     </div>
                 </Router >
             </div>

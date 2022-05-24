@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../estilos-todos.css';
+import '../styles.css';
 import { useResponsiveTools } from '../elements/someFunctions.js';
-import { RedesSociales } from './RedesSociales.js';
-import alcanceCercano from '../elements/imagenes/alcance_cercanoSVG.svg';
-import alcanceMediano from '../elements/imagenes/alcance_medianoSVG.svg';
-import alcanceLejano from '../elements/imagenes/alcance_lejanoSVG.svg';
-import baseGris from '../elements/imagenes/base_grisSVG.svg';
+import { SocialNetworks } from './SocialNetworks.js';
+import mediumRange from '../elements/images/medium_rangeSVG.svg';
+import shortRange from '../elements/images/short_rangeSVG.svg';
+import longRange from '../elements/images/long_rangeSVG.svg';
+import greyBase from '../elements/images/grey_baseSVG.svg';
 
-const Componente = () => {
+export const Delivery = () => {
     const { windowWidth } = useResponsiveTools();
     const [currentMap, setMap] = useState('show-none');
     const showLongRangeMap = () => setMap('show-far');
@@ -43,20 +43,20 @@ const Componente = () => {
     }
 
     return (
-        <div className='fondo'>
+        <div className='background'>
             <div className='App-header'>
-                <div className='margenes'>
+                <div className='margins'>
                     <br></br>
                     <br></br>
                     <div className={windowWidth >= 768 && 'delivery-data-and-maps'}>
                         {
                             windowWidth < 768 &&
-                            <div className='position-not-absolute alineado-horizontal'>
-                                <div className='map-place alineado-horizontal'>
-                                    <embed className='background-map' src={baseGris} alt='no-map'></embed>
-                                    <embed className={currentMap === 'show-far' ? 'show-map relative-position' : 'hide-map relative-position'} src={alcanceLejano} alt='far-map'></embed>
-                                    <embed className={currentMap === 'show-medium' ? 'show-map relative-position' : 'hide-map relative-position'} src={alcanceMediano} alt='medium-map'></embed>
-                                    <embed className={currentMap === 'show-close' ? 'show-map relative-position' : 'hide-map relative-position'} src={alcanceCercano} alt='close-map'></embed>
+                            <div className='position-not-absolute horizontal-alligned'>
+                                <div className='map-place horizontal-alligned'>
+                                    <embed className='background-map' src={greyBase} alt='no-map'></embed>
+                                    <embed className={currentMap === 'show-far' ? 'show-map relative-position' : 'hide-map relative-position'} src={longRange} alt='far-map'></embed>
+                                    <embed className={currentMap === 'show-medium' ? 'show-map relative-position' : 'hide-map relative-position'} src={mediumRange} alt='medium-map'></embed>
+                                    <embed className={currentMap === 'show-close' ? 'show-map relative-position' : 'hide-map relative-position'} src={shortRange} alt='close-map'></embed>
                                 </div>
                             </div>
                         }
@@ -100,25 +100,17 @@ const Componente = () => {
                         </div>
                         {
                             windowWidth >= 768 &&
-                            <div className='map-place alineado-horizontal'>
-                                <embed className='background-map' src={baseGris} alt='no-map'></embed>
-                                <embed className={currentMap === 'show-far' ? 'show-map' : 'hide-map'} src={alcanceLejano} alt='far-map'></embed>
-                                <embed className={currentMap === 'show-medium' ? 'show-map' : 'hide-map'} src={alcanceMediano} alt='medium-map'></embed>
-                                <embed className={currentMap === 'show-close' ? 'show-map' : 'hide-map'} src={alcanceCercano} alt='close-map'></embed>
+                            <div className='map-place horizontal-alligned'>
+                                <embed className='background-map' src={greyBase} alt='no-map'></embed>
+                                <embed className={currentMap === 'show-far' ? 'show-map' : 'hide-map'} src={longRange} alt='far-map'></embed>
+                                <embed className={currentMap === 'show-medium' ? 'show-map' : 'hide-map'} src={mediumRange} alt='medium-map'></embed>
+                                <embed className={currentMap === 'show-close' ? 'show-map' : 'hide-map'} src={shortRange} alt='close-map'></embed>
                             </div>
                         }
                     </div>
                 </div>
-                <RedesSociales />
+                <SocialNetworks />
             </div>
         </div >
-    )
-}
-
-export const Entregas = () => {
-    return (
-        <div>
-            <Componente />
-        </div>
     )
 }
