@@ -1926,3 +1926,12 @@ export const handcraftsList = [
 
     // Para reactivar el gitignore del node_modules
     /node_modules
+
+    // "predeploy": "npm run build",
+    // "deploy": "gh-pages",
+    "build": "webpack --mode production",    
+    "help": "webpack --display-error-details",
+
+
+
+    "build": "webpack --config prod.config.js",
