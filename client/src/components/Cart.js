@@ -43,13 +43,13 @@ const SetOfButtons = (props) => {
     return (
         <div className='cart-set-of-buttons' key='orderButtons'>
             <Button href="/productos" className='centered' onClick={() => { }}>
-                Volver al catálogo
+                Return to catalogue
             </Button>
             <span className="input-group-text side-margins multiline">
                 Total: ${props.totalPrice}
             </span>
             <Button className='disabled' onClick={() => { }}>
-                Continuar
+                Continue
             </Button>
         </div>
     )
@@ -107,10 +107,10 @@ const HaveContentInCart = (props) => {
 const NoContentInCart = () => {
     return (
         <div key='noContentInCart' className='App-header'>
-            <h1>El carrito aún está vacío</h1>
+            <h1>Cart is still empty</h1>
             <div className="right-oriented">
                 <Button href="/productos" onClick={() => { }}>
-                    ¡Al catálogo!
+                    To the catalogue!
                 </Button>
             </div>
         </div>

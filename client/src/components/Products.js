@@ -71,7 +71,7 @@ const Handcraft = (props) => {
                     tag="h6" >
                     ${props.priceInt},{
                         props.priceDecimal === 0 ? '00' : props.priceDecimal
-                    } por unidad
+                    } per unit
                 </CardSubtitle>
                 <CardText>
                     {props.description}
@@ -106,9 +106,9 @@ const SetOfButtons = () => {
                 }
                 <Col sm={windowWidth >= 768 ? '4' : '12'} className="horizontal-alligned">
                     <div className="input-group mb-3 horizontal-alligned">
-                        <Button className='disabled' onClick={() => { }}>{windowWidth >= 1180 ? "Anterior" : "<"}</Button>
-                        <span className="input-group-text">{windowWidth >= 1180 ? "Página 1 de 1" : "Pág. 1 de 1"}</span>
-                        <Button className='disabled' onClick={() => { }}>{windowWidth >= 1180 ? "Siguiente" : ">"}</Button>
+                        <Button className='disabled' onClick={() => { }}>{windowWidth >= 1180 ? "Previous" : "<"}</Button>
+                        <span className="input-group-text">{windowWidth >= 1180 ? "Page 1 of 1" : "1 of 1"}</span>
+                        <Button className='disabled' onClick={() => { }}>{windowWidth >= 1180 ? "Next" : ">"}</Button>
                     </div>
                 </Col>
                 {
@@ -116,7 +116,7 @@ const SetOfButtons = () => {
                     <Col sm='12'>
                         <div className="horizontal-alligned">
                             <Button href="/carrito">
-                                Continuar al carrito
+                                Continue to cart
                             </Button>
                         </div>
                     </Col>
@@ -126,7 +126,7 @@ const SetOfButtons = () => {
                     <Col sm="4">
                         <div className="horizontal-alligned">
                             <Button href="/carrito">
-                                Continuar al carrito
+                                Continue to cart
                             </Button>
                         </div>
                     </Col>

@@ -19,7 +19,7 @@ const LargerComponent = () => {
                     <Input
                         id="exampleEmailOne"
                         name="email"
-                        placeholder="ejemplo@ejemplo.com"
+                        placeholder="example@example.com"
                         type="email" />
                 </Col>
             </FormGroup>
@@ -27,13 +27,13 @@ const LargerComponent = () => {
                 <Label
                     for="meetLabelOne"
                     sm={3}>
-                    ¿Cómo supiste de nosotros?
+                    How did you know about us?
                 </Label>
                 <Col sm={9}>
                     <Input
                         name='como-nos-conociste'
                         type='text'
-                        placeholder="Por ejemplo, Instagram"
+                        placeholder="For example, Instagram"
                     ></Input>
                 </Col>
             </FormGroup>
@@ -52,19 +52,19 @@ const ReducedComponent = () => {
                 <Input
                     id="exampleEmailTwo"
                     name="email"
-                    placeholder="ejemplo@ejemplo.com"
+                    placeholder="example@example.com"
                     type="email" />
             </Col>
             <br></br>
             <Label
                 for="meetLabelTwo">
-                ¿Cómo supiste de nosotros? (Opcional)
+                How did you know about us? (Optional)
             </Label>
             <Col>
                 <Input
-                    name='como-nos-conociste'
+                    name='how-did-you-know-us'
                     type='text'
-                    placeholder="Por ejemplo, Instagram"
+                    placeholder="For example, Instagram"
                 ></Input>
             </Col>
             <br></br>
@@ -84,7 +84,7 @@ export const Contact = () => {
                 <Form
                     action='https://formsubmit.co/e3a47b2b016d1e06ce6ec0df5e6908d2'
                     method='POST'
-                    className='text-white custom-form margenes'>
+                    className='text-white custom-form margins'>
                     {
                         windowWidth >= 860 ?
                             <LargerComponent />
@@ -97,7 +97,7 @@ export const Contact = () => {
                                 id="exampleText"
                                 name="text"
                                 type="text"
-                                placeholder='Mensaje' />
+                                placeholder='Message' />
                         </Col>
                     </FormGroup>
                     <FormGroup
@@ -106,7 +106,7 @@ export const Contact = () => {
                             sm={2}
                             className='left-oriented'>
                             <Button type='submit'>
-                                Enviar
+                                Send
                             </Button>
                         </Col>
                     </FormGroup>

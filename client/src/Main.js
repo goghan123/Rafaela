@@ -58,11 +58,11 @@ class Main extends Component {
                         <Routes>
                             <Route path='/' element={<General content={<Outlet />} />}>
                                 <Route index element={<Home />}></Route>
-                                <Route path={'/productos'} element={<Products />}></Route>
-                                <Route path={'/contacto'} element={<Contact />}></Route>
-                                <Route path={'/entregas'} element={<Delivery />}></Route>
-                                <Route path={'/sobre'} element={<AboutUs />}></Route>
-                                <Route path={'/carrito'} element={<Cart />}></Route>
+                                <Route path={'/products'} element={<Products />}></Route>
+                                <Route path={'/contact'} element={<Contact />}></Route>
+                                <Route path={'/delivery'} element={<Delivery />}></Route>
+                                <Route path={'/about'} element={<AboutUs />}></Route>
+                                <Route path={'/cart'} element={<Cart />}></Route>
                                 <Route path={'*'} element={<PageNotFound />}></Route>
                             </Route>
                         </Routes>

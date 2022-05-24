@@ -42,23 +42,23 @@ export const UpperBar = () => {
                             </NavItem>
                         }
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/productos'>
-                                Nuestros productos
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/products'>
+                                Our products
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/entregas'>
-                                Entregas
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/delivery'>
+                                Delivery
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/sobre'>
-                                Sobre nosotros
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/about'>
+                                About us
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/contacto'>
-                                Contacto
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/contact'>
+                                Contact
                             </NavLink>
                         </NavItem>
                     </Nav>
