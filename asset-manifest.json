@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Rafaela/static/css/main.dd7e4395.css",
-    "main.js": "/Rafaela/static/js/main.1aa21aef.js",
+    "main.js": "/Rafaela/static/js/main.f103cb3e.js",
     "static/media/grey_baseSVG.svg": "/Rafaela/static/media/grey_baseSVG.6029dee54ae131bffc2f3fead408d880.svg",
     "static/media/short_rangeSVG.svg": "/Rafaela/static/media/short_rangeSVG.ed5263ac39293f1c54dd9cd3e2d0a7d4.svg",
     "static/media/long_rangeSVG.svg": "/Rafaela/static/media/long_rangeSVG.d0a79017eb176cf5ca7fef7e17bddfbb.svg",
@@ -13,10 +13,10 @@
     "static/media/logo-ig.svg": "/Rafaela/static/media/logo-ig.002a8935a4729918c073d23ff0b7de06.svg",
     "index.html": "/Rafaela/index.html",
     "main.dd7e4395.css.map": "/Rafaela/static/css/main.dd7e4395.css.map",
-    "main.1aa21aef.js.map": "/Rafaela/static/js/main.1aa21aef.js.map"
+    "main.f103cb3e.js.map": "/Rafaela/static/js/main.f103cb3e.js.map"
   },
   "entrypoints": [
     "static/css/main.dd7e4395.css",
-    "static/js/main.1aa21aef.js"
+    "static/js/main.f103cb3e.js"
   ]
 }
