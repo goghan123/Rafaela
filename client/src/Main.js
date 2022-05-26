@@ -58,19 +58,17 @@ class Main extends Component {
                     <div>
                         {                        //Hasta acá
                         }
-                        <Switch>
-                            <Routes>
-                                <Route path='/' element={<General content={<Outlet />} />}>
-                                    <Route index element={<Home />}></Route>
-                                    <Route path={'/Rafaela/products'} element={<Products />}></Route>
-                                    <Route path={'Rafaela/contact'} element={<Contact />}></Route>
-                                    <Route path={'/rafaela/delivery'} element={<Delivery />}></Route>
-                                    <Route path={'rafaela/about'} element={<AboutUs />}></Route>
-                                    <Route path={'/cart'} element={<Cart />}></Route>
-                                    <Route path={'*'} element={<PageNotFound />}></Route>
-                                </Route>
-                            </Routes>
-                        </Switch>
+                        <Routes>
+                            <Route path='/' element={<General content={<Outlet />} />}>
+                                <Route index element={<Home />}></Route>
+                                <Route path={'/Rafaela/products'} element={<Products />}></Route>
+                                <Route path={'Rafaela/contact'} element={<Contact />}></Route>
+                                <Route path={'/rafaela/delivery'} element={<Delivery />}></Route>
+                                <Route path={'rafaela/about'} element={<AboutUs />}></Route>
+                                <Route path={'/cart'} element={<Cart />}></Route>
+                                <Route path={'*'} element={<PageNotFound />}></Route>
+                            </Route>
+                        </Routes>
                         {/* {console.log(this.state.data)} */}
                     </div>
                 </Router >
