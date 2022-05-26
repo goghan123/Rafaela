@@ -18,7 +18,7 @@ export const UpperBar = () => {
             {
                 windowWidth < 768 &&
                 <div className='brand-container'>
-                    <NavLink to='/' className='h4 brand-class text-dark'>Rafaela</NavLink>
+                    <NavLink href='/' className='h4 brand-class text-dark'>Rafaela</NavLink>
                 </div>
             }
             <Navbar color="warning" expand="md" fixed="top" light className="fw-bold py-0 navbar-class">
@@ -26,7 +26,7 @@ export const UpperBar = () => {
                 {
                     windowWidth < 768 &&
                     < NavbarBrand className='h4 full-right'>
-                        <NavLink to='/cart' className='text-dark'>
+                        <NavLink href='/cart' className='text-dark'>
                             <img src={carty} alt='cart' className='medium-logo'></img>
                             {carterTotalAmount}
                         </NavLink>
@@ -39,28 +39,28 @@ export const UpperBar = () => {
                         {
                             windowWidth >= 768 &&
                             <NavItem>
-                                <NavLink className='text-dark navbar-custom' to="/">
+                                <NavLink className='text-dark navbar-custom' href="/">
                                     Chocolates Rafaela
                                 </NavLink>
                             </NavItem>
                         }
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to='/products'>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/Rafaela/products'>
                                 Our products
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to='/delivery'>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/rafaela/delivery'>
                                 Deliiivery
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to='/about'>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='rafaela/about'>
                                 About us
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to='/contact'>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='Rafaela/contact'>
                                 Contact
                             </NavLink>
                         </NavItem>
@@ -70,7 +70,7 @@ export const UpperBar = () => {
                 {
                     windowWidth >= 768 &&
                     < NavbarBrand className='h4 full-right'>
-                        <NavLink to='/carrito' className='text-dark'>
+                        <NavLink href='/cart' className='text-dark'>
                             <img src={carty} alt='cart' className='medium-logo'></img>
                             {carterTotalAmount}
                         </NavLink>
