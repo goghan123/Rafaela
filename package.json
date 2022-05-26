@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://goghan123.github.io/Rafaela",
+  "homepage": "http://goghan123.github.io/Rafaela",
   "type": "module",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
