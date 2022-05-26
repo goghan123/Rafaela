@@ -4,8 +4,7 @@ import {
     HashRouter as Router,
     Routes,
     Route,
-    Outlet,
-    Switch
+    Outlet
 } from "react-router-dom";
 import './styles.css';
 import { UpperBar } from './components/UpperBar.js';
@@ -56,22 +55,21 @@ class Main extends Component {
                 />
                 <Router>
                     <div>
-                        {                        //Hasta acá
-                        }
                         <Routes>
-                            <Route path='/'><Home /></Route>
-                            {/* <Route index element={}></Route> */}
-                            <Route path='/Rafaela/products'><Products /></Route>
-                            <Route path='Rafaela/contact'><Contact /></Route>
-                            <Route path='/rafaela/delivery'><Contact /><Delivery /></Route>
-                            <Route path='rafaela/about'><AboutUs /></Route>
-                            <Route path='/cart'><Cart /></Route>
-                            <Route path='*'><PageNotFound /></Route>
+                            <Route path='/' element={<General content={<Outlet />} />}>
+                                <Route index element={<Home />}></Route>
+                                <Route path={'/Rafaela/products'} element={<Products />}></Route>
+                                <Route path={'Rafaela/contact'} element={<Contact />}></Route>
+                                <Route path={'/rafaela/delivery'} element={<Delivery />}></Route>
+                                <Route path={'rafaela/about'} element={<AboutUs />}></Route>
+                                <Route path={'/cart'} element={<Cart />}></Route>
+                                <Route path={'*'} element={<PageNotFound />}></Route>
+                            </Route>
                         </Routes>
                         {/* {console.log(this.state.data)} */}
                     </div>
                 </Router >
-            </div >
+            </div>
         )
     }
 }
