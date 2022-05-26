@@ -18,7 +18,7 @@ export const UpperBar = () => {
             {
                 windowWidth < 768 &&
                 <div className='brand-container'>
-                    <a href='/' className='h4 brand-class text-dark'>Rafaela</a>
+                    <Link to='/' className='h4 brand-class text-dark'>Rafaela</Link>
                 </div>
             }
             <Navbar color="warning" expand="md" fixed="top" light className="fw-bold py-0 navbar-class">
@@ -26,10 +26,10 @@ export const UpperBar = () => {
                 {
                     windowWidth < 768 &&
                     < NavbarBrand className='h4 full-right'>
-                        <NavLink href='/cart' className='text-dark'>
+                        <Link to='/cart' className='text-dark'>
                             <img src={carty} alt='cart' className='medium-logo'></img>
                             {carterTotalAmount}
-                        </NavLink>
+                        </Link>
                     </NavbarBrand>
                 }
                 <Collapse navbar isOpen={itemsAreVisible}>
@@ -37,9 +37,9 @@ export const UpperBar = () => {
                         {
                             windowWidth >= 768 &&
                             <NavItem>
-                                <NavLink className='text-dark navbar-custom' href="/">
+                                <Link className='text-dark navbar-custom' to="/">
                                     Chocolates Rafaela
-                                </NavLink>
+                                </Link>
                             </NavItem>
                         }
                         <NavItem>
@@ -48,19 +48,19 @@ export const UpperBar = () => {
                             </Link>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/rafaela/delivery'>
+                            <Link className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to='/rafaela/delivery'>
                                 Delivery
-                            </NavLink>
+                            </Link>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='rafaela/about'>
+                            <Link className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to='rafaela/about'>
                                 About
-                            </NavLink>
+                            </Link>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='Rafaela/contact'>
+                            <Link className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to='Rafaela/contact'>
                                 Contact
-                            </NavLink>
+                            </Link>
                         </NavItem>
                     </Nav>
                     {itemsAreVisible && <hr></hr>}
@@ -68,10 +68,10 @@ export const UpperBar = () => {
                 {
                     windowWidth >= 768 &&
                     < NavbarBrand className='h4 full-right'>
-                        <NavLink href='/cart' className='text-dark'>
+                        <Link to='/cart' className='text-dark'>
                             <img src={carty} alt='cart' className='medium-logo'></img>
                             {carterTotalAmount}
-                        </NavLink>
+                        </Link>
                     </NavbarBrand>
                 }
             </Navbar>
