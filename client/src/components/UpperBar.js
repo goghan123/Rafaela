@@ -7,7 +7,6 @@ import {
 import carty from '../elements/images/carty.svg';
 import { TotalAmountContext } from '../elements/cartContent.js';
 import { useResponsiveTools } from '../elements/someFunctions.js';
-import { Link } from 'react-router-dom';
 
 export const UpperBar = () => {
     const { hideItems, itemsAreVisible, windowWidth } = useResponsiveTools();
@@ -18,7 +17,7 @@ export const UpperBar = () => {
             {
                 windowWidth < 768 &&
                 <div className='brand-container'>
-                    <Link to='/' className='h4 brand-class text-dark'>Rafaela</Link>
+                    <a href='/' className='h4 brand-class text-dark'>Rafaela</a>
                 </div>
             }
             <Navbar color="warning" expand="md" fixed="top" light className="fw-bold py-0 navbar-class">
@@ -26,10 +25,10 @@ export const UpperBar = () => {
                 {
                     windowWidth < 768 &&
                     < NavbarBrand className='h4 full-right'>
-                        <Link to='/cart' className='text-dark'>
+                        <NavLink href='/carrito' className='text-dark'>
                             <img src={carty} alt='cart' className='medium-logo'></img>
                             {carterTotalAmount}
-                        </Link>
+                        </NavLink>
                     </NavbarBrand>
                 }
                 <Collapse navbar isOpen={itemsAreVisible}>
@@ -37,41 +36,41 @@ export const UpperBar = () => {
                         {
                             windowWidth >= 768 &&
                             <NavItem>
-                                <Link className='text-dark navbar-custom' to="/">
+                                <NavLink className='text-dark navbar-custom' href="/">
                                     Chocolates Rafaela
-                                </Link>
+                                </NavLink>
                             </NavItem>
                         }
                         <NavItem>
-                            <Link className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to='/Rafaela/products'>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/products'>
                                 Our products
-                            </Link>
+                            </NavLink>
                         </NavItem>
                         <NavItem>
-                            <Link className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to='/rafaela/delivery'>
-                                Delivery
-                            </Link>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/delivery'>
+                                Deliivery
+                            </NavLink>
                         </NavItem>
                         <NavItem>
-                            <Link className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to='rafaela/about'>
-                                About
-                            </Link>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/about'>
+                                About us
+                            </NavLink>
                         </NavItem>
                         <NavItem>
-                            <Link className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to='Rafaela/contact'>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/contact'>
                                 Contact
-                            </Link>
+                            </NavLink>
                         </NavItem>
                     </Nav>
-                    {itemsAreVisible && <hr></hr>}
+                    {itemsAreVisible && <hr></hr>}  
                 </Collapse>
                 {
                     windowWidth >= 768 &&
                     < NavbarBrand className='h4 full-right'>
-                        <Link to='/cart' className='text-dark'>
+                        <NavLink href='/carrito' className='text-dark'>
                             <img src={carty} alt='cart' className='medium-logo'></img>
                             {carterTotalAmount}
-                        </Link>
+                        </NavLink>
                     </NavbarBrand>
                 }
             </Navbar>
