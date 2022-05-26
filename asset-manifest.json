@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Rafaela/static/css/main.dd7e4395.css",
-    "main.js": "/Rafaela/static/js/main.f103cb3e.js",
-    "static/media/grey_baseSVG.svg": "/Rafaela/static/media/grey_baseSVG.6029dee54ae131bffc2f3fead408d880.svg",
-    "static/media/short_rangeSVG.svg": "/Rafaela/static/media/short_rangeSVG.ed5263ac39293f1c54dd9cd3e2d0a7d4.svg",
-    "static/media/long_rangeSVG.svg": "/Rafaela/static/media/long_rangeSVG.d0a79017eb176cf5ca7fef7e17bddfbb.svg",
+    "main.css": "/Rafaela/static/css/main.fabb7da7.css",
+    "main.js": "/Rafaela/static/js/main.66cd0c9d.js",
+    "static/media/grey_baseSVG.svg": "/Rafaela/static/media/grey_baseSVG.3dd41ea30bafc6c3657d81a5b99153b6.svg",
+    "static/media/short_rangeSVG.svg": "/Rafaela/static/media/short_rangeSVG.9141a5860a5800a8db5726527778395b.svg",
+    "static/media/long_rangeSVG.svg": "/Rafaela/static/media/long_rangeSVG.53b7aa14cd0fefc3b5acbaa88a170d44.svg",
     "static/media/central-logo.svg": "/Rafaela/static/media/central-logo.80f8b91105ff69bd59cefdc8d03a3847.svg",
-    "static/media/medium_rangeSVG.svg": "/Rafaela/static/media/medium_rangeSVG.f3a6d827523c975f5b38ba708312772d.svg",
+    "static/media/medium_rangeSVG.svg": "/Rafaela/static/media/medium_rangeSVG.36c2c759e817e65bcd38b2b4442bbeec.svg",
     "static/media/chocolate_cheff.jpg": "/Rafaela/static/media/chocolate_cheff.cdb00928044628e15e96.jpg",
-    "static/media/carty.svg": "/Rafaela/static/media/carty.ead26d0b55aab0862f8b81081cc183f7.svg",
-    "static/media/logo-wpp.svg": "/Rafaela/static/media/logo-wpp.661a3a2ed31db1f7fbdf514eb99e2cba.svg",
-    "static/media/logo-ig.svg": "/Rafaela/static/media/logo-ig.002a8935a4729918c073d23ff0b7de06.svg",
+    "static/media/carty.svg": "/Rafaela/static/media/carty.abf6bb8bfc6fc5af06a41341d2430a66.svg",
+    "static/media/logo-wpp.svg": "/Rafaela/static/media/logo-wpp.6f0c3db458eb589025344d9d0542f98b.svg",
+    "static/media/logo-ig.svg": "/Rafaela/static/media/logo-ig.89e48b887d63a9c7e8faf4f512f40237.svg",
     "index.html": "/Rafaela/index.html",
-    "main.dd7e4395.css.map": "/Rafaela/static/css/main.dd7e4395.css.map",
-    "main.f103cb3e.js.map": "/Rafaela/static/js/main.f103cb3e.js.map"
+    "main.fabb7da7.css.map": "/Rafaela/static/css/main.fabb7da7.css.map",
+    "main.66cd0c9d.js.map": "/Rafaela/static/js/main.66cd0c9d.js.map"
   },
   "entrypoints": [
-    "static/css/main.dd7e4395.css",
-    "static/js/main.f103cb3e.js"
+    "static/css/main.fabb7da7.css",
+    "static/js/main.66cd0c9d.js"
   ]
 }
