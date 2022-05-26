@@ -59,15 +59,14 @@ class Main extends Component {
                         {                        //Hasta acá
                         }
                         <Routes>
-                            <Route path='/' element={<General content={<Outlet />} />}>
-                                <Route index element={<Home />}></Route>
-                                <Route path={'/Rafaela/products'} element={<Products />}></Route>
-                                <Route path={'Rafaela/contact'} element={<Contact />}></Route>
-                                <Route path={'/rafaela/delivery'} element={<Delivery />}></Route>
-                                <Route path={'rafaela/about'} element={<AboutUs />}></Route>
-                                <Route path={'/cart'} element={<Cart />}></Route>
-                                <Route path={'*'} element={<PageNotFound />}></Route>
-                            </Route>
+                            <Route path='/' element={<Home />}></Route>
+                            {/* <Route index element={}></Route> */}
+                            <Route path={'/Rafaela/products'} element={<Products />}></Route>
+                            <Route path={'Rafaela/contact'} element={<Contact />}></Route>
+                            <Route path={'/rafaela/delivery'} element={<Delivery />}></Route>
+                            <Route path={'rafaela/about'} element={<AboutUs />}></Route>
+                            <Route path={'/cart'} element={<Cart />}></Route>
+                            <Route path={'*'} element={<PageNotFound />}></Route>
                         </Routes>
                         {/* {console.log(this.state.data)} */}
                     </div>
