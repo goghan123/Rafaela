@@ -4,7 +4,8 @@ import {
     HashRouter as Router,
     Routes,
     Route,
-    Outlet
+    Outlet,
+    Switch
 } from "react-router-dom";
 import './styles.css';
 import { UpperBar } from './components/UpperBar.js';
@@ -55,21 +56,25 @@ class Main extends Component {
                 />
                 <Router>
                     <div>
-                        <Routes>
-                            <Route path='/' element={<General content={<Outlet />} />}>
-                                <Route index element={<Home />}></Route>
-                                <Route path={'/Rafaela/products'} element={<Products />}></Route>
-                                <Route path={'Rafaela/contact'} element={<Contact />}></Route>
-                                <Route path={'/rafaela/delivery'} element={<Delivery />}></Route>
-                                <Route path={'rafaela/about'} element={<AboutUs />}></Route>
-                                <Route path={'/cart'} element={<Cart />}></Route>
-                                <Route path={'*'} element={<PageNotFound />}></Route>
-                            </Route>
-                        </Routes>
+                        {                        //Hasta acá
+                        }
+                        <Switch>
+                            <Routes>
+                                <Route path='/' element={<General content={<Outlet />} />}>
+                                    <Route index element={<Home />}></Route>
+                                    <Route path={'/Rafaela/products'} element={<Products />}></Route>
+                                    <Route path={'Rafaela/contact'} element={<Contact />}></Route>
+                                    <Route path={'/rafaela/delivery'} element={<Delivery />}></Route>
+                                    <Route path={'rafaela/about'} element={<AboutUs />}></Route>
+                                    <Route path={'/cart'} element={<Cart />}></Route>
+                                    <Route path={'*'} element={<PageNotFound />}></Route>
+                                </Route>
+                            </Routes>
+                        </Switch>
                         {/* {console.log(this.state.data)} */}
                     </div>
                 </Router >
-            </div>
+            </div >
         )
     }
 }
