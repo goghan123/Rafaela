@@ -56,7 +56,7 @@ class Main extends Component {
                 <Router>
                     <div>
                         <Routes>
-                            <Route path='/' element={<General content={<Outlet />} />}>
+                            <Route path='/Rafaela' element={<General content={<Outlet />} />}>
                                 <Route index element={<Home />}></Route>
                                 <Route path={'/Rafaela/products'} element={<Products />}></Route>
                                 <Route path={'/Rafaela/contact'} element={<Contact />}></Route>
