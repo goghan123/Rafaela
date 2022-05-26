@@ -53,7 +53,7 @@ export const UpperBar = () => {
                         </NavItem>
                         <NavItem>
                             <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/Rafaela/about'>
-                                About us
+                                About
                             </NavLink>
                         </NavItem>
                         <NavItem>

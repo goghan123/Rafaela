@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { Component, useState, useMemo } from 'react';
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Routes,
     Route,
     Outlet
