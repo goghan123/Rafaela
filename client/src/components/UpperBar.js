@@ -7,6 +7,7 @@ import {
 import carty from '../elements/images/carty.svg';
 import { TotalAmountContext } from '../elements/cartContent.js';
 import { useResponsiveTools } from '../elements/someFunctions.js';
+import { Link } from 'react-router-dom';
 
 export const UpperBar = () => {
     const { hideItems, itemsAreVisible, windowWidth } = useResponsiveTools();
@@ -42,9 +43,9 @@ export const UpperBar = () => {
                             </NavItem>
                         }
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/Rafaela/products'>
+                            <Link className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to='/Rafaela/products'>
                                 Our products
-                            </NavLink>
+                            </Link>
                         </NavItem>
                         <NavItem>
                             <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/rafaela/delivery'>

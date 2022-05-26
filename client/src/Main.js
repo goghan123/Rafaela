@@ -4,7 +4,6 @@ import {
     HashRouter as Router,
     Routes,
     Route,
-    Link,
     Outlet
 } from "react-router-dom";
 import './styles.css';
@@ -57,15 +56,15 @@ class Main extends Component {
                 <Router>
                     <div>
                         <Routes>
-                            <Link path='/' element={<General content={<Outlet />} />}>
-                                <Link index element={<Home />}></Link>
-                                <Link path={'/Rafaela/products'} element={<Products />}></Link>
-                                <Link path={'Rafaela/contact'} element={<Contact />}></Link>
-                                <Link path={'/rafaela/delivery'} element={<Delivery />}></Link>
-                                <Link path={'rafaela/about'} element={<AboutUs />}></Link>
-                                <Link path={'/cart'} element={<Cart />}></Link>
-                                <Link path={'*'} element={<PageNotFound />}></Link>
-                            </Link>
+                            <Route path='/' element={<General content={<Outlet />} />}>
+                                <Route index element={<Home />}></Route>
+                                <Route path={'/Rafaela/products'} element={<Products />}></Route>
+                                <Route path={'Rafaela/contact'} element={<Contact />}></Route>
+                                <Route path={'/rafaela/delivery'} element={<Delivery />}></Route>
+                                <Route path={'rafaela/about'} element={<AboutUs />}></Route>
+                                <Route path={'/cart'} element={<Cart />}></Route>
+                                <Route path={'*'} element={<PageNotFound />}></Route>
+                            </Route>
                         </Routes>
                         {/* {console.log(this.state.data)} */}
                     </div>
