@@ -17,7 +17,7 @@ export const UpperBar = () => {
             {
                 windowWidth < 768 &&
                 <div className='brand-container'>
-                    <a href='/' className='h4 brand-class text-dark'>Rafaela</a>
+                    <a href={process.env.REACT_APP_FOR_PATH + '/'} className='h4 brand-class text-dark'>Rafaela</a>
                 </div>
             }
             <Navbar color="warning" expand="md" fixed="top" light className="fw-bold py-0 navbar-class">
@@ -25,7 +25,7 @@ export const UpperBar = () => {
                 {
                     windowWidth < 768 &&
                     < NavbarBrand className='h4 full-right'>
-                        <NavLink href='/cart' className='text-dark'>
+                        <NavLink href={process.env.REACT_APP_FOR_PATH + '/cart'} className='text-dark'>
                             <img src={carty} alt='cart' className='medium-logo'></img>
                             {carterTotalAmount}
                         </NavLink>
@@ -36,28 +36,28 @@ export const UpperBar = () => {
                         {
                             windowWidth >= 768 &&
                             <NavItem>
-                                <NavLink className='text-dark navbar-custom' href="/">
+                                <NavLink className='text-dark navbar-custom' href={process.env.REACT_APP_FOR_PATH + "/"}>
                                     Chocolates Rafaela
                                 </NavLink>
                             </NavItem>
                         }
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/Rafaela/products'>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href={process.env.REACT_APP_FOR_PATH + '/products'}>
                                 Our products
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/rafaela/delivery'>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href={process.env.REACT_APP_FOR_PATH + '/delivery'}>
                                 Deliivery
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='rafaela/about'>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href={process.env.REACT_APP_FOR_PATH + '/about'}>
                                 About us
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='Rafaela/contact'>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href={process.env.REACT_APP_FOR_PATH + '/contact'}>
                                 Contact
                             </NavLink>
                         </NavItem>
@@ -67,7 +67,7 @@ export const UpperBar = () => {
                 {
                     windowWidth >= 768 &&
                     < NavbarBrand className='h4 full-right'>
-                        <NavLink href='/cart' className='text-dark'>
+                        <NavLink href={process.env.REACT_APP_FOR_PATH + '/cart'} className='text-dark'>
                             <img src={carty} alt='cart' className='medium-logo'></img>
                             {carterTotalAmount}
                         </NavLink>

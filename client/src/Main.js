@@ -56,14 +56,14 @@ class Main extends Component {
                 <Router>
                     <div>
                         <Routes>
-                            <Route path='/' element={<General content={<Outlet />} />}>
+                            <Route path={process.env.REACT_APP_FOR_PATH + '/'} element={<Outlet />}>
                                 <Route index element={<Home />}></Route>
-                                <Route path={'/Rafaela/products'} element={<Products />}></Route>
-                                <Route path={'Rafaela/contact'} element={<Contact />}></Route>
-                                <Route path={'/rafaela/delivery'} element={<Delivery />}></Route>
-                                <Route path={'rafaela/about'} element={<AboutUs />}></Route>
-                                <Route path={'/cart'} element={<Cart />}></Route>
-                                <Route path={'*'} element={<PageNotFound />}></Route>
+                                <Route path={process.env.REACT_APP_FOR_PATH + '/products'} element={<Products />}></Route>
+                                <Route path={process.env.REACT_APP_FOR_PATH + '/contact'} element={<Contact />}></Route>
+                                <Route path={process.env.REACT_APP_FOR_PATH + '/delivery'} element={<Delivery />}></Route>
+                                <Route path={process.env.REACT_APP_FOR_PATH + '/about'} element={<AboutUs />}></Route>
+                                <Route path={process.env.REACT_APP_FOR_PATH + '/cart'} element={<Cart />}></Route>
+                                <Route path={process.env.REACT_APP_FOR_PATH + '*'} element={<PageNotFound />}></Route>
                             </Route>
                         </Routes>
                         {/* {console.log(this.state.data)} */}
