@@ -56,7 +56,7 @@ class Main extends Component {
                 <Router>
                     <div>
                         <Routes>
-                            <Route path={process.env.REACT_APP_FOR_PATH + '/'} element={<Outlet />}>
+                            <Route path='/' element={<Outlet />}>
                                 <Route index element={<Home />}></Route>
                                 <Route path={process.env.REACT_APP_FOR_PATH + '/products'} element={<Products />}></Route>
                                 <Route path={process.env.REACT_APP_FOR_PATH + '/contact'} element={<Contact />}></Route>
