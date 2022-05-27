@@ -53,7 +53,7 @@ class Main extends Component {
                 {document.title = 'Rafaela'}
                 <UpperBar
                 />
-                <Router>
+                <Router baseline='/'>
                     <div>
                         <Routes>
                             <Route path='/' element={<Outlet />}>
