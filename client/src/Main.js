@@ -51,10 +51,10 @@ class Main extends Component {
         return (
             <div>
                 {document.title = 'Rafaela'}
-                <UpperBar
-                />
+
                 <Router baseline='/'>
                     <div>
+                        <UpperBar />
                         <Routes>
                             <Route path='/' element={<Outlet />}>
                                 <Route index element={<Home />}></Route>
