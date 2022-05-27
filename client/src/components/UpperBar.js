@@ -18,7 +18,7 @@ export const UpperBar = () => {
             {
                 windowWidth < 768 &&
                 <div className='brand-container'>
-                    <a href={process.env.REACT_APP_FOR_PATH + '/'} className='h4 brand-class text-dark'>Rafaela</a>
+                    <ReactLink to={process.env.REACT_APP_FOR_PATH + '/'} className='h4 brand-class text-dark'>Rafaela</ReactLink>
                 </div>
             }
             <Navbar color="warning" expand="md" fixed="top" light className="fw-bold py-0 navbar-class">
@@ -26,7 +26,7 @@ export const UpperBar = () => {
                 {
                     windowWidth < 768 &&
                     < NavbarBrand className='h4 full-right'>
-                        <ReactLink href={process.env.REACT_APP_FOR_PATH + '/cart'} className='text-dark'>
+                        <ReactLink to={process.env.REACT_APP_FOR_PATH + '/cart'} className='text-dark'>
                             <img src={carty} alt='cart' className='medium-logo'></img>
                             {carterTotalAmount}
                         </ReactLink>
@@ -37,28 +37,28 @@ export const UpperBar = () => {
                         {
                             windowWidth >= 768 &&
                             <NavItem>
-                                <ReactLink className='text-dark navbar-custom' href={process.env.REACT_APP_FOR_PATH + "/"}>
+                                <ReactLink className='text-dark navbar-custom' to={process.env.REACT_APP_FOR_PATH + "/"}>
                                     Chocolates Rafaela
                                 </ReactLink>
                             </NavItem>
                         }
                         <NavItem>
-                            <ReactLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href={process.env.REACT_APP_FOR_PATH + '/products'}>
+                            <ReactLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to={process.env.REACT_APP_FOR_PATH + '/products'}>
                                 Our products
                             </ReactLink>
                         </NavItem>
                         <NavItem>
-                            <ReactLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href={process.env.REACT_APP_FOR_PATH + '/delivery'}>
+                            <ReactLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to={process.env.REACT_APP_FOR_PATH + '/delivery'}>
                                 Deliivery
                             </ReactLink>
                         </NavItem>
                         <NavItem>
-                            <ReactLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href={process.env.REACT_APP_FOR_PATH + '/about'}>
+                            <ReactLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to={process.env.REACT_APP_FOR_PATH + '/about'}>
                                 About us
                             </ReactLink>
                         </NavItem>
                         <NavItem>
-                            <ReactLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href={process.env.REACT_APP_FOR_PATH + '/contact'}>
+                            <ReactLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} to={process.env.REACT_APP_FOR_PATH + '/contact'}>
                                 Contact
                             </ReactLink>
                         </NavItem>
@@ -68,7 +68,7 @@ export const UpperBar = () => {
                 {
                     windowWidth >= 768 &&
                     < NavbarBrand className='h4 full-right'>
-                        <ReactLink href={process.env.REACT_APP_FOR_PATH + '/cart'} className='text-dark'>
+                        <ReactLink to={process.env.REACT_APP_FOR_PATH + '/cart'} className='text-dark'>
                             <img src={carty} alt='cart' className='medium-logo'></img>
                             {carterTotalAmount}
                         </ReactLink>
