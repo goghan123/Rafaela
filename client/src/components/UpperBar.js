@@ -25,7 +25,7 @@ export const UpperBar = () => {
                 {
                     windowWidth < 768 &&
                     < NavbarBrand className='h4 full-right'>
-                        <NavLink href='/carrito' className='text-dark'>
+                        <NavLink href='/cart' className='text-dark'>
                             <img src={carty} alt='cart' className='medium-logo'></img>
                             {carterTotalAmount}
                         </NavLink>
@@ -42,22 +42,22 @@ export const UpperBar = () => {
                             </NavItem>
                         }
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/products'>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/Rafaela/products'>
                                 Our products
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/delivery'>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/rafaela/delivery'>
                                 Deliivery
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/about'>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='rafaela/about'>
                                 About us
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='/contact'>
+                            <NavLink className={windowWidth >= 768 ? 'text-dark navbar-custom' : 'text-dark'} href='Rafaela/contact'>
                                 Contact
                             </NavLink>
                         </NavItem>
@@ -67,7 +67,7 @@ export const UpperBar = () => {
                 {
                     windowWidth >= 768 &&
                     < NavbarBrand className='h4 full-right'>
-                        <NavLink href='/carrito' className='text-dark'>
+                        <NavLink href='/cart' className='text-dark'>
                             <img src={carty} alt='cart' className='medium-logo'></img>
                             {carterTotalAmount}
                         </NavLink>
