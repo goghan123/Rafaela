@@ -19,14 +19,6 @@ import { CartContentContext } from './elements/cartContent.js';
 import { Cart } from './components/Cart.js';
 import { newCartContent } from './elements/handcraftsList.js';
 
-const General = (props) => {
-    return (
-        <div>
-            {props.content}
-        </div>
-    );
-}
-
 class Main extends Component {
     state = {
         data: null

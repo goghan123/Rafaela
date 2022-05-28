@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles.css';
 import {
-    Nav, NavItem, NavLink, Navbar, Collapse, NavbarBrand, NavbarToggler
+    Nav, NavItem, Navbar, Collapse, NavbarBrand, NavbarToggler
 } from 'reactstrap';
 import carty from '../elements/images/carty.svg';
 import { TotalAmountContext } from '../elements/cartContent.js';
@@ -18,7 +18,7 @@ export const UpperBar = () => {
             {
                 windowWidth < 768 &&
                 <div className='brand-container'>
-                    <ReactLink to={process.env.REACT_APP_FOR_PATH + '/'} className='h4 brand-class text-dark'>Rafaela</ReactLink>
+                    <ReactLink to={'/'} className='h4 brand-class text-dark'>Rafaela</ReactLink>
                 </div>
             }
             <Navbar color="warning" expand="md" fixed="top" light className="fw-bold py-2 navbar-class">
@@ -37,7 +37,7 @@ export const UpperBar = () => {
                         {
                             windowWidth >= 768 &&
                             <NavItem>
-                                <ReactLink className='text-dark navbar-custom' to={process.env.REACT_APP_FOR_PATH + "/"}>
+                                <ReactLink className='text-dark navbar-custom' to={"/"}>
                                     Chocolates Rafaela
                                 </ReactLink>
                             </NavItem>
