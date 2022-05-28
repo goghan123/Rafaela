@@ -56,6 +56,10 @@ body {
   justify-content: right;
 }
 
+.no-underlining {
+  text-decoration: none;
+}
+
 .left-oriented {
   display: flex;
   flex-direction: row;
@@ -234,8 +238,27 @@ button {
   height: 74px;
   vertical-align: center;
   padding-top: 23px;
-  padding-bottom: 20px;
+  padding-bottom: 27px;
+  padding-right: 5px;
+  padding-left: 5px;
+  text-decoration: none;
 }
+
+.button-reactlink {
+  font-family: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar-custom-list {
+  text-decoration: none;
+  line-height: 35px;
+}
+
+.button-reactlink:hover {
+  color: white;
+}
+
 
 .navbar-custom:hover {
   background: linear-gradient(to bottom, #ffc107, #dfa804);

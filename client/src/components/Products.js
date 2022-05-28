@@ -12,6 +12,7 @@ import {
 import { passToCommaFormat } from '../elements/someFunctions.js';
 import { useResponsiveTools } from '../elements/someFunctions.js';
 import { SocialNetworks } from './SocialNetworks.js';
+import { Link as ReactLink } from 'react-router-dom';
 
 const rowsList = [handcraftsList];
 
@@ -115,9 +116,9 @@ const SetOfButtons = () => {
                     windowWidth < 768 &&
                     <Col sm='12'>
                         <div className="horizontal-alligned">
-                            <Button href="/carrito">
+                            <ReactLink type='button' to={process.env.REACT_APP_FOR_PATH + "/cart"} className='btn btn-secondary'>
                                 Continue to cart
-                            </Button>
+                            </ReactLink>
                         </div>
                     </Col>
                 }
@@ -125,9 +126,9 @@ const SetOfButtons = () => {
                     windowWidth >= 768 &&
                     <Col sm="4">
                         <div className="horizontal-alligned">
-                            <Button href="/carrito">
+                            <ReactLink type='button' to={process.env.REACT_APP_FOR_PATH + "/cart"} className='btn btn-secondary'>
                                 Continue to cart
-                            </Button>
+                            </ReactLink>
                         </div>
                     </Col>
                 }

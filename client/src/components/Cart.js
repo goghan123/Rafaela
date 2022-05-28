@@ -8,6 +8,7 @@ import { TotalAmountContext, CartContentContext } from '../elements/cartContent.
 import { handcraftsList } from '../elements/handcraftsList.js';
 import { passToCommaFormat, useResponsiveTools } from '../elements/someFunctions.js';
 import { SocialNetworks } from './SocialNetworks.js';
+import { Link as ReactLink } from 'react-router-dom';
 
 const Article = (props) => {
     const [currentKey, getKey] = useState(9999);
@@ -42,9 +43,9 @@ const Article = (props) => {
 const SetOfButtons = (props) => {
     return (
         <div className='cart-set-of-buttons' key='orderButtons'>
-            <Button href="/productos" className='centered' onClick={() => { }}>
+            <ReactLink type='button' to={process.env.REACT_APP_FOR_PATH + "/products"} className='btn btn-secondary'>
                 Return to catalogue
-            </Button>
+            </ReactLink>
             <span className="input-group-text side-margins multiline">
                 Total: ${props.totalPrice}
             </span>
@@ -109,9 +110,9 @@ const NoContentInCart = () => {
         <div key='noContentInCart' className='App-header'>
             <h1>Cart is still empty</h1>
             <div className="right-oriented">
-                <Button href="/productos" onClick={() => { }}>
+                <ReactLink type='button' to={process.env.REACT_APP_FOR_PATH + "/products"} className='btn btn-secondary'>
                     To the catalogue!
-                </Button>
+                </ReactLink>
             </div>
         </div>
     )

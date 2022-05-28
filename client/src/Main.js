@@ -51,7 +51,6 @@ class Main extends Component {
         return (
             <div>
                 {document.title = 'Rafaela'}
-
                 <Router baseline='/'>
                     <div>
                         <UpperBar />
