@@ -18,7 +18,7 @@ export const UpperBar = () => {
             {
                 windowWidth < 768 &&
                 <div className='brand-container'>
-                    <ReactLink to={'/'} className='h4 brand-class text-dark'>Rafaela</ReactLink>
+                    <ReactLink to={process.env.REACT_APP_FOR_PATH + '/'} className='h4 brand-class text-dark'>Rafaela</ReactLink>
                 </div>
             }
             <Navbar color="warning" expand="md" fixed="top" light className="fw-bold py-2 navbar-class">

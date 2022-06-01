@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles.css';
 import {
@@ -142,11 +142,13 @@ export const Products = () => {
     const { cartContent } = useContext(CartContentContext);
     const references = Object.keys(cartContent);
 
-    setTotalAmount(Object.values(cartContent).reduce(
-        (previousValue, currentValue) => previousValue + currentValue,
-        0
-    ));
-
+    useEffect(() => {
+        setTotalAmount(Object.values(cartContent).reduce(
+            (previousValue, currentValue) => previousValue + currentValue,
+            0
+        ));
+    })
+    
     let refCounter = 0;
     const { windowWidth } = useResponsiveTools();
     return (
