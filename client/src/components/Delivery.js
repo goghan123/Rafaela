@@ -70,7 +70,7 @@ export const Delivery = () => {
                                 </div>
                             </div>
                             <div className='delivery-item'>
-                                    <h4 className={closeRangeCheck ? 'handy yellow-font' : 'handy'} onClick={activateCloseRangeRadio}>Short delivery: AR$500</h4>
+                                    <h4 className={closeRangeCheck ? 'handy yellow-font' : 'handy'} onClick={activateCloseRangeRadio}>Short delivery: $500</h4>
                                     <h6>Only Pilar city</h6>
                             </div>
                             <div>
@@ -82,7 +82,7 @@ export const Delivery = () => {
                                 </div>
                             </div>
                             <div className='delivery-item'>
-                                <h4 className={mediumRangeCheck ? 'handy yellow-font' : 'handy'} onClick={activateMediumRangeRadio}>Medium-range delivery: AR$1500</h4>
+                                <h4 className={mediumRangeCheck ? 'handy yellow-font' : 'handy'} onClick={activateMediumRangeRadio}>Medium-range delivery: $1500</h4>
                                 <h6>Exaltación de la Cruz, Campana, Escobar, José C. Paz, Moreno, Malvinas Argentinas, Rodríguez</h6>
                             </div>
                             <div>
@@ -94,7 +94,7 @@ export const Delivery = () => {
                                 </div>
                             </div>
                             <div className='delivery-item'>
-                                <h4 className={longRangeCheck ? 'handy yellow-font' : 'handy'} onClick={activateLongRangeRadio}>Long-range delivery: AR$2500</h4>
+                                <h4 className={longRangeCheck ? 'handy yellow-font' : 'handy'} onClick={activateLongRangeRadio}>Long-range delivery: $2500</h4>
                                 <h6>Luján, San Martín, Tigre, San Miguel, San Isidro, Vicente López</h6>
                             </div>
                         </div>

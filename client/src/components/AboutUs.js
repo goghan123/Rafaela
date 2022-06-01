@@ -83,7 +83,7 @@ const ReducedComponent = (props) => {
 
 export const AboutUs = () => {
     const { windowWidth } = useResponsiveTools();
-    const text = 'We are an artisan and familiar chocolate shop with many years in different fields of gastronomy. Our handcrafts are supported with the know-how acquired by recognized institutions and by raw materials of first class. We believe that everything goes better when it is made with passion, and we really love what we do. We invite you to share the taste with us!';
+    const text = 'We are an artisan, family chocolate shop that has worked in different fields of gastronomy/with experience in different fields of gastronomy. Our handcrafts are supported with the know-how acquired by renowned institutions and raw material of first class. We believe that everything goes better when made with passion, and we really love what we do. We invite you to indulge yourself with a sweet experience!';
     return (
         <div className='background'>
             {

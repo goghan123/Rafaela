@@ -4,12 +4,9 @@ import '../styles.css';
 import centralLogo from '../elements/images/central-logo.svg';
 import { useResponsiveTools } from '../elements/someFunctions.js';
 import { SocialNetworks } from './SocialNetworks.js';
-import { handcraftsList } from '../elements/handcraftsList.js';
 
 const LocalComponent = () => {
     const { windowHeight } = useResponsiveTools();
-    const hola = handcraftsList;
-    console.log(hola);
     return (
         <div className='App-header'>
             <div className='margins'>

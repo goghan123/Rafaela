@@ -57,7 +57,6 @@ class Main extends Component {
                                 <Route path={process.env.REACT_APP_FOR_PATH + '*'} element={<PageNotFound />}></Route>
                             </Route>
                         </Routes>
-                        {/* {console.log(this.state.data)} */}
                     </div>
                 </Router >
             </div>

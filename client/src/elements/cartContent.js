@@ -20,7 +20,7 @@ const refGenerator = () => {
                 typeof coincidenceFound != 'undefined' ?
                     findCoincidence() : randoms = [...randoms, newRandom];
             } catch (e) {
-                console.log('Error GH1')
+                console.log('Error: GH1')
                 console.log(e);
             }
         }
